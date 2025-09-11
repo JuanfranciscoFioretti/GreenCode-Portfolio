@@ -28,3 +28,26 @@
   --glass-bg: rgba(0, 0, 0, 0.05);
   --glass-border: rgba(0, 0, 0, 0.1);
 }
+
+/* Estilos para View Transitions */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 999;
+}
+
+/* Soporte para navegadores que no soportan View Transitions */
+@supports not (view-transition-name: root) {
+  [data-theme="light"],
+  [data-theme="dark"] {
+    transition: all 0.3s ease-in-out;
+  }
+}

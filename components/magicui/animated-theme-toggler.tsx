@@ -1,32 +1,37 @@
 "use client";
-
 import { Moon, SunDim } from "lucide-react";
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { flushSync } from "react-dom";
 import { cn } from "@/lib/utils";
+import { useTheme } from "../../app/lib/ThemeContext";
 
 type props = {
   className?: string;
 };
 
 export const AnimatedThemeToggler = ({ className }: props) => {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+  const { theme, toggleTheme } = useTheme();
   const buttonRef = useRef<HTMLButtonElement | null>(null);
+
   const changeTheme = async () => {
     if (!buttonRef.current) return;
 
+    // Verificar si el navegador soporta View Transitions
+    if (!document.startViewTransition) {
+      // Fallback para navegadores que no soportan View Transitions
+      toggleTheme();
+      return;
+    }
+
     await document.startViewTransition(() => {
       flushSync(() => {
-        const dark = document.documentElement.classList.toggle("dark");
-        setIsDarkMode(dark);
+        toggleTheme();
       });
     }).ready;
 
-    const { top, left, width, height } =
-      buttonRef.current.getBoundingClientRect();
+    const { top, left, width, height } = buttonRef.current.getBoundingClientRect();
     const y = top + height / 2;
     const x = left + width / 2;
-
     const right = window.innerWidth - left;
     const bottom = window.innerHeight - top;
     const maxRad = Math.hypot(Math.max(left, right), Math.max(top, bottom));
@@ -42,12 +47,13 @@ export const AnimatedThemeToggler = ({ className }: props) => {
         duration: 700,
         easing: "ease-in-out",
         pseudoElement: "::view-transition-new(root)",
-      },
+      }
     );
   };
+
   return (
     <button ref={buttonRef} onClick={changeTheme} className={cn(className)}>
-      {isDarkMode ? <SunDim /> : <Moon />}
+      {theme === 'dark' ? <SunDim /> : <Moon />}
     </button>
   );
 };
