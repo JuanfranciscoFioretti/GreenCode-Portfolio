@@ -48,6 +48,9 @@ export default function HeroSection({ devMode }: HeroSectionProps) {
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <div aria-hidden="true" className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
+    
+  </div>
       <div className="absolute inset-0">
         {particles.map((_, i) => (
           <motion.div

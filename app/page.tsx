@@ -12,6 +12,8 @@ import AboutUsSection from './components/sections/AboutUsSection';
 import TestimonialsSection from './components/sections/TestimonialsSection';
 import AnalyticsDashboard from './components/sections/AnalyticsDashboard';
 import { useDevMode } from './lib/DevModeContext';
+import DevModeToggle from './components/common/DevModeToggle';
+import { HeroParallaxDemo } from './components/sections/HeroParallaxDemo';
 
 export default function Home() {
   const { devMode } = useDevMode();
@@ -19,7 +21,8 @@ export default function Home() {
   return (
     <main>
       <HeroSection devMode={devMode} />
-      <ProjectsSection devMode={devMode} />
+      <HeroParallaxDemo />
+      {/* <ProjectsSection devMode={devMode} /> */}
       <TechnologiesSection devMode={devMode} />
       <ServicesSection />
       <AboutUsSection devMode={devMode} />
@@ -34,7 +37,11 @@ export default function Home() {
           transition={{ duration: 1 }}
         >
           <h2 className="text-[24px] gradient-text">Haven’t tried devMode yet?</h2>
-          <p className="text-secondary">Enable devMode in the menu to explore technical details!</p>
+          <p className="text-secondary">Enable devMode to explore technical details!</p>
+          <div className='flex justify-center mt-4'>
+          <DevModeToggle/>
+
+          </div>
         </motion.div>
       )}
       {devMode && (

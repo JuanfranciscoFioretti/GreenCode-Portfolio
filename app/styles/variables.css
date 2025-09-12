@@ -10,18 +10,17 @@
   --glass-bg: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.1);
   --button-gradient: linear-gradient(90deg, #33BBCF 0%, #00E0FF 100%);
-  --button-hover-gradient: linear-gradient(90deg, #00d9f4 0%, #33BBCF 100%);
-  --text-gradient: linear-gradient(90deg, #00FF66 0%, #FF00FF 100%); /* Neon green to neon pink */
+  --button-hover-gradient: linear-gradient(90deg, #09cc61 0%, #13b45c 100%);
+  --text-gradient: linear-gradient(90deg, #00FF66 0%, #04a6bb 100%);
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 [data-theme="light"] {
   --background: #f9fafb;
-  /* --background: #20c0705b; */
   --background-gradient: radial-gradient(circle at top left, #f9fafb 0%, #e5e7eb 100%);
   --primary: #1f2937;
   --secondary: #6b7280;
-  --accent: #01f19d;
+  --accent: #09cc61;
   --highlight: #00d9f4;
   --text-dark: #1f2937;
   --text-light: #6b7280;

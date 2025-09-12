@@ -48,8 +48,6 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
     const animationEnd = Date.now() + duration;
     const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 1000 };
 
-    const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min;
-
     const interval = window.setInterval(() => {
       const timeLeft = animationEnd - Date.now();
       if (timeLeft <= 0) return clearInterval(interval);
@@ -96,18 +94,19 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
   };
 
   return (
-    <section id="contact" className="py-20 bg-[var(--background)]">
+    <section id="contact" className="py-20 bg-[var(--background-gradient)]">
       <motion.h2
         className="text-4xl md:text-5xl font-bold text-primary text-center mb-12"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
+        animate={{ opacity: isSubmitted ? 0 : 1, y: isSubmitted ? -20 : 0 }}
         transition={{ duration: 0.5 }}
       >
         Contact Us
       </motion.h2>
       <div className="max-w-md mx-auto">
         <MagicCard
-          className="p-8 rounded-2xl magic-card"
+          className="p-8 rounded-2xl"
           gradientSize={200}
           gradientFrom="#00FF66"
           gradientTo="#FF00FF"
@@ -118,15 +117,74 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
             <LoadingSkeleton />
           ) : isSubmitted ? (
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1 }}
-              className="text-center"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: "backOut" }}
+              className="text-center py-12"
             >
-              <p className="text-[var(--accent)] gradient-text">Thank you! Your message has been sent.</p>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+                className="mb-6"
+              >
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-green-400 to-blue-500 flex items-center justify-center">
+                  <motion.svg
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.5, duration: 0.3 }}
+                    className="w-8 h-8 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </motion.svg>
+                </div>
+              </motion.div>
+              <motion.h3
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.6 }}
+                className="text-2xl font-bold text-primary mb-3"
+              >
+                Message Sent Successfully!
+              </motion.h3>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8, duration: 0.6 }}
+                className="text-lg bg-gradient-to-r from-[#01f19d] to-[#00d9f4] bg-clip-text text-transparent"
+              >
+                Thank you for reaching out. We will get back to you soon!
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.0, duration: 0.6 }}
+                className="mt-6"
+              >
+                <button
+                  onClick={() => setIsSubmitted(false)}
+                  className="px-6 py-2 text-sm text-primary border border-primary rounded-lg hover:bg-primary hover:text-background transition-colors duration-300"
+                >
+                  Send Another Message
+                </button>
+              </motion.div>
             </motion.div>
           ) : (
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+            <motion.form
+              onSubmit={handleSubmit(onSubmit)}
+              className="space-y-4"
+              initial={{ opacity: 1 }}
+              animate={{ opacity: isSubmitted ? 0 : 1 }}
+              transition={{ duration: 0.5 }}
+            >
               <div>
                 <label htmlFor="name" className="block text-primary text-lg font-medium mb-1">
                   Name
@@ -175,7 +233,7 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
               >
                 Send Message
               </RippleButton>
-            </form>
+            </motion.form>
           )}
           {devMode && (
             <DevModeTooltip
