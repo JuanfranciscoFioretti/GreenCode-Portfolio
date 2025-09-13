@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+@import './variables.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  background: var(--background);
+  background-image: var(--background-gradient);
+  color: var(--primary);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+.glassmorphism {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  box-shadow: 0px 4px 20px rgba(0,0,0,0.25);
+}
+
+.gradient-text {
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 5px var(--accent); }
+  50% { box-shadow: 0 0 15px var(--highlight); }
+  100% { box-shadow: 0 0 5px var(--accent); }
+}
+
+.glow-effect {
+  animation: glow 2s infinite;
+}
+
+@keyframes rippling {
+  0% {
+    transform: scale(0);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.button-primary {
+  background: var(--button-gradient);
+  color: var(--primary);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.button-primary:hover {
+  background: var(--button-hover-gradient);
+}
+
+.button-secondary {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  background: transparent;
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.button-secondary:hover {
+  background: rgba(20, 216, 46, 0.1);
+}
+
+.neon-gradient-card {
+  border-radius: 16px;
+  padding: 32px;
+  width: 100%;
+  max-width: 450px;
+  min-height: 200px;
+  transition: background 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 10;
+}
+
+.neon-gradient-card svg {
+  z-index: -10;
+}
+
+.card-content {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  padding: 16px;
+}
+
+.card-title {
+  font-size: 72px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.magic-card {
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.magic-card:hover .bg-border {
+  border-image: inherit;
+  border-image-slice: 1;
+  /* background-color: #1be601; */
+}
+
+/* Fix autofill background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px var(--glass-bg) inset;
+  box-shadow: 0 0 0 1000px var(--glass-bg) inset;
+  -webkit-text-fill-color: var(--primary);
+}

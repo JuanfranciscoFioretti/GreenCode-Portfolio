@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Project One",
+    "description": "A modern e-commerce platform with advanced features.",
+    "technologies": ["React", "Next.js", "TypeScript"],
+    "link": "https://example.com/project-one",
+    "image": "/images/projects/project1.png"
+  },
+  {
+    "title": "Project Two",
+    "description": "A mobile app for task management.",
+    "technologies": ["React Native", "Node.js"],
+    "link": "https://example.com/project-two",
+    "image": "/images/projects/project2.png"
+  }
+]
