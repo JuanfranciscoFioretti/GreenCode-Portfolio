@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import HeroSection from './components/sections/HeroSection';
-import ProjectsSection from './components/sections/ProjectsSection';
+// import ProjectsSection from './components/sections/ProjectsSection';
 import TechnologiesSection from './components/sections/TechnologiesSection';
 import ServicesSection from './components/sections/ServicesSection';
 // import TransitionSection from './components/sections/TransitionSection';
