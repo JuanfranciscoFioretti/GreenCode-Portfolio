@@ -5,7 +5,7 @@ import HeroSection from './components/sections/HeroSection';
 // import ProjectsSection from './components/sections/ProjectsSection';
 import TechnologiesSection from './components/sections/TechnologiesSection';
 import ServicesSection from './components/sections/ServicesSection';
-// import TransitionSection from './components/sections/TransitionSection';
+import TransitionSection from './components/sections/TransitionSection';
 import ContactSection from './components/sections/ContactSection';
 import FAQSection from './components/sections/FAQSection';
 import AboutUsSection from './components/sections/AboutUsSection';
@@ -22,12 +22,11 @@ export default function Home() {
     <main>
       <HeroSection devMode={devMode} />
       <HeroParallaxDemo />
-      {/* <ProjectsSection devMode={devMode} /> */}
       <TechnologiesSection devMode={devMode} />
+      <TransitionSection devMode={devMode} />
       <ServicesSection />
       <AboutUsSection devMode={devMode} />
       <TestimonialsSection devMode={devMode} />
-      {/* <TransitionSection devMode={devMode} /> */}
       <ContactSection devMode={devMode} />
       {!devMode && (
         <motion.div

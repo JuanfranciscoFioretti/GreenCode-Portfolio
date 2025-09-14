@@ -89,6 +89,8 @@ body {
 
 .button-secondary:hover {
   background: rgba(20, 216, 46, 0.1);
+  /* background: rgb(110, 62, 255); */
+  /* background: #00d9f4; */
 }
 
 .neon-gradient-card {

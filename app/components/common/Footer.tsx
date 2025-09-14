@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="py-10 bg-[var(--gradient-bg)]">
       <div className="max-w-7xl mx-auto px-4 text-center">
-        <Image src={LOGOS.secondary} alt="Greencode Logo" width={120} height={40} />
+        <Image src={LOGOS.primary} alt="Greencode Logo" width={120} height={40} />
         <p className="mt-4">© 2025 Greencode. All rights reserved.</p>
         <div className="flex justify-center space-x-4 mt-4">
           <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--tertiary-color)]">Twitter</a>

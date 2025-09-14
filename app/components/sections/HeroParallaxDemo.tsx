@@ -7,10 +7,10 @@ export function HeroParallaxDemo() {
 }
 export const products = [
   {
-    title: "Restaruant Landing Page",
-    link: "https://richards-restaurant.netlify.app/",
+    title: "Altuvia App Platform",
+    link: "https://www.altuvia.net/",
     thumbnail:
-      "../../../../images/projects/project4.png",
+      "../../../../images/projects/project9.png",
   },
   {
     title: "Studio Sobra Landing Page",
@@ -38,10 +38,10 @@ export const products = [
       "../../../../images/projects/project5.png",
   },
   {
-    title: "Altuvia App Platform",
-    link: "https://www.altuvia.net/",
+    title: "Kayak Rental Service",
+    link: "https://gorilla-cafe.netlify.app/",
     thumbnail:
-      "../../../../images/projects/project9.png",
+      "../../../../images/projects/project7.png",
   },
   {
     title: "Café Website",
@@ -56,10 +56,10 @@ export const products = [
       "../../../../images/projects/project1.png",
   },
   {
-    title: "Kayak Rental Service",
-    link: "https://gorilla-cafe.netlify.app/",
+    title: "Restaruant Landing Page",
+    link: "https://richards-restaurant.netlify.app/",
     thumbnail:
-      "../../../../images/projects/project7.png",
+      "../../../../images/projects/project4.png",
   },
   {
     title: "Café Landing Page",

@@ -10,20 +10,19 @@ interface TestimonialsSectionProps {
 
 export default function TestimonialsSection({ devMode }: TestimonialsSectionProps) {
   const testimonials = TESTIMONIALS.map((item) => ({
-    ...item,
-    title: `CEO, Company ${item.name.split(' ')[0]}`,
+    ...item
   }));
 
   return (
-    <section id="testimonials" className="py-20 relative overflow-hidden">
+    <section id="testimonials" className="py-10 relative overflow-hidden">
       {/* Esfera de fondo mejorada con gradiente verdoso-violeta */}
-      <div className="absolute z-0 w-[80%] h-[80%] -right-[40%] top-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-[var(--accent)]/30 via-purple-500/20 to-[var(--highlight)]/25 filter blur-[80px] animate-pulse" />
+      {/* <div className="absolute z-0 w-[80%] h-[80%] -right-[40%] top-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-[var(--accent)]/30 via-purple-500/20 to-[var(--highlight)]/25 filter blur-[100px] animate-pulse" /> */}
       
       {/* Esfera secundaria para más profundidad */}
-      <div className="absolute z-0 w-[60%] h-[60%] -right-[30%] top-1/3 rounded-full bg-gradient-to-tl from-violet-400/20 to-cyan-400/15 filter blur-[100px]" />
+      {/* <div className="absolute z-0 w-[60%] h-[60%] -right-[30%] top-1/3 rounded-full bg-gradient-to-tl from-violet-400/20 to-cyan-400/15 filter blur-[100px]" /> */}
       
       <div className="max-w-7xl mx-auto px-4 relative z-10">
-        <div className="w-full flex justify-between items-center md:flex-row flex-col mb-16">
+        <div className="w-full flex justify-between items-center md:flex-row flex-col mb-20">
           <motion.h2
             className="text-4xl md:text-5xl font-bold text-foreground text-center md:text-left"
             initial={{ opacity: 0, y: -20 }}
@@ -41,7 +40,7 @@ export default function TestimonialsSection({ devMode }: TestimonialsSectionProp
             viewport={{ once: true }}
           >
             <p className="text-lg text-foreground">
-              Everything you need to accept card payments and grow your business anywhere on the planet
+              Everything you need to achieve your business goals and maximize growth all in one place.
             </p>
           </motion.div>
         </div>
@@ -82,8 +81,8 @@ export default function TestimonialsSection({ devMode }: TestimonialsSectionProp
                     <motion.img
                       src={testimonial.url}
                       alt={testimonial.name}
-                      className="w-[50px] h-[50px] rounded-full object-cover ring-2 ring-[var(--glass-border)] group-hover:ring-[var(--accent)]/50 transition-all duration-300"
-                      whileHover={{ scale: 1.1 }}
+                      className="w-[50px] h-[50px] rounded-full object-cover ring-2 ring-[var(--glass-border)] group-hover:ring-[var(--accent)]/50 transition-all duration-500"
+                      whileHover={{ scale: 1.2 }}
                     />
                     <div className="flex flex-col ml-4">
                       <h4 className="font-poppins font-semibold text-[18px] leading-[28px] text-foreground transition-colors duration-300">

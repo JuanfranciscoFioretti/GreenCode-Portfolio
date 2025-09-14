@@ -18,6 +18,8 @@ export const TECHNOLOGIES = [
   { name: 'Css3', icon: '/images/technologies/css3.svg' },
   { name: 'Html5', icon: '/images/technologies/html5.svg' },
   { name: 'JavaScript', icon: '/images/technologies/javascript.svg' },
+];
+export const TECHNOLOGIES2 = [
   { name: 'Kubernetes', icon: '/images/technologies/kubernetes.svg' },
   { name: 'AWS', icon: '/images/technologies/aws.svg' },
   { name: 'Github', icon: '/images/technologies/github.svg' },
@@ -68,7 +70,7 @@ export const FAQS = [
 ];
 
 export const TESTIMONIALS = [
-  { name: 'Sarah S', text: 'Greencode delivered an amazing website that boosted our conversions!', url:"/images/testimonials/user2.jpg" },
-  { name: 'Biogas Srl', text: 'Their attention to detail and security practices are top-notch.', url:"/images/testimonials/biogas.jpg" },
-  { name: 'Martin D', text: 'Professional team with excellent communication and skills.', url:"/images/testimonials/user1.jpg" },
+  { name: 'Florencia F.', title: 'Business Owner', text: 'Greencode delivered an amazing website that boosted our conversions!', url:"/images/testimonials/user2.jpg" },
+  { name: 'Biogas Srl', title: 'Biogas Founder', text: 'Their attention to detail and security practices are top-notch.', url:"/images/testimonials/biogas.jpg" },
+  { name: 'Martin D.', title: 'Freelance Developer', text: 'Professional team with excellent communication and skills.', url:"/images/testimonials/user1.jpg" },
  ];
