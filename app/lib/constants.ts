@@ -8,7 +8,7 @@ export const TECHNOLOGIES = [
   { name: 'React', icon: '/images/technologies/react.svg' },
   { name: 'Node.js', icon: '/images/technologies/nodejs.svg' },
   { name: 'MySQL', icon: '/images/technologies/mysql.svg' },
-  { name: 'PostgreSQL', icon: '/images/technologies/postgressql.svg' },
+  { name: 'PostgreSQL', icon: '/images/technologies/postgresql.svg' },
   { name: 'TypeScript', icon: '/images/technologies/typesscript.svg' },
   { name: 'Next.js', icon: '/images/technologies/nextjs.svg' },
   { name: 'Tailwind CSS', icon: '/images/technologies/tailwindcss.svg' },
