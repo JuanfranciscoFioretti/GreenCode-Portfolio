@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useEffect } from 'react';
 import { LOGOS } from '../../lib/constants';
 import DevModeTooltip from '../common/DevModeTooltip';
-import { useDevMode } from '../../lib/DevModeContext';
+// import { useDevMode } from '../../lib/DevModeContext';
 import { AuroraText } from "@/components/magicui/aurora-text";
 
 
@@ -11,14 +11,14 @@ interface HeroSectionProps {
   devMode: boolean;
 }
 
-const titleVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.05, duration: 0.5 },
-  }),
-};
+// const titleVariants: Variants = {
+//   hidden: { opacity: 0, y: 20 },
+//   visible: (i: number) => ({
+//     opacity: 1,
+//     y: 0,
+//     transition: { delay: i * 0.05, duration: 0.5 },
+//   }),
+// };
 
 const particleVariants: Variants = {
   initial: { opacity: 0, scale: 0 },
@@ -47,7 +47,7 @@ export default function HeroSection({ devMode }: HeroSectionProps) {
   const particles = Array.from({ length: 10 });
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="hero" className="w-full min-h-screen flex items-center justify-center relative overflow-hidden">
       <div aria-hidden="true" className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
     
   </div>

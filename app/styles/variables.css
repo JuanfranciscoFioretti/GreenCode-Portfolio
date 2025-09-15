@@ -5,8 +5,12 @@
   --secondary: #A1A1AA;
   --accent: #01f19d;
   --highlight: #00d9f4;
+  --highlight-background: #00d8f4;
+  --highlight-text-light: #00d9f4;
   --text-dark: #FFFFFF;
+  --text-dark-morphing: #FFFFFF;
   --text-light: #A1A1AA;
+  --border-color: #c1c1c4;
   --glass-bg: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.1);
   --button-gradient: linear-gradient(90deg, #33BBCF 0%, #00E0FF 100%);
@@ -16,14 +20,19 @@
 }
 
 [data-theme="light"] {
-  --background: #f9fafb;
-  --background-gradient: radial-gradient(circle at top left, #f9fafb 0%, #dfdfdf 100%);
+  --background: #fdfdfd;
+  --background-gradient: radial-gradient(circle at top left, #ffffff 0%, #ffffff 100%);
   --primary: #1f2937;
   --secondary: #6b7280;
-  --accent: #09cc61;
-  --highlight: #00d9f4;
+  --accent: #0ad447;
+  /* --accent: rgb(7, 192, 121); */
+  --highlight: #00aff4;
+  --highlight-background: #0092f4;
+  --highlight-text-light: #004df4;
   --text-dark: #1f2937;
+  --text-dark-morphing: #1f2937;
   --text-light: #6b7280;
+  --border-color: #6b7280;
   --glass-bg: rgba(0, 0, 0, 0.05);
   --glass-border: rgba(0, 0, 0, 0.1);
 }

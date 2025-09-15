@@ -94,7 +94,7 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
   };
 
   return (
-    <section id="contact" className="py-20 bg-[var(--background-gradient)]">
+    <section id="contact" className="w-full py-20 bg-[var(--background-gradient)]">
       <motion.h2
         className="text-4xl md:text-5xl font-bold text-primary text-center mb-12"
         initial={{ opacity: 0, y: -20 }}

@@ -11,7 +11,7 @@ interface AboutUsSectionProps {
 
 export default function AboutUsSection({ devMode }: AboutUsSectionProps) {
   return (
-    <section id="about" className="py-20 bg-[var(--gradient-bg)]">
+    <section id="about" className="w-full py-20 bg-[var(--gradient-bg)]">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

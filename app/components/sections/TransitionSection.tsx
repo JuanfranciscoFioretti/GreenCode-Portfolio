@@ -20,13 +20,13 @@ export default function TransitionSection({ devMode }: TransitionSectionProps) {
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 1]);
 
   return (
-    <section ref={ref} className=" bg-[var(--gradient-bg)]">
+    <section ref={ref} className="w-full bg-[var(--gradient-bg)]">
       <BackgroundGradientAnimation>
-      <div className="absolute z-50 inset-0 flex items-center justify-center  font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl">
+      <div className="absolute z-10 inset-0 flex items-center justify-center  font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl">
         {/* <h2 className="bg-clip-text drop-shadow-2xl bg-gradient-to-b --text-dark">
           Explore Greencode
         </h2> */}
-        <MorphingText texts={['Find Out', 'What is', 'Greencode', 'Your Next', 'Innovative', 'Secure', '& User-friendly', 'Digital Solution', 'to Grow', 'and Achieve', 'Your Business', 'Success' ]} />
+        <MorphingText texts={['Find Out', 'What is', 'Greenrcode', 'Your Next', 'Innovative', 'Secure', '& User-friendly', 'Digital Solution', 'Together', 'We can Achieve', 'Your Business', 'Success' ]} />
       </div>
     </BackgroundGradientAnimation>
       <motion.div

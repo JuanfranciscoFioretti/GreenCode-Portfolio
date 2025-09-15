@@ -21,7 +21,7 @@ interface ProjectsSectionProps {
 
 export default function ProjectsSection({ devMode }: ProjectsSectionProps) {
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="w-full py-20">
       <motion.h2
           className="text-4xl md:text-5xl font-bold text-primary text-center mb-12"
           initial={{ opacity: 0, y: -20 }}

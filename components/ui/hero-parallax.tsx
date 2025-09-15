@@ -7,6 +7,7 @@ import {
   useSpring,
   MotionValue,
 } from "motion/react";
+// import { Image } from "lucide-react";
 
 
 
@@ -144,13 +145,20 @@ export const ProductCard = ({
         target="_blank"
         className="block group-hover/product:shadow-2xl "
       >
-        <img
+        <motion.img
           src={product.thumbnail}
           height="600"
           width="600"
           className="object-cover absolute h-full w-full inset-0 rounded-2xl"
           alt={product.title}
         />
+        {/* <Image
+  src={product.thumbnail}
+  alt={product.title}
+  layout="responsive"
+  width={600}
+  height={600}
+/> */}
       </a>
       <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-30 bg-black pointer-events-none rounded-2xl"></div>
       <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">

@@ -46,7 +46,7 @@ export default function AnalyticsDashboard() {
   };
 
   return (
-    <section id="analytics" className="py-20">
+    <section id="analytics" className="w-full py-20">
       <h2 className="text-[36px] gradient-text text-center font-bold mb-10">Analytics Dashboard</h2>
       <div className="max-w-5xl mx-auto px-4 glassmorphism p-6 bg-[#1B1F29] rounded-[12px] shadow-card">
         <Bar data={chartData} options={{ responsive: true, plugins: { legend: { position: 'top' } } }} />

@@ -11,15 +11,7 @@ interface TechnologiesSectionProps {
 
 export default function TechnologiesSection({ devMode }: TechnologiesSectionProps) {
   return (
-    <section id="technologies" className=" bg-[var(--gradient-bg)]">
-{/* <motion.h2
-          className="text-4xl md:text-5xl font-bold text-primary text-center mb-12"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          Technologies We Use
-        </motion.h2>       */}
+    <section id="technologies" className="w-full bg-[var(--gradient-bg)]">
       <div className="relative overflow-hidden">
         <motion.div
           className="flex space-x-8"

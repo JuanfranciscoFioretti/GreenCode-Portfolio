@@ -17,7 +17,7 @@ export default function FAQSection({ devMode }: FAQSectionProps) {
   };
 
   return (
-    <section id="faq" className="py-20 bg-[var(--gradient-bg)]">
+    <section id="faq" className="w-full py-20 bg-[var(--gradient-bg)]">
 <motion.h2
           className="text-4xl md:text-5xl font-bold text-primary text-center mb-12"
           initial={{ opacity: 0, y: -20 }}

@@ -57,7 +57,7 @@ interface NeonGradientCardProps {
   borderRadius?: number;
 
   /**
-   * @default "{ firstColor: '#01f19d', secondColor: '#00d9f4' }"
+   * @default "{ firstColor: '#01f19d', secondColor: '#6a00f4' }"
    * @type string
    * @description
    * The colors of the neon gradient
