@@ -8,6 +8,7 @@
   --highlight-background: #00d8f4;
   --highlight-text-light: #00d9f4;
   --text-dark: #FFFFFF;
+  --text-dark-robot: #ffffff69;
   --text-dark-morphing: #FFFFFF;
   --text-light: #A1A1AA;
   --border-color: #c1c1c4;
@@ -29,7 +30,8 @@
   --highlight: #00aff4;
   --highlight-background: #0092f4;
   --highlight-text-light: #004df4;
-  --text-dark: #1f2937;
+  --text-dark: #1b2430;
+  --text-dark-robot: #1f293783;
   --text-dark-morphing: #1f2937;
   --text-light: #6b7280;
   --border-color: #6b7280;

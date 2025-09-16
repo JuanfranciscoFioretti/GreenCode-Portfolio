@@ -66,8 +66,16 @@ export default function ServicesSection() {
   const { devMode } = useDevMode();
 
   return (
-    <section id="services" className={`w-full py-20 bg-[var(--background)] ${devMode ? 'border-2 border-gray-50' : ''}`}>
+    <section id="services" className={`w-full py-20 -mt-50 bg-[var(--background)] ${devMode ? 'border-2 border-gray-50' : ''}`}>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <motion.h2
+          className="text-6xl md:text-6xl lg:text-7xl font-bold text-primary text-center pb-40"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          Our Services
+        </motion.h2> 
         {/* Container con backdrop blur unificado */}
         <div className="relative">
           {/* Backdrop blur layer con contenido para blur - detrás de todas las cards */}

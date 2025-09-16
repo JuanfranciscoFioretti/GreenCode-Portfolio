@@ -62,7 +62,7 @@
 import { motion } from 'framer-motion';
 import TechnologiesSection from './components/sections/TechnologiesSection';
 import ServicesSection from './components/sections/ServicesSection';
-import TransitionSection from './components/sections/TransitionSection';
+// import TransitionSection from './components/sections/TransitionSection';
 import ContactSection from './components/sections/ContactSection';
 import FAQSection from './components/sections/FAQSection';
 import AboutUsSection from './components/sections/AboutUsSection';
@@ -71,26 +71,34 @@ import AnalyticsDashboard from './components/sections/AnalyticsDashboard';
 import { useDevMode } from './lib/DevModeContext';
 import DevModeToggle from './components/common/DevModeToggle';
 import { HeroParallaxDemo } from './components/sections/HeroParallaxDemo';
+import { RobotSection } from './components/sections/RobotSection';
+// import { SparklesGradientSection } from './components/sections/SparklesGradientSection';
 
 export default function Home() {
   const { devMode } = useDevMode();
 
   return (
     <main className="w-full min-h-screen">
+
+      <div className="w-full">
+        <RobotSection />
+      </div>
       <div className="w-full">
         <HeroParallaxDemo />
       </div>
+
       
-      <div className="w-full">
-        <TechnologiesSection devMode={devMode} />
-      </div>
       
-      <div className="w-full">
+      {/* <div className="w-full">
         <TransitionSection devMode={devMode} />
-      </div>
+      </div> */}
       
       <div className="w-full">
         <ServicesSection />
+      </div>
+
+      <div className="w-full">
+        <TechnologiesSection devMode={devMode} />
       </div>
       
       <div className="w-full">

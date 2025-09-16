@@ -26,7 +26,7 @@ export default function TransitionSection({ devMode }: TransitionSectionProps) {
         {/* <h2 className="bg-clip-text drop-shadow-2xl bg-gradient-to-b --text-dark">
           Explore Greencode
         </h2> */}
-        <MorphingText texts={['Find Out', 'What is', 'Greenrcode', 'Your Next', 'Innovative', 'Secure', '& User-friendly', 'Digital Solution', 'Together', 'We can Achieve', 'Your Business', 'Success' ]} />
+        <MorphingText texts={['Learn how', 'We Create', 'Your Next', 'Innovative', 'Secure', '& User-friendly', 'Digital Solution', 'Together', 'We can Achieve', 'Your Goals' ]} />
       </div>
     </BackgroundGradientAnimation>
       <motion.div

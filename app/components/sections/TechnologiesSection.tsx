@@ -11,7 +11,7 @@ interface TechnologiesSectionProps {
 
 export default function TechnologiesSection({ devMode }: TechnologiesSectionProps) {
   return (
-    <section id="technologies" className="w-full bg-[var(--gradient-bg)]">
+    <section id="technologies" className="w-full mt-10 bg-[var(--gradient-bg)]">
       <div className="relative overflow-hidden">
         <motion.div
           className="flex space-x-8"

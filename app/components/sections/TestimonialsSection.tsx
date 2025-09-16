@@ -153,7 +153,7 @@ export default function TestimonialsSection({ devMode }: TestimonialsSectionProp
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
-              className="glassmorphism p-12 lg:p-8 rounded-2xl w-full max-w-[500px] lg:max-w-[350px] lg:min-h-[280px] min-h-[350px] border border-[var(--glass-border)] relative group cursor-pointer transform-gpu transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gray-50/10"
+              className="glassmorphism p-12 lg:p-8 rounded-2xl w-full max-w-[500px] lg:max-w-[350px] lg:min-h-[280px] min-h-[300px] border border-[var(--glass-border)] relative group cursor-pointer transform-gpu transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gray-50/10"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
@@ -170,12 +170,12 @@ export default function TestimonialsSection({ devMode }: TestimonialsSectionProp
               
               <div className="relative z-10 h-full flex flex-col justify-between">
                 <div>
-                  <motion.img
+                  {/* <motion.img
                     src="/images/testimonials/quotes.svg"
                     alt="quotes"
                     className="w-[42px] h-[27px] object-contain mb-6 opacity-60 group-hover:opacity-100 transition-opacity duration-300"
                     whileHover={{ scale: 1.1, rotate: 5 }}
-                  />
+                  /> */}
                   <p className="font-poppins font-normal text-[16px] lg:text-[15px] leading-[28px] lg:leading-[26px] text-foreground mb-8 line-clamp-4 group-hover:text-[var(--primary)] transition-colors duration-300">
                     {testimonial.text}
                   </p>

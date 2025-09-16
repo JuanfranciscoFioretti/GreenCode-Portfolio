@@ -1,10 +1,43 @@
 /** @type {import('tailwindcss').Config} */
+import 'tailwindcss-animate';
 module.exports = {
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+//   theme: {
+//     extend: {
+//       animation: {
+//         'shiny-text': 'shiny-text 8s ease-in-out infinite',
+//       },
+//       keyframes: {
+//         'shiny-text': {
+//           '0%, 90%, 100%': {
+//             'background-position': 'calc(-100% - var(--shiny-width)) 0',
+//           },
+//           '30%, 60%': {
+//             'background-position': 'calc(100% + var(--shiny-width)) 0',
+//           },
+//         },
+//       },
+//     },
+//   },
   theme: {
+	extend: {
+      animation: {
+        'shiny-text': 'shiny-text 8s ease-in-out infinite',
+      },
+      keyframes: {
+        'shiny-text': {
+          '0%, 90%, 100%': {
+            'background-position': 'calc(-100% - var(--shiny-width)) 0',
+          },
+          '30%, 60%': {
+            'background-position': 'calc(100% + var(--shiny-width)) 0',
+          },
+        },
+      },
+    },
   	extend: {
   		colors: {
   			primary: {
