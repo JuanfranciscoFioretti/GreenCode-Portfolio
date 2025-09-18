@@ -8,7 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { MagicCard } from '@/components/magicui/magic-card';
 import { RippleButton } from '@/components/magicui/ripple-button';
 import confetti from 'canvas-confetti';
-import { sanitizeInput } from '../../lib/sanitize';
+import { sanitizeInput } from '../../../lib/sanitize';
 import { trackFormSubmission } from '../../lib/analytics';
 import DevModeTooltip from '../common/DevModeTooltip';
 import LoadingSkeleton from '../common/LoadingSkeleton';
@@ -106,11 +106,11 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
       </motion.h2>
       <div className="max-w-md mx-auto">
         <MagicCard
-          className="p-8 rounded-2xl"
+          className="p-8 rounded-2xl border border-1px border-[var(--glass-border)]"
           gradientSize={200}
           gradientFrom="#00FF66"
           gradientTo="#FF00FF"
-          gradientColor={devMode ? '#33BBCF' : 'rgba(0, 255, 102, 0.3)'}
+          gradientColor={'rgba(0, 255, 102, 0.3)'}
           gradientOpacity={0.8}
         >
           {isSubmitting ? (
@@ -128,7 +128,7 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
                 transition={{ delay: 0.3, duration: 0.6 }}
                 className="mb-6"
               >
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-green-400 to-blue-500 flex items-center justify-center">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-green-400 to-[#004df4] flex items-center justify-center">
                   <motion.svg
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
@@ -163,19 +163,6 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
               >
                 Thank you for reaching out. We will get back to you soon!
               </motion.p>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.0, duration: 0.6 }}
-                className="mt-6"
-              >
-                <button
-                  onClick={() => setIsSubmitted(false)}
-                  className="px-6 py-2 text-sm text-primary border border-primary rounded-lg hover:bg-primary hover:text-background transition-colors duration-300"
-                >
-                  Send Another Message
-                </button>
-              </motion.div>
             </motion.div>
           ) : (
             <motion.form

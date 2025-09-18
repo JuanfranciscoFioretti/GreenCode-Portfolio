@@ -83,15 +83,10 @@ export default function Home() {
       <div className="w-full">
         <RobotSection />
       </div>
+      
       <div className="w-full">
         <HeroParallaxDemo />
       </div>
-
-      
-      
-      {/* <div className="w-full">
-        <TransitionSection devMode={devMode} />
-      </div> */}
       
       <div className="w-full">
         <ServicesSection />
