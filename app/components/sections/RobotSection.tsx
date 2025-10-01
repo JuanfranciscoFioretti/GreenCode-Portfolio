@@ -70,7 +70,7 @@ export function RobotSection() {
                   Innovate, Transform<br /> & Succeed Digitally
               </h1>
               <p className="max-w-2xl text-lg md:text-2xl mt-8 text-[color:var(--text-dark)] opacity-85">
-                  In Greencode we transform ideas into reality with custom web, mobile, and automation solutions, delivering innovative technology to power your business forward.
+                  In Sostentia we transform ideas into reality with custom web, mobile, and automation solutions, delivering innovative technology to power your business forward.
               </p>
             </div>
           </div>

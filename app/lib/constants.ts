@@ -48,28 +48,28 @@ export const SERVICES = [
 
 export const FAQS = [
   {
-    question: 'What is Greencode?',
-    answer: 'Greencode is a premier full-stack development agency dedicated to crafting innovative, secure, and high-performance digital solutions tailored to meet the unique needs of our clients.',
+    question: 'What is Sostentia?',
+    answer: 'Sostentia is a premier full-stack development agency dedicated to crafting innovative, secure, and high-performance digital solutions tailored to meet the unique needs of our clients.',
   },
   {
-    question: 'What services does Greencode offer?',
-    answer: 'Greencode provides a wide range of services, including full-stack development, custom web and mobile application design, API integration, UX/UI optimization, ongoing maintenance and support, content creation, and security consulting, all tailored to enhance your digital presence and business efficiency.',
+    question: 'What services does Sostentia offer?',
+    answer: 'Sostentia provides a wide range of services, including full-stack development, custom web and mobile application design, API integration, UX/UI optimization, ongoing maintenance and support, content creation, and security consulting, all tailored to enhance your digital presence and business efficiency.',
   },
   {
     question: 'How can I contact you?',
     answer: 'You can reach us conveniently through the contact form on our website, where our team will respond to your inquiry promptly and professionally.',
   },
   {
-    question: 'What tech skills does Greencode bring to the table?',
-    answer: 'At Greencode, we are skilled in a friendly mix of top-notch technologies like React, Node.js, MySQL, PostgreSQL, TypeScript, and Next.js, helping us create tailored, high-quality solutions that work great for our clients!',
+    question: 'What tech skills does Sostentia bring to the table?',
+    answer: 'At Sostentia, we are skilled in a friendly mix of top-notch technologies like React, Node.js, MySQL, PostgreSQL, TypeScript, and Next.js, helping us create tailored, high-quality solutions that work great for our clients!',
   },
   {
     question: 'Can you provide custom solutions for my business?',
-    answer: 'Absolutely! At Greencode, we proudly tailor our services to align with your unique business needs, ensuring a personalized and effective solution just for you.',
+    answer: 'Absolutely! At Sostentia, we proudly tailor our services to align with your unique business needs, ensuring a personalized and effective solution just for you.',
   },
   {
     question: 'What does the development process look like?',
-    answer: 'At Greencode, we utilize an agile methodology, fostering transparency and close collaboration with you at every step of the project to ensure a smooth and successful outcome.',
+    answer: 'At Sostentia, we utilize an agile methodology, fostering transparency and close collaboration with you at every step of the project to ensure a smooth and successful outcome.',
   },
 ];
 
