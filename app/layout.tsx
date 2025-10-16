@@ -11,23 +11,23 @@ import './styles/globals.css';
 const poppins = Poppins({ subsets: ['latin'], weight: ['400', '500', '600', '700'], display: 'swap' });
 
 const metadata = {
-  title: 'Greencode - Digital Solutions',
-  description: 'Greencode offers cutting-edge web and mobile app development, UX/UI design, and AI automations.',
+  title: 'Sostentia - Digital Solutions',
+  description: 'Sostentia offers cutting-edge web and mobile app development, UX/UI design, and AI automations.',
   keywords: 'web development, mobile apps, UX/UI design, cybersecurity, AI automations, Greencode',
   icons: {
     icon: '/images/logo-primary.svg',
   },
   openGraph: {
-    title: 'Greencode Portfolio',
-    description: 'Discover Greencode’s innovative solutions and projects.',
-    url: 'https://green-code-portfolio.vercel.app/',
+    title: 'Sostentia Portfolio',
+    description: 'Discover Sostentia’s innovative solutions and projects.',
+    url: 'https://sostentia.com/',
     siteName: 'Greencode',
     images: [
       {
         url: '/images/logo-primary.svg',
         width: 1200,
         height: 630,
-        alt: 'Greencode Portfolio Preview',
+        alt: 'Sostentia Portfolio Preview',
       },
     ],
     locale: 'en_US',
