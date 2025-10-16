@@ -3,22 +3,12 @@ import Image from 'next/image';
 import { useEffect } from 'react';
 import { LOGOS } from '../../lib/constants';
 import DevModeTooltip from '../common/DevModeTooltip';
-// import { useDevMode } from '../../lib/DevModeContext';
 import { AuroraText } from "@/components/magicui/aurora-text";
 
 
 interface HeroSectionProps {
   devMode: boolean;
 }
-
-// const titleVariants: Variants = {
-//   hidden: { opacity: 0, y: 20 },
-//   visible: (i: number) => ({
-//     opacity: 1,
-//     y: 0,
-//     transition: { delay: i * 0.05, duration: 0.5 },
-//   }),
-// };
 
 const particleVariants: Variants = {
   initial: { opacity: 0, scale: 0 },
@@ -76,14 +66,8 @@ export default function HeroSection({ devMode }: HeroSectionProps) {
         <div className="mb-6">
           <Image src={LOGOS.primary} alt="Greencode Logo" width={200} height={80} priority />
         </div>
-        {/* <h1 className="text-5xl md:text-[56px] gradient-text font-bold mt-4"> */}
         <h1 className="text-5xl md:text-[56px] font-bold mt-4">
           Welcome to <AuroraText> {titleText} </AuroraText>
-          {/* {titleText.split('').map((char, i) => (
-            <motion.span key={i} custom={i} variants={titleVariants} initial="hidden" animate={controls}>
-              {char}
-            </motion.span>
-          ))} */}
         </h1>
         <p className="text-lg md:text-[18px] text-secondary mt-4">
           Building innovative and secure digital solutions.

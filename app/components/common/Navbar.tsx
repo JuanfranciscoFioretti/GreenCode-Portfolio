@@ -1,10 +1,10 @@
-import Image from 'next/image';
+// import Image from 'next/image';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import ThemeTogglerWrapper from './ThemeTogglerWrapper';
-import { LOGOS } from '../../lib/constants';
-import DevModeToggle from './DevModeToggle';
+// import { LOGOS } from '../../lib/constants';
+// import DevModeToggle from './DevModeToggle';
 
 interface MenuAnimationProps {
   menuItems: string[];
@@ -48,15 +48,16 @@ export default function Navbar() {
       <nav className={`fixed top-0 mt-0.5 w-full z-50 ${isOpen ? 'bg-transparent backdrop-blur-[12px]' : 'glassmorphism'}`} style={isOpen ? { border: 'none', borderRadius: '0', boxShadow: 'none' } : {}}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
-            <div className="flex">
-              <Image src={LOGOS.primary} alt="Greencode Logo" width={120} height={40} priority />
+            <div className="flex items-center">
+              {/* <Image src={LOGOS.primary} alt="Sostentia Logo" width={70} height={40} priority /> */}
+              <div className="w-40 h-20 bg-no-repeat bg-contain" style={{ backgroundImage: 'var(--primary-logo)' }}/>
             </div>
             <div className="hidden md:flex space-x-8 items-center">
               <a href="#services" className="text-primary hover:text-accent text-[16px]">Services</a>
               <a href="#contact" className="text-primary hover:text-accent text-[16px]">Contact</a>
               <a href="#faq" className="text-primary hover:text-accent text-[16px]">FAQ</a>
               <ThemeTogglerWrapper />
-              <DevModeToggle />
+              {/* <DevModeToggle /> */}
             </div>
             <div className="md:hidden flex items-center">
               <button onClick={toggleMenu} className="focus:outline-none z-50 relative">
@@ -102,7 +103,7 @@ export default function Navbar() {
           <div className="absolute bottom-15 left-1/2 transform -translate-x-1/2">
             <div className="flex items-center space-x-6">
               <ThemeTogglerWrapper />
-              <DevModeToggle />
+              {/* <DevModeToggle /> */}
             </div>
           </div>
         </motion.div>

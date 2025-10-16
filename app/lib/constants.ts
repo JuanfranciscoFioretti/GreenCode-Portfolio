@@ -1,5 +1,6 @@
 export const LOGOS = {
-  primary: '/images/logo-primary.svg',
+  primary: '/images/logo-primary.png',
+
   secondary: '/images/logo-secondary.png',
   tertiary: '/images/logo-tertiary.svg',
 };

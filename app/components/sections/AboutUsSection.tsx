@@ -2,8 +2,6 @@
 
 import { motion } from 'framer-motion';
 import DevModeTooltip from '../common/DevModeTooltip';
-// import { MorphingText } from '@/components/magicui/morphing-text';
-// import { MorphingText } from "@/components/magicui/morphing-text";
 
 interface AboutUsSectionProps {
   devMode: boolean;
@@ -19,18 +17,6 @@ export default function AboutUsSection({ devMode }: AboutUsSectionProps) {
         viewport={{ once: true }}
         className="max-w-7xl mx-auto px-4 text-center"
       >
-        {/* <MorphingText texts={['About us', 'Greencode', 'Your Next', 'Innovative', 'Secure', 'User-friendly', 'Digital Solutions', ]} /> */}
-        {/* <motion.h2
-          className="text-4xl md:text-5xl font-bold text-primary text-center mb-12"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          About Us
-        </motion.h2> */}
-        {/* <p className="text-lg mt-10">
-            Greencode is a passionate team dedicated to delivering innovative, secure, and user-friendly digital solutions. We specialize in web and mobile app development, AI automation, Marketing campaigns and much more.
-        </p> */}
         {devMode && (
           <DevModeTooltip
             content="This section uses server-side rendering for SEO and Framer Motion for scroll animations."

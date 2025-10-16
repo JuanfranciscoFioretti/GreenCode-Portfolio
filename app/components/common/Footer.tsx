@@ -8,9 +8,9 @@ export default function Footer() {
         <Image src={LOGOS.primary} alt="Sostentia Logo" width={120} height={40} />
         <p className="mt-4">© 2025 Sostentia. All rights reserved.</p>
         <div className="flex justify-center space-x-4 mt-4">
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--tertiary-color)]">Twitter</a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--tertiary-color)]">LinkedIn</a>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--tertiary-color)]">GitHub</a>
+          <a href="https://www.instagram.com/sostentia/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--tertiary-color)]">Instagram</a>
+          <a href="https://www.linkedin.com/company/sostentia/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--tertiary-color)]">LinkedIn</a>
+          <a href="https://github.com/JuanfranciscoFioretti" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--tertiary-color)]">GitHub</a>
         </div>
       </div>
     </footer>
