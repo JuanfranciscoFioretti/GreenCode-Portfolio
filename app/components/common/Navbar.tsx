@@ -50,7 +50,7 @@ export default function Navbar() {
           <div className="flex justify-between h-16">
             <div className="flex items-center">
               {/* <Image src={LOGOS.primary} alt="Sostentia Logo" width={70} height={40} priority /> */}
-              <div className="w-40 h-20 bg-no-repeat bg-contain" style={{ backgroundImage: 'var(--primary-logo)' }}/>
+              {/* <div className="w-40 h-20 bg-no-repeat bg-contain" style={{ backgroundImage: 'var(--primary-logo)' }}/> */}
             </div>
             <div className="hidden md:flex space-x-8 items-center">
               <a href="#services" className="text-primary hover:text-accent text-[16px]">Services</a>

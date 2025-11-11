@@ -105,14 +105,36 @@ export const HeroParallax = ({
 export const Header = () => {
   return (
     <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
-      <h1 className="text-5xl md:text-7xl font-bold dark:text-white">
-        The Ultimate <br /> Development Studio
-      </h1>
-      <p className="max-w-2xl text-lg md:text-2xl mt-8 dark:text-neutral-200">
-        We build beautiful products with the latest technologies and frameworks.
-        We are a team of passionate developers and designers that love to build
-        amazing products.
-      </p>
+      <div className="flex justify-end">
+        <div className="text-right">
+          <motion.h1 
+            className="text-5xl md:text-7xl font-bold dark:text-white"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ 
+              duration: 0.8, 
+              ease: "easeOut",
+              delay: 0.2 
+            }}
+          >
+            The Ultimate <br /> Development Studio
+          </motion.h1>
+          <motion.p 
+            className="max-w-2xl text-lg md:text-2xl mt-8 dark:text-neutral-200 ml-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ 
+              duration: 0.8, 
+              ease: "easeOut",
+              delay: 0.6 
+            }}
+          >
+            We build beautiful products with the latest technologies and frameworks.
+            We are a team of passionate developers and designers that love to build
+            amazing products.
+          </motion.p>
+        </div>
+      </div>
     </div>
   );
 };
