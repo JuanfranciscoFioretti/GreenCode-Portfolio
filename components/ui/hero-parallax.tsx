@@ -1,12 +1,13 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import {
   motion,
   useScroll,
   useTransform,
   useSpring,
   MotionValue,
-} from "motion/react";
+} from "framer-motion";
 // import { Image } from "lucide-react";
 
 
@@ -58,7 +59,8 @@ export const HeroParallax = ({
   return (
     <div
       ref={ref}
-      className="h-[300vh] py-20 overflow-hidden mt-10  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[300vh] py-20 overflow-hidden mt-10 antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      style={{ willChange: 'transform' }}
     >
       <Header />
       <motion.div
@@ -67,6 +69,7 @@ export const HeroParallax = ({
           rotateZ,
           translateY,
           opacity,
+          willChange: 'transform, opacity'
         }}
         className=""
       >
@@ -154,6 +157,7 @@ export const ProductCard = ({
       style={{
         x: translate,
         boxShadow: "0 10px 20px rgba(0,0,0,0.4)",
+        willChange: 'transform'
       }}
       whileHover={{
         y: -10,
@@ -166,20 +170,15 @@ export const ProductCard = ({
         target="_blank"
         className="block group-hover/product:shadow-2xl "
       >
-        <motion.img
+        <Image
           src={product.thumbnail}
-          height="600"
-          width="600"
-          className="object-cover absolute h-full w-full inset-0 rounded-2xl"
           alt={product.title}
+          fill
+          sizes="(max-width: 768px) 100vw, 30rem"
+          className="object-cover rounded-2xl"
+          quality={85}
+          priority={false}
         />
-        {/* <Image
-  src={product.thumbnail}
-  alt={product.title}
-  layout="responsive"
-  width={600}
-  height={600}
-/> */}
       </a>
       <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-30 bg-black pointer-events-none rounded-2xl"></div>
       <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">

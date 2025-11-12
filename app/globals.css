@@ -225,3 +225,40 @@
   }
 }
 
+/* Performance optimizations */
+@layer base {
+  /* Hardware acceleration for animations */
+  .animate-meteor-effect,
+  [class*="animate-"] {
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  /* Smooth scrolling with performance */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* GPU acceleration for common animated elements */
+  motion-div,
+  [data-motion-div] {
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* Optimize images */
+  img {
+    content-visibility: auto;
+  }
+}

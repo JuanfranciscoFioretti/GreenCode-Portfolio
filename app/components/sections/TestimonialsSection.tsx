@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import DevModeTooltip from '../common/DevModeTooltip';
 import { TESTIMONIALS } from '../../lib/constants';
@@ -91,15 +92,22 @@ export default function TestimonialsSection({ devMode }: TestimonialsSectionProp
                   </div>
                   
                   <div className="flex items-center mt-4">
-                    <motion.img
-                      src={testimonial.url}
-                      alt={testimonial.name}
-                      className="w-10 h-10 rounded-full object-cover ring-2 ring-[var(--glass-border)] group-hover:ring-[var(--accent)]/50 transition-all duration-500"
+                    <motion.div
+                      className="relative w-10 h-10 rounded-full ring-2 ring-[var(--glass-border)] group-hover:ring-[var(--accent)]/50 transition-all duration-500 overflow-hidden"
                       whileHover={{ 
                         scale: 1.1,
                         transition: { duration: 0.3, ease: "easeOut" }
                       }}
-                    />
+                    >
+                      <Image
+                        src={testimonial.url}
+                        alt={testimonial.name}
+                        fill
+                        sizes="40px"
+                        className="object-cover"
+                        quality={90}
+                      />
+                    </motion.div>
                     <div className="ml-3">
                       <motion.h4 
                         className="text-sm font-semibold text-foreground"

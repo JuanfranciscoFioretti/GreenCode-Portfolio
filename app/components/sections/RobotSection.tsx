@@ -23,12 +23,12 @@ export function RobotSection() {
           <div className="max-w-lg lg:max-w-2xl pointer-events-auto">
             <motion.h1 
               className="text-5xl md:text-5xl lg:text-6xl font-bold text-[color:var(--text-dark)] opacity-90"
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 0.9, y: 0 }}
               transition={{ 
-                duration: 0.8, 
-                ease: "easeOut",
-                delay: 0.2 
+                duration: 1.2, 
+                ease: [0.25, 0.1, 0.25, 1],
+                delay: 0.1 
               }}
             >
                 {/* Innovate, Transform<br /> & Succeed Digitally */}
@@ -36,12 +36,12 @@ export function RobotSection() {
             </motion.h1>
             <motion.p 
               className="max-w-2xl text-lg md:text-2xl mt-8 text-[color:var(--text-dark)] opacity-85"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 0.85, y: 0 }}
               transition={{ 
-                duration: 0.8, 
-                ease: "easeOut",
-                delay: 0.6 
+                duration: 1.2, 
+                ease: [0.25, 0.1, 0.25, 1],
+                delay: 0.4 
               }}
             >
                 At Sostentia we turn ideas into custom software, mobile apps, AI automations, marketing campaigns, and cybersecurity analysis to drive your business forward.

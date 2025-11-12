@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import React, { HTMLAttributes, useMemo } from "react";
 import { cn } from "@/lib/utils";
 
@@ -82,6 +82,7 @@ const LightRay = React.memo<LightRayProps>(
             "--ray-opacity": opacity,
             "--ray-blur": `${blurAmount}px`,
             "--ray-rotation": `${rotation}deg`,
+            willChange: 'transform, opacity'
           } as React.CSSProperties
         }
         animate={{
@@ -111,12 +112,14 @@ const LightRay = React.memo<LightRayProps>(
   },
 );
 
+LightRay.displayName = 'LightRay';
+
 export const GridBeams: React.FC<GridBeamsProps> = ({
   children,
   className,
   gridSize = 40,
   gridColor = "rgba(200, 220, 255, 0.1)",
-  rayCount = 12,
+  rayCount = 8,
   rayOpacity = 0.25,
   raySpeed = 1,
   rayLength = "60vh",
