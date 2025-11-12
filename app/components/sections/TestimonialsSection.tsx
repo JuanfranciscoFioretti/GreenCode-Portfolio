@@ -47,57 +47,44 @@ export default function TestimonialsSection({ devMode }: TestimonialsSectionProp
             <motion.div
               key={index}
               className="relative w-full max-w-[400px] lg:max-w-[320px]"
-              initial={{ opacity: 0, y: 60 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ 
-                duration: 0.8, 
-                ease: "easeOut", 
-                delay: index * 0.15 
+                duration: 0.5, 
+                ease: [0.25, 0.1, 0.25, 1], 
+                delay: index * 0.1 
               }}
-              viewport={{ once: true }}
-              whileHover={{ 
-                y: -8,
-                transition: { duration: 0.3, ease: "easeOut" }
-              }}
+              viewport={{ once: true, margin: "-50px" }}
             >
               {/* Card container con overflow-hidden para Meteors */}
-              <motion.div 
-                className="relative h-[220px] lg:h-[200px] overflow-hidden rounded-2xl border border-[var(--glass-border)] --background-gradient backdrop-blur-sm p-6 group cursor-pointer transition-all duration-500 shadow-lg hover:scale-105 hover:shadow-xl"
-                whileHover={{ 
-                  scale: 1.02,
-                  transition: { duration: 0.4, ease: "easeOut" }
-                }}
+              <div 
+                className="relative h-[220px] lg:h-[200px] overflow-hidden rounded-2xl border border-[var(--glass-border)] --background-gradient backdrop-blur-sm p-6 group cursor-pointer shadow-lg transition-all duration-200 ease-out hover:-translate-y-2 hover:shadow-xl"
+                style={{ willChange: 'transform' }}
               >
                 
                 {/* Efecto hover con gradiente */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-[var(--accent)]/20 via-purple-500/10 to-[var(--highlight)]/20 opacity-0 group-hover:opacity-100 transition-all duration-500"
+                <div
+                  className="absolute inset-0 bg-gradient-to-br from-[var(--accent)]/20 via-purple-500/10 to-[var(--highlight)]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                   style={devMode ? { background: '#20c0705b' } : {}}
                 />
                 
                 {/* Meteors effect - CLAVE: debe estar dentro del contenedor con overflow-hidden */}
-                <Meteors number={12} />
+                <Meteors number={8} />
                 
                 {/* Contenido de la card */}
                 <div className="relative z-10 h-full flex flex-col justify-between">
                   <div className="flex-1">
-                    <motion.p 
-                      className="text-sm lg:text-[13px] leading-relaxed text-foreground/90 mb-4 line-clamp-3 group-hover:text-[var(--primary)] transition-colors duration-300"
-                      initial={{ opacity: 0.8 }}
-                      whileHover={{ opacity: 1 }}
-                      transition={{ duration: 0.3 }}
+                    <p 
+                      className="text-sm lg:text-[13px] leading-relaxed text-foreground/90 mb-4 line-clamp-3 group-hover:text-[var(--primary)] transition-colors duration-200"
                     >
                       {testimonial.text}
-                    </motion.p>
+                    </p>
                   </div>
                   
                   <div className="flex items-center mt-4">
-                    <motion.div
-                      className="relative w-10 h-10 rounded-full ring-2 ring-[var(--glass-border)] group-hover:ring-[var(--accent)]/50 transition-all duration-500 overflow-hidden"
-                      whileHover={{ 
-                        scale: 1.1,
-                        transition: { duration: 0.3, ease: "easeOut" }
-                      }}
+                    <div
+                      className="relative w-10 h-10 rounded-full ring-2 ring-[var(--glass-border)] group-hover:ring-[var(--accent)]/50 transition-all duration-200 overflow-hidden group-hover:scale-110"
+                      style={{ willChange: 'transform' }}
                     >
                       <Image
                         src={testimonial.url}
@@ -107,28 +94,22 @@ export default function TestimonialsSection({ devMode }: TestimonialsSectionProp
                         className="object-cover"
                         quality={90}
                       />
-                    </motion.div>
+                    </div>
                     <div className="ml-3">
-                      <motion.h4 
+                      <h4 
                         className="text-sm font-semibold text-foreground"
-                        initial={{ opacity: 0.9 }}
-                        whileHover={{ opacity: 1 }}
-                        transition={{ duration: 0.3 }}
                       >
                         {testimonial.name}
-                      </motion.h4>
-                      <motion.p 
+                      </h4>
+                      <p 
                         className="text-xs text-[var(--text-light)]"
-                        initial={{ opacity: 0.7 }}
-                        whileHover={{ opacity: 0.9 }}
-                        transition={{ duration: 0.3 }}
                       >
                         {testimonial.title}
-                      </motion.p>
+                      </p>
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </motion.div>
           ))}
         </div>

@@ -94,119 +94,138 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Verificar variables de entorno
-    if (!process.env.RESEND_API_KEY || !process.env.EMAIL_RECEIVER) {
-      console.error('Email configuration missing');
+    // Verify required environment variables
+    if (!process.env.RESEND_API_KEY || !process.env.EMAIL_RECEIVER || !process.env.EMAIL_FROM) {
+      console.error('Email configuration missing: RESEND_API_KEY, EMAIL_RECEIVER, and EMAIL_FROM are required');
       return NextResponse.json(
-        { success: false, error: 'Server configuration error' },
+        { success: false, error: 'Server configuration error: missing email settings. Please set RESEND_API_KEY, EMAIL_RECEIVER, and EMAIL_FROM.' },
         { status: 500 }
       );
     }
 
-    // Enviar email principal (para ti)
+    // Send main email (to site owner)
     const mainEmailResult = await resend.emails.send({
-      from: process.env.EMAIL_FROM || 'contacto@tudominio.com', // Debe ser un dominio verificado en Resend
-      to: [process.env.EMAIL_RECEIVER!], // Tu email donde quieres recibir los mensajes
-      subject: `Nuevo mensaje de contacto de ${sanitizedData.name}`,
+      from: process.env.EMAIL_FROM, // Must be a verified sender in Resend
+      to: [process.env.EMAIL_RECEIVER!],
+      subject: `New contact message from ${sanitizedData.name}`,
       html: `
-        <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; background: #f8fafc;">
-          <div style="background: linear-gradient(135deg, #00FF66, #FF00FF); padding: 1px; border-radius: 12px;">
-            <div style="background: white; border-radius: 11px; padding: 40px;">
-              <h1 style="color: #1a202c; margin: 0 0 30px 0; font-size: 28px; font-weight: bold; text-align: center;">
-                Nuevo Mensaje de Contacto 🚀
-              </h1>
-              
-              <div style="background: #f7fafc; padding: 25px; border-radius: 10px; margin: 25px 0; border-left: 4px solid #00FF66;">
-                <h2 style="color: #2d3748; margin: 0 0 15px 0; font-size: 18px;">Información del Contacto:</h2>
-                <p style="margin: 8px 0; color: #4a5568;"><strong>Nombre:</strong> ${sanitizedData.name}</p>
-                <p style="margin: 8px 0; color: #4a5568;"><strong>Email:</strong> <a href="mailto:${sanitizedData.email}" style="color: #00FF66; text-decoration: none;">${sanitizedData.email}</a></p>
-                <p style="margin: 8px 0; color: #4a5568;"><strong>Fecha:</strong> ${new Date().toLocaleDateString('es-ES')} a las ${new Date().toLocaleTimeString('es-ES')}</p>
-              </div>
-              
-              <div style="background: #fff; padding: 25px; border: 2px solid #e2e8f0; border-radius: 10px;">
-                <h2 style="color: #2d3748; margin: 0 0 15px 0; font-size: 18px;">Mensaje:</h2>
-                <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; border-left: 3px solid #FF00FF;">
-                  <p style="line-height: 1.6; color: #4a5568; white-space: pre-wrap; margin: 0;">${sanitizedData.message}</p>
+        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; max-width:700px; margin:0 auto; background:#f5f7fb; color:#102a43;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+            <tr>
+              <td style="padding:24px; text-align:center;">
+                <div style="display:inline-block; padding:12px 20px; background:linear-gradient(90deg,#0ea5a7,#7c3aed); border-radius:8px; color:#fff; font-weight:600; letter-spacing:0.2px;">New Contact</div>
+              </td>
+            </tr>
+            <tr>
+              <td style="background:#ffffff; padding:28px; border-radius:12px; box-shadow:0 6px 18px rgba(16,42,67,0.06);">
+                <h1 style="margin:0 0 12px 0; font-size:20px; color:#0b2447;">You have received a new message</h1>
+                <p style="margin:0 0 18px 0; color:#334e68;">Below are the details submitted through the contact form:</p>
+
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:18px 0;">
+                  <tr>
+                    <td style="padding:8px 0; font-weight:600; width:120px; color:#102a43;">Name</td>
+                    <td style="padding:8px 0; color:#334e68;">${sanitizedData.name}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:8px 0; font-weight:600; color:#102a43;">Email</td>
+                    <td style="padding:8px 0; color:#334e68;"><a href="mailto:${sanitizedData.email}" style="color:#0ea5a7; text-decoration:none;">${sanitizedData.email}</a></td>
+                  </tr>
+                  <tr>
+                    <td style="padding:8px 0; font-weight:600; color:#102a43;">Date</td>
+                    <td style="padding:8px 0; color:#334e68;">${new Date().toLocaleString('en-GB')}</td>
+                  </tr>
+                </table>
+
+                <div style="background:#f8fafc; border-left:4px solid #7c3aed; padding:16px; border-radius:8px; color:#334e68;">
+                  <strong style="display:block; margin-bottom:8px; color:#0b2447;">Message</strong>
+                  <div style="white-space:pre-wrap; line-height:1.55;">${sanitizedData.message}</div>
                 </div>
-              </div>
-              
-              <div style="margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #e6fffa, #f0fff4); border-radius: 10px; text-align: center;">
-                <p style="margin: 0; color: #2d3748; font-size: 14px;">
-                  📧 <strong>Responder:</strong> Puedes responder directamente a este email para contactar al usuario.
-                </p>
-                <p style="margin: 5px 0 0 0; color: #718096; font-size: 12px;">
-                  ID de mensaje: ${Date.now()}-${Math.random().toString(36).substring(2, 9)}
-                </p>
-              </div>
-            </div>
-          </div>
+
+                <div style="margin-top:22px; text-align:left;">
+                  <p style="margin:0; color:#334e68;">Reply to the sender by clicking the email address or using your usual reply workflow.</p>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:18px 0 0 0; text-align:center; color:#6b7280; font-size:12px;">
+                <div style="display:inline-block; padding:10px 14px; background:#ffffff; border-radius:8px;">Message ID: ${Date.now()}-${Math.random().toString(36).substring(2,9)}</div>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:18px 0 50px 0; text-align:center; color:#9aa3b2; font-size:12px;">
+                Sent by your website contact form
+              </td>
+            </tr>
+          </table>
         </div>
       `,
       replyTo: sanitizedData.email,
     });
 
-    // Enviar email de confirmación al usuario
+    // Send confirmation email to the user
     const confirmationEmailResult = await resend.emails.send({
-      from: process.env.EMAIL_FROM || 'noreply@tudominio.com',
+      // Must be a verified sender in Resend
+      from: process.env.EMAIL_FROM,
       to: [sanitizedData.email],
-      subject: '✅ Confirmación: Hemos recibido tu mensaje',
+      subject: 'Thank you — we received your message',
+      // Plain-text alternative helps deliverability for some clients
+      text: `Thanks ${sanitizedData.name},\n\nWe received your message and will get back to you as soon as possible.\n\nYour message:\n${sanitizedData.message}\n\nIf you don't hear from us within 48 hours, please check your spam folder.`,
       html: `
-        <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto;">
-          <div style="background: linear-gradient(135deg, #00FF66, #FF00FF); padding: 1px; border-radius: 12px;">
-            <div style="background: white; border-radius: 11px; padding: 40px; text-align: center;">
-              <div style="background: linear-gradient(135deg, #00FF66, #00d9f4); width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 30px auto; display: flex; align-items: center; justify-content: center;">
-                <span style="color: white; font-size: 40px; font-weight: bold;">✓</span>
-              </div>
-              
-              <h1 style="color: #1a202c; margin: 0 0 20px 0; font-size: 28px; font-weight: bold;">
-                ¡Gracias por contactarnos! 🎉
-              </h1>
-              
-              <p style="color: #4a5568; font-size: 16px; line-height: 1.6; margin-bottom: 30px;">
-                Hola <strong style="color: #00FF66;">${sanitizedData.name}</strong>, hemos recibido tu mensaje correctamente. 
-                Te responderemos lo antes posible.
-              </p>
-              
-              <div style="background: #f7fafc; padding: 25px; border-radius: 10px; margin: 30px 0; text-align: left; border-left: 4px solid #FF00FF;">
-                <h3 style="margin: 0 0 15px 0; color: #2d3748; font-size: 16px;">Resumen de tu mensaje:</h3>
-                <p style="color: #718096; font-style: italic; line-height: 1.5; margin: 0; white-space: pre-wrap;">"${sanitizedData.message}"</p>
-              </div>
-              
-              <div style="background: linear-gradient(135deg, #f0f9ff, #e0f2fe); padding: 20px; border-radius: 10px; margin: 30px 0;">
-                <h3 style="color: #0369a1; margin: 0 0 10px 0; font-size: 16px;">¿Qué sigue ahora?</h3>
-                <ul style="color: #0369a1; text-align: left; margin: 0; padding-left: 20px;">
-                  <li style="margin-bottom: 5px;">Revisaremos tu mensaje en las próximas horas</li>
-                  <li style="margin-bottom: 5px;">Te responderemos directamente a este email</li>
-                  <li>Si es urgente, también puedes contactarnos por otros medios</li>
-                </ul>
-              </div>
-              
-              <div style="margin-top: 40px; padding: 20px; background: #fff3cd; border-radius: 8px; border: 1px solid #ffeaa7;">
-                <p style="margin: 0; color: #856404; font-size: 14px;">
-                  💡 <strong>Tip:</strong> Revisa tu bandeja de spam por si nuestra respuesta llega ahí.
-                  Agrega nuestro email a tu lista de contactos para evitarlo.
-                </p>
-              </div>
-              
-              <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
-                <p style="color: #a0aec0; font-size: 12px; margin: 0;">
-                  Si no enviaste este mensaje, por favor ignora este email.
-                </p>
-                <p style="color: #a0aec0; font-size: 12px; margin: 5px 0 0 0;">
-                  Enviado el ${new Date().toLocaleDateString('es-ES')} a las ${new Date().toLocaleTimeString('es-ES')}
-                </p>
-              </div>
-            </div>
-          </div>
+        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; max-width:700px; margin:0 auto; background:#f7fafc; color:#102a43;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+            <tr>
+              <td style="padding:28px 24px 0 24px; text-align:center;">
+                <div style="width:72px; height:72px; margin:0 auto; border-radius:18px; background:linear-gradient(90deg,#0ea5a7,#7c3aed); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:28px;">✓</div>
+              </td>
+            </tr>
+            <tr>
+              <td style="background:#ffffff; padding:28px; border-radius:12px; box-shadow:0 6px 18px rgba(16,42,67,0.06); text-align:left;">
+                <h1 style="margin:0 0 12px 0; font-size:20px; color:#0b2447;">Thanks for reaching out!</h1>
+                <p style="margin:0 0 18px 0; color:#334e68;">Hi <strong style="color:#0ea5a7;">${sanitizedData.name}</strong>, we received your message and will get back to you as soon as possible.</p>
+
+                <div style="background:#f1f5f9; padding:16px; border-radius:8px; color:#334e68;">
+                  <strong style="display:block; margin-bottom:8px; color:#0b2447;">Your message</strong>
+                  <div style="white-space:pre-wrap; line-height:1.55;">"${sanitizedData.message}"</div>
+                </div>
+
+                <p style="margin:18px 0 0 0; color:#334e68;">If you don’t hear from us within 48 hours, please reply to this email or check your spam folder.</p>
+
+                <div style="margin-top:22px; padding-top:18px; border-top:1px solid #eef2f7; font-size:13px; color:#6b7280;">
+                  <div>Sent on ${new Date().toLocaleString('en-GB')}</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:18px 0 50px 0; text-align:center; color:#9aa3b2; font-size:12px;">
+                This is an automated confirmation from your website — please do not reply to this address.
+              </td>
+            </tr>
+          </table>
         </div>
       `,
     });
 
-    // Log en modo desarrollo
+    // Extract IDs from Resend response (SDK shapes may vary)
+    const extractId = (res: unknown) => {
+      if (!res || typeof res !== 'object') return null;
+      const r = res as Record<string, unknown>;
+      if (typeof r['id'] === 'string') return r['id'];
+      if (r['data'] && typeof r['data'] === 'object') {
+        const d = r['data'] as Record<string, unknown>;
+        if (typeof d['id'] === 'string') return d['id'];
+      }
+      return null;
+    };
+    const mainEmailId = extractId(mainEmailResult);
+    const confirmationEmailId = extractId(confirmationEmailResult);
+
+    // Log in debug mode
     if (process.env.DEBUG_MODE === 'true') {
       console.log('Emails sent successfully:', {
-        mainEmail: mainEmailResult.data?.id,
-        confirmationEmail: confirmationEmailResult.data?.id,
+        mainEmailResult,
+        confirmationEmailResult,
+        mainEmailId,
+        confirmationEmailId,
         from: sanitizedData.email,
         name: sanitizedData.name,
         timestamp: new Date().toISOString()
@@ -217,8 +236,8 @@ export async function POST(request: NextRequest) {
       success: true,
       message: 'Emails sent successfully',
       details: {
-        mainEmailId: mainEmailResult.data?.id,
-        confirmationEmailId: confirmationEmailResult.data?.id
+        mainEmailId,
+        confirmationEmailId
       }
     });
 
