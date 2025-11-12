@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   title: 'Sostentia - Software, Marketing & AI Automations',
   description: 'At Sostentia we turn ideas into custom software, mobile apps, AI automations, marketing campaigns, and cybersecurity analysis to drive your business forward.',
   keywords: 'software development, mobile apps, AI automations, marketing, cybersecurity, web development',
+  alternates: {
+    canonical: 'https://sostentia.com/',
+  },
   openGraph: {
     title: 'Sostentia - Digital Solutions',
     description: 'Custom software, AI automations, and marketing solutions for modern businesses.',
