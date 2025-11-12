@@ -123,6 +123,8 @@
   
   html {
     @apply w-full h-full overflow-x-hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* Offset for fixed navbar */
   }
   
   body {
@@ -137,6 +139,7 @@
   /* Section containers should be full width */
   section {
     @apply w-full;
+    scroll-margin-top: 5rem; /* Offset for sections */
   }
 }
 
