@@ -202,6 +202,89 @@ export default function Home() {
           })
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": "Angela F."
+            },
+            "reviewBody": "They revamped our software with a sleek, user-friendly design and strong security features. Great experience!",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5"
+            },
+            "itemReviewed": {
+              "@type": "Organization",
+              "name": "Sostentia"
+            }
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Review",
+            "author": {
+              "@type": "Organization",
+              "name": "Biogas Srl"
+            },
+            "reviewBody": "Their team built a stunning, intuitive app with robust security. They understood our vision and delivered excellent results.",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5"
+            },
+            "itemReviewed": {
+              "@type": "Organization",
+              "name": "Sostentia"
+            }
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Review",
+            "author": {
+              "@type": "Organization",
+              "name": "Altuvia App"
+            },
+            "reviewBody": "As a startup, we needed a partner to develop our mobile app with a focus on security and great user experience.",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5"
+            },
+            "itemReviewed": {
+              "@type": "Organization",
+              "name": "Sostentia"
+            }
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://sostentia.com/"
+              }
+            ]
+          })
+        }}
+      />
     </main>
   );
 }

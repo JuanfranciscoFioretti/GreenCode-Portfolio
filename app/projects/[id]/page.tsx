@@ -186,6 +186,55 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             </a>
           </footer>
         </article>
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sostentia.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Projects",
+                  "item": "https://sostentia.com/#projects"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": project.title,
+                  "item": `https://sostentia.com/projects/${params.id}`
+                }
+              ]
+            })
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "CreativeWork",
+              "name": project.title,
+              "description": project.description,
+              "url": `https://sostentia.com/projects/${params.id}`,
+              "image": `https://sostentia.com${project.image}`,
+              "creator": {
+                "@type": "Organization",
+                "name": "Sostentia"
+              },
+              "keywords": project.technologies.join(", "),
+              "sameAs": project.link
+            })
+          }}
+        />
       </div>
     </main>
   );
