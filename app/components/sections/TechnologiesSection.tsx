@@ -1,5 +1,6 @@
-'use client';
+"use client";
 
+import React, { memo } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { TECHNOLOGIES, TECHNOLOGIES2 } from '../../lib/constants';
@@ -9,41 +10,58 @@ interface TechnologiesSectionProps {
   devMode: boolean;
 }
 
-export default function TechnologiesSection({ devMode }: TechnologiesSectionProps) {
+function TechnologiesSection({ devMode }: TechnologiesSectionProps) {
+  // Duplicate lists only twice to reduce DOM nodes and still achieve a seamless loop
+  const listA = [...TECHNOLOGIES, ...TECHNOLOGIES];
+  const listB = [...TECHNOLOGIES2, ...TECHNOLOGIES2];
+
+  const rowStyle: React.CSSProperties = {
+    willChange: 'transform',
+    transform: 'translateZ(0)', // promote to its own layer
+  };
+
   return (
     <section id="technologies" className="w-full mt-10 bg-[var(--gradient-bg)]">
       <div className="relative overflow-hidden">
+        {/* Primary marquee (left-to-right) */}
         <motion.div
+          aria-hidden
           className="flex space-x-8"
-          animate={{ x: ['0%', '-100%'] }}
-          transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+          style={rowStyle}
+          animate={{ x: ['0%', '-50%'] }}
+          transition={{ duration: 28, repeat: Infinity, ease: 'linear' }}
         >
-          {[...TECHNOLOGIES, ...TECHNOLOGIES, ...TECHNOLOGIES].map((tech, index) => (
-            <div key={index} className="flex-shrink-0">
-              <Image src={tech.icon} alt={tech.name} width={80} height={80} />
-              {/* <p className="text-center mt-2">{tech.name}</p> */}
+          {listA.map((tech, index) => (
+            <div key={`a-${index}`} className="flex-shrink-0 flex items-center justify-center p-2">
+              <Image src={tech.icon} alt={tech.name} width={72} height={72} loading="lazy" />
             </div>
           ))}
         </motion.div>
+
+        {/* Secondary marquee (right-to-left) */}
         <motion.div
+          aria-hidden
           className="flex space-x-8 mt-8"
-          animate={{ x: ['-100%', '0%'] }}
-          transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+          style={rowStyle}
+          animate={{ x: ['-50%', '0%'] }}
+          transition={{ duration: 32, repeat: Infinity, ease: 'linear' }}
         >
-          {[...TECHNOLOGIES2, ...TECHNOLOGIES2, ...TECHNOLOGIES2].map((tech, index) => (
-            <div key={index} className="flex-shrink-0">
-              <Image src={tech.icon} alt={tech.name} width={80} height={80} />
-              {/* <p className="text-center mt-2">{tech.name}</p> */}
+          {listB.map((tech, index) => (
+            <div key={`b-${index}`} className="flex-shrink-0 flex items-center justify-center p-2">
+              <Image src={tech.icon} alt={tech.name} width={72} height={72} loading="lazy" />
             </div>
           ))}
         </motion.div>
       </div>
+
       {devMode && (
         <DevModeTooltip
-          content="This section uses Framer Motion for infinite horizontal scrolling animations."
+          content="This section uses a lightweight marquee implemented with Framer Motion and GPU-accelerated transforms."
           isVisible={devMode}
         />
       )}
     </section>
   );
 }
+
+export default memo(TechnologiesSection);

@@ -104,7 +104,7 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
       >
         Contact Us
       </motion.h2>
-      <div className="max-w-md mx-auto">
+  <div className="max-w-md mx-auto px-[5px] sm:px-0">
         <MagicCard
           className="p-8 rounded-2xl border border-1px border-[var(--glass-border)]"
           gradientSize={200}
