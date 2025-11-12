@@ -41,6 +41,11 @@ function RootContent({ children }: { children: React.ReactNode }) {
     <html lang="en" className={`${poppins.className} h-full`} data-theme={theme}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <meta name="robots" content="index, follow" />
+        <meta name="theme-color" content="#000000" />
         <meta name="description" content={metadata.description} />
         <meta name="keywords" content={metadata.keywords} />
         <meta property="og:title" content={metadata.openGraph.title} />
