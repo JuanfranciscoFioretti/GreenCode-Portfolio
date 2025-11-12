@@ -1,50 +1,76 @@
-'use client';
-
 // import { motion } from 'framer-motion';
-import TechnologiesSection from './components/sections/TechnologiesSection';
-import ServicesSection from './components/sections/ServicesSection';
-import ContactSection from './components/sections/ContactSection';
-import FAQSection from './components/sections/FAQSection';
-import AboutUsSection from './components/sections/AboutUsSection';
-import TestimonialsSection from './components/sections/TestimonialsSection';
+import { Metadata } from 'next';
+import ClientTechnologiesSection from './components/sections/ClientTechnologiesSection';
+import ClientServicesSection from './components/sections/ClientServicesSection';
+import ClientContactSection from './components/sections/ClientContactSection';
+import ClientFAQSection from './components/sections/ClientFAQSection';
+import ClientAboutUsSection from './components/sections/ClientAboutUsSection';
+import ClientTestimonialsSection from './components/sections/ClientTestimonialsSection';
 // import AnalyticsDashboard from './components/sections/AnalyticsDashboard';
-import { useDevMode } from './lib/DevModeContext';
 // import DevModeToggle from './components/common/DevModeToggle';
-import { HeroParallaxDemo } from './components/sections/HeroParallaxDemo';
-import { RobotSection } from './components/sections/RobotSection';
+import ClientHeroParallaxDemo from './components/sections/ClientHeroParallaxDemo';
+import ClientRobotSection from './components/sections/ClientRobotSection';
+
+export const metadata: Metadata = {
+  title: 'Sostentia - Software, Marketing & AI Automations',
+  description: 'At Sostentia we turn ideas into custom software, mobile apps, AI automations, marketing campaigns, and cybersecurity analysis to drive your business forward.',
+  keywords: 'software development, mobile apps, AI automations, marketing, cybersecurity, web development',
+  openGraph: {
+    title: 'Sostentia - Digital Solutions',
+    description: 'Custom software, AI automations, and marketing solutions for modern businesses.',
+    url: 'https://sostentia.com/',
+    siteName: 'Sostentia',
+    images: [
+      {
+        url: '/images/logo-primary-black.png',
+        width: 1200,
+        height: 630,
+        alt: 'Sostentia Portfolio',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sostentia - Software & AI Solutions',
+    description: 'Custom software development, AI automations, and digital marketing.',
+    images: ['/images/logo-primary-black.png'],
+  },
+};
 
 export default function Home() {
-  const { devMode } = useDevMode();
+  const devMode = false; // Default for server rendering
 
   return (
     <main className="w-full min-h-screen">
 
       <div className="w-full">
-        <RobotSection />
+        <ClientRobotSection />
       </div>
       
       <div className="w-full">
-        <HeroParallaxDemo />
+        <ClientHeroParallaxDemo />
       </div>
       
       <div className="w-full">
-        <ServicesSection />
+        <ClientServicesSection />
       </div>
 
       <div className="w-full">
-        <TechnologiesSection devMode={devMode} />
+        <ClientTechnologiesSection devMode={devMode} />
       </div>
       
       <div className="w-full">
-        <AboutUsSection devMode={devMode} />
+        <ClientAboutUsSection devMode={devMode} />
       </div>
       
       <div className="w-full">
-        <TestimonialsSection devMode={devMode} />
+        <ClientTestimonialsSection devMode={devMode} />
       </div>
       
       <div className="w-full">
-        <ContactSection devMode={devMode} />
+        <ClientContactSection devMode={devMode} />
       </div>
       
       {/* {!devMode && (
@@ -74,8 +100,31 @@ export default function Home() {
       )} */}
       
       <div className="w-full">
-        <FAQSection devMode={devMode} />
+        <ClientFAQSection devMode={devMode} />
       </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Sostentia",
+            "url": "https://sostentia.com/",
+            "logo": "https://sostentia.com/images/logo-primary-black.png",
+            "description": "Sostentia offers custom software development, mobile apps, AI automations, marketing campaigns, and cybersecurity analysis.",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+1-XXX-XXX-XXXX",
+              "contactType": "Customer Service",
+              "email": "info@sostentia.com"
+            },
+            "sameAs": [
+              "https://www.linkedin.com/company/sostentia",
+              "https://github.com/sostentia"
+            ]
+          })
+        }}
+      />
     </main>
   );
 }

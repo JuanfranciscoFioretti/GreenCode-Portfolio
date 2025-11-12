@@ -22,6 +22,9 @@ function TechnologiesSection({ devMode }: TechnologiesSectionProps) {
 
   return (
     <section id="technologies" className="w-full mt-10 bg-[var(--gradient-bg)]">
+      <div className="text-center py-10">
+        <h2 className="text-4xl md:text-5xl font-bold text-primary">Technologies We Use</h2>
+      </div>
       <div className="relative overflow-hidden">
         {/* Primary marquee (left-to-right) */}
         <motion.div
