@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: 'Sostentia',
     images: [
       {
-        url: '/images/logo-primary-black.png',
+        url: '/images/logo-primary-black.webp',
         width: 1200,
         height: 630,
         alt: 'Sostentia Portfolio',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Sostentia - Software & AI Solutions',
     description: 'Custom software development, AI automations, and digital marketing.',
-    images: ['/images/logo-primary-black.png'],
+    images: ['/images/logo-primary-black.webp'],
   },
 };
 
@@ -110,7 +110,7 @@ export default function Home() {
             "@type": "Organization",
             "name": "Sostentia",
             "url": "https://sostentia.com/",
-            "logo": "https://sostentia.com/images/logo-primary-black.png",
+            "logo": "https://sostentia.com/images/logo-primary-black.webp",
             "description": "Sostentia offers custom software development, mobile apps, AI automations, marketing campaigns, and cybersecurity analysis.",
             "contactPoint": {
               "@type": "ContactPoint",
@@ -122,6 +122,80 @@ export default function Home() {
               "https://www.linkedin.com/company/sostentia",
               "https://github.com/sostentia"
             ]
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is Sostentia?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sostentia is a premier full-stack development agency dedicated to crafting innovative, secure, and high-performance digital solutions tailored to meet the unique needs of our clients."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What services does Sostentia offer?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sostentia provides a wide range of services, including full-stack development, custom web and mobile application design, API integration, UX/UI optimization, ongoing maintenance and support, content creation, and security consulting, all tailored to enhance your digital presence and business efficiency."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How can I contact you?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "You can reach us conveniently through the contact form on our website, where our team will respond to your inquiry promptly and professionally."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What tech skills does Sostentia bring to the table?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "At Sostentia, we are skilled in a friendly mix of top-notch technologies like React, Node.js, MySQL, PostgreSQL, TypeScript, and Next.js, helping us create tailored, high-quality solutions that work great for our clients!"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can you provide custom solutions for my business?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Absolutely! At Sostentia, we proudly tailor our services to align with your unique business needs, ensuring a personalized and effective solution just for you."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What does the development process look like?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "At Sostentia, we utilize an agile methodology, fostering transparency and close collaboration with you at every step of the project to ensure a smooth and successful outcome."
+                }
+              }
+            ]
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Web Application Development",
+            "description": "Building scalable and secure web applications.",
+            "provider": {
+              "@type": "Organization",
+              "name": "Sostentia"
+            }
           })
         }}
       />

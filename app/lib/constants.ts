@@ -77,5 +77,5 @@ export const FAQS = [
 export const TESTIMONIALS = [
   { name: 'Angela F.', title: 'Business Owner', text: 'They revamped our software with a sleek, user-friendly design and strong security features. Great experience!', url:"/images/testimonials/user2.jpg" },
   { name: 'Biogas Srl', title: 'Founder', text: 'Their team built a stunning, intuitive app with robust security. They understood our vision and delivered excellent results.', url:"/images/testimonials/biogas.jpg" },
-  { name: 'Altuvia App', title: 'Project Manager', text: 'As a startup, we needed a partner to develop our mobile app with a focus on security and great user experience.', url:"/images/testimonials/altuvia.png" },
+  { name: 'Altuvia App', title: 'Project Manager', text: 'As a startup, we needed a partner to develop our mobile app with a focus on security and great user experience.', url:"/images/testimonials/altuvia.webp" },
  ];

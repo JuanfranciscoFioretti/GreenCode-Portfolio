@@ -15,7 +15,7 @@ const metadata = {
   description: 'Sostentia offers cutting-edge web and mobile app development, UX/UI design, and AI automations.',
   keywords: 'web development, mobile apps, UX/UI design, cybersecurity, AI automations, Greencode',
   icons: {
-    icon: '/images/Slogo.png',
+    icon: '/images/Slogo.webp',
   },
   openGraph: {
     title: 'Sostentia Portfolio',
@@ -24,7 +24,7 @@ const metadata = {
     siteName: 'Greencode',
     images: [
       {
-        url: '/images/logo-primary-black.png',
+        url: '/images/logo-primary-black.webp',
         width: 1200,
         height: 630,
         alt: 'Sostentia Portfolio Preview',

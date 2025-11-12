@@ -38,5 +38,66 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.9,
     },
+    // Proyectos
+    {
+      url: 'https://sostentia.com/projects/project1',
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.6,
+    },
+    {
+      url: 'https://sostentia.com/projects/project2',
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.6,
+    },
+    {
+      url: 'https://sostentia.com/projects/project3',
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.6,
+    },
+    {
+      url: 'https://sostentia.com/projects/project4',
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.6,
+    },
+    {
+      url: 'https://sostentia.com/projects/project5',
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.6,
+    },
+    {
+      url: 'https://sostentia.com/projects/project6',
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.6,
+    },
+    {
+      url: 'https://sostentia.com/projects/project7',
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.6,
+    },
+    {
+      url: 'https://sostentia.com/projects/project8',
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.6,
+    },
+    {
+      url: 'https://sostentia.com/projects/project9',
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.6,
+    },
+    {
+      url: 'https://sostentia.com/projects/project10',
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.6,
+    },
   ]
 }
