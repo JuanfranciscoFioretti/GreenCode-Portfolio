@@ -129,9 +129,8 @@ export const Header = () => {
               delay: 0.6 
             }}
           >
-            We build beautiful products with the latest technologies and frameworks.
-            We are a team of passionate developers and designers that love to build
-            amazing products.
+            We build high-performance web & mobile apps with modern frameworks.
+Our expert team of full-stack developers and UX designers delivers custom software solutions that drive growth.
           </motion.p>
         </div>
       </div>

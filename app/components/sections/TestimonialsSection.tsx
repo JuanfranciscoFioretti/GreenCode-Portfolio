@@ -20,18 +20,18 @@ export default function TestimonialsSection({ devMode }: TestimonialsSectionProp
         <div className="w-full flex justify-between items-center xl:flex-row flex-col mb-20 gap-8 xl:gap-0">
           <motion.h2
             className="text-6xl md:text-6xl font-bold text-foreground text-center lg:text-left"
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
           >
             What people are <br className="sm:block hidden" /> saying about us
           </motion.h2>
           <motion.div
             className="w-full lg:mt-0 lg:max-w-[450px] text-center lg:text-left"
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
             viewport={{ once: true }}
           >
             <p className="text-2xl text-foreground">
@@ -46,13 +46,27 @@ export default function TestimonialsSection({ devMode }: TestimonialsSectionProp
             <motion.div
               key={index}
               className="relative w-full max-w-[400px] lg:max-w-[320px]"
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+              transition={{ 
+                duration: 0.8, 
+                ease: "easeOut", 
+                delay: index * 0.15 
+              }}
               viewport={{ once: true }}
+              whileHover={{ 
+                y: -8,
+                transition: { duration: 0.3, ease: "easeOut" }
+              }}
             >
               {/* Card container con overflow-hidden para Meteors */}
-              <div className="relative h-[220px] lg:h-[200px] overflow-hidden rounded-2xl border border-[var(--glass-border)] --background-gradient backdrop-blur-sm p-6 group cursor-pointer transition-all duration-500 shadow-lg hover:scale-105 hover:shadow-xl">
+              <motion.div 
+                className="relative h-[220px] lg:h-[200px] overflow-hidden rounded-2xl border border-[var(--glass-border)] --background-gradient backdrop-blur-sm p-6 group cursor-pointer transition-all duration-500 shadow-lg hover:scale-105 hover:shadow-xl"
+                whileHover={{ 
+                  scale: 1.02,
+                  transition: { duration: 0.4, ease: "easeOut" }
+                }}
+              >
                 
                 {/* Efecto hover con gradiente */}
                 <motion.div
@@ -66,9 +80,14 @@ export default function TestimonialsSection({ devMode }: TestimonialsSectionProp
                 {/* Contenido de la card */}
                 <div className="relative z-10 h-full flex flex-col justify-between">
                   <div className="flex-1">
-                    <p className="text-sm lg:text-[13px] leading-relaxed text-foreground/90 mb-4 line-clamp-3 group-hover:text-[var(--primary)] transition-colors duration-300">
+                    <motion.p 
+                      className="text-sm lg:text-[13px] leading-relaxed text-foreground/90 mb-4 line-clamp-3 group-hover:text-[var(--primary)] transition-colors duration-300"
+                      initial={{ opacity: 0.8 }}
+                      whileHover={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                    >
                       {testimonial.text}
-                    </p>
+                    </motion.p>
                   </div>
                   
                   <div className="flex items-center mt-4">
@@ -76,19 +95,32 @@ export default function TestimonialsSection({ devMode }: TestimonialsSectionProp
                       src={testimonial.url}
                       alt={testimonial.name}
                       className="w-10 h-10 rounded-full object-cover ring-2 ring-[var(--glass-border)] group-hover:ring-[var(--accent)]/50 transition-all duration-500"
-                      whileHover={{ scale: 1.1 }}
+                      whileHover={{ 
+                        scale: 1.1,
+                        transition: { duration: 0.3, ease: "easeOut" }
+                      }}
                     />
                     <div className="ml-3">
-                      <h4 className="text-sm font-semibold text-foreground">
+                      <motion.h4 
+                        className="text-sm font-semibold text-foreground"
+                        initial={{ opacity: 0.9 }}
+                        whileHover={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                      >
                         {testimonial.name}
-                      </h4>
-                      <p className="text-xs text-[var(--text-light)]">
+                      </motion.h4>
+                      <motion.p 
+                        className="text-xs text-[var(--text-light)]"
+                        initial={{ opacity: 0.7 }}
+                        whileHover={{ opacity: 0.9 }}
+                        transition={{ duration: 0.3 }}
+                      >
                         {testimonial.title}
-                      </p>
+                      </motion.p>
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </div>

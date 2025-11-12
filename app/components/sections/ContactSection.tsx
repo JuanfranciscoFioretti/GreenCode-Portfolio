@@ -218,7 +218,7 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
                 rippleColor="#33BBCF"
                 disabled={isSubmitting}
               >
-                Send Message
+                Contact Us
               </RippleButton>
             </motion.form>
           )}

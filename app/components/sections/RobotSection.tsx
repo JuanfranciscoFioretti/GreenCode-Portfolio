@@ -31,7 +31,8 @@ export function RobotSection() {
                 delay: 0.2 
               }}
             >
-                Innovate, Transform<br /> & Succeed Digitally
+                {/* Innovate, Transform<br /> & Succeed Digitally */}
+                Software, Marketing<br /> & AI Automations
             </motion.h1>
             <motion.p 
               className="max-w-2xl text-lg md:text-2xl mt-8 text-[color:var(--text-dark)] opacity-85"
@@ -43,7 +44,7 @@ export function RobotSection() {
                 delay: 0.6 
               }}
             >
-                In Sostentia we transform ideas into reality with custom web, mobile, and automation solutions, delivering innovative technology to power your business forward.
+                At Sostentia we turn ideas into custom software, mobile apps, AI automations, marketing campaigns, and cybersecurity analysis to drive your business forward.
             </motion.p>
           </div>
         </div>          {/* Bottom gradient effects */}
