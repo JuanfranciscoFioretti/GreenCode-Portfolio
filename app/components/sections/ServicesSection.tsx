@@ -45,7 +45,7 @@ export default function ServicesSection() {
                     secondColor: "var(--highlight-background)"
                   }}
                 >
-                  <div className="w-full h-full flex items-center justify-center p-8 md:p-6">
+                  <div className="w-full h-full flex items-center justify-center p-4 md:p-6">
                     <h3 className="pointer-events-none whitespace-pre-wrap bg-gradient-to-br from-[--accent] via-[--highlight] to-[--highlight-text-light] bg-clip-text text-center text-6xl md:text-6xl lg:text-6xl font-bold leading-[1.12] tracking-tighter text-transparent dark:drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)] pb-3">
                       {service.title}
                     </h3>
