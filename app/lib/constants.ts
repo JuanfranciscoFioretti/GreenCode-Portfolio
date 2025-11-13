@@ -50,7 +50,7 @@ export const SERVICES = [
 export const FAQS = [
   {
     question: 'What is Sostentia?',
-    answer: 'Sostentia is a premier full-stack development agency dedicated to crafting innovative, secure, and high-performance digital solutions tailored to meet the unique needs of our clients.',
+    answer: 'Sostentia is your **all-in-one digital growth partner**, delivering **custom web & mobile apps**, **AI-powered automations**, **high-impact SEO & marketing campaigns**, **enterprise-grade cybersecurity**, and **conversion-driven design**—everything your business needs to dominate online.',
   },
   {
     question: 'What services does Sostentia offer?',
