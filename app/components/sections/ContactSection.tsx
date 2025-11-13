@@ -97,15 +97,14 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
     <section id="contact" className="w-full py-20 bg-[var(--background-gradient)]">
       <motion.h2
         className="text-4xl md:text-5xl font-bold text-primary text-center mb-12"
-        initial={{ opacity: 0, transform: 'translateY(-20px)' }}
-        whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
-        animate={{ opacity: isSubmitted ? 0 : 1, transform: isSubmitted ? 'translateY(-20px)' : 'translateY(0px)' }}
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        animate={{ opacity: isSubmitted ? 0 : 1, y: isSubmitted ? -20 : 0 }}
         transition={{ duration: 0.5 }}
-        style={{ willChange: 'transform, opacity' }}
       >
         Contact Us
       </motion.h2>
-  <div className="max-w-md mx-auto px-[5px] sm:px-0">
+      <div className="max-w-md mx-auto">
         <MagicCard
           className="p-8 rounded-2xl border border-1px border-[var(--glass-border)]"
           gradientSize={200}

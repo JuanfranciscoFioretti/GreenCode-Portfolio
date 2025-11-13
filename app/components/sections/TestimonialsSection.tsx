@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import DevModeTooltip from '../common/DevModeTooltip';
 import { TESTIMONIALS } from '../../lib/constants';
@@ -21,21 +20,19 @@ export default function TestimonialsSection({ devMode }: TestimonialsSectionProp
         <div className="w-full flex justify-between items-center xl:flex-row flex-col mb-20 gap-8 xl:gap-0">
           <motion.h2
             className="text-6xl md:text-6xl font-bold text-foreground text-center lg:text-left"
-            initial={{ opacity: 0, transform: 'translateY(-30px)' }}
-            whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            style={{ willChange: 'transform, opacity' }}
           >
             What people are <br className="sm:block hidden" /> saying about us
           </motion.h2>
           <motion.div
             className="w-full lg:mt-0 lg:max-w-[450px] text-center lg:text-left"
-            initial={{ opacity: 0, transform: 'translateY(-30px)' }}
-            whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            style={{ willChange: 'transform, opacity' }}
           >
             <p className="text-2xl text-foreground">
               Everything you need to achieve your business goals and maximize growth all in one place.
@@ -49,64 +46,43 @@ export default function TestimonialsSection({ devMode }: TestimonialsSectionProp
             <motion.div
               key={index}
               className="relative w-full max-w-[400px] lg:max-w-[320px]"
-              initial={{ opacity: 0, transform: 'translateY(30px)' }}
-              whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
-              transition={{ 
-                duration: 0.5, 
-                ease: [0.25, 0.1, 0.25, 1], 
-                delay: index * 0.1 
-              }}
-              viewport={{ once: true, margin: "-50px" }}
-              style={{ willChange: 'transform, opacity' }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              viewport={{ once: true }}
             >
               {/* Card container con overflow-hidden para Meteors */}
-              <div 
-                className="relative h-[220px] lg:h-[200px] overflow-hidden rounded-2xl border border-[var(--glass-border)] --background-gradient backdrop-blur-sm p-6 group cursor-pointer shadow-lg transition-all duration-200 ease-out hover:-translate-y-2 hover:shadow-xl"
-                style={{ willChange: 'transform' }}
-              >
+              <div className="relative h-[220px] lg:h-[200px] overflow-hidden rounded-2xl border border-[var(--glass-border)] --background-gradient backdrop-blur-sm p-6 group cursor-pointer transition-all duration-500 shadow-lg hover:scale-105 hover:shadow-xl">
                 
                 {/* Efecto hover con gradiente */}
-                <div
-                  className="absolute inset-0 bg-gradient-to-br from-[var(--accent)]/20 via-purple-500/10 to-[var(--highlight)]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-br from-[var(--accent)]/20 via-purple-500/10 to-[var(--highlight)]/20 opacity-0 group-hover:opacity-100 transition-all duration-500"
                   style={devMode ? { background: '#20c0705b' } : {}}
                 />
                 
                 {/* Meteors effect - CLAVE: debe estar dentro del contenedor con overflow-hidden */}
-                <Meteors number={8} />
+                <Meteors number={12} />
                 
                 {/* Contenido de la card */}
                 <div className="relative z-10 h-full flex flex-col justify-between">
                   <div className="flex-1">
-                    <p 
-                      className="text-sm lg:text-[13px] leading-relaxed text-foreground/90 mb-4 line-clamp-3 group-hover:text-[var(--primary)] transition-colors duration-200"
-                    >
+                    <p className="text-sm lg:text-[13px] leading-relaxed text-foreground/90 mb-4 line-clamp-3 group-hover:text-[var(--primary)] transition-colors duration-300">
                       {testimonial.text}
                     </p>
                   </div>
                   
                   <div className="flex items-center mt-4">
-                    <div
-                      className="relative w-10 h-10 rounded-full ring-2 ring-[var(--glass-border)] group-hover:ring-[var(--accent)]/50 transition-all duration-200 overflow-hidden group-hover:scale-110"
-                      style={{ willChange: 'transform' }}
-                    >
-                      <Image
-                        src={testimonial.url}
-                        alt={testimonial.name}
-                        fill
-                        sizes="40px"
-                        className="object-cover"
-                        quality={90}
-                      />
-                    </div>
+                    <motion.img
+                      src={testimonial.url}
+                      alt={testimonial.name}
+                      className="w-10 h-10 rounded-full object-cover ring-2 ring-[var(--glass-border)] group-hover:ring-[var(--accent)]/50 transition-all duration-500"
+                      whileHover={{ scale: 1.1 }}
+                    />
                     <div className="ml-3">
-                      <h4 
-                        className="text-sm font-semibold text-foreground"
-                      >
+                      <h4 className="text-sm font-semibold text-foreground">
                         {testimonial.name}
                       </h4>
-                      <p 
-                        className="text-xs text-[var(--text-light)]"
-                      >
+                      <p className="text-xs text-[var(--text-light)]">
                         {testimonial.title}
                       </p>
                     </div>

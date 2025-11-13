@@ -1,6 +1,5 @@
-"use client";
+'use client';
 
-import React, { memo } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { TECHNOLOGIES, TECHNOLOGIES2 } from '../../lib/constants';
@@ -10,70 +9,41 @@ interface TechnologiesSectionProps {
   devMode: boolean;
 }
 
-function TechnologiesSection({ devMode }: TechnologiesSectionProps) {
-  // Duplicate lists three times to ensure seamless infinite loop
-  const listA = [...TECHNOLOGIES, ...TECHNOLOGIES, ...TECHNOLOGIES];
-  const listB = [...TECHNOLOGIES2, ...TECHNOLOGIES2, ...TECHNOLOGIES2];
-
-  const rowStyle: React.CSSProperties = {
-    willChange: 'transform',
-    transform: 'translateZ(0)', // promote to its own layer
-  };
-
+export default function TechnologiesSection({ devMode }: TechnologiesSectionProps) {
   return (
     <section id="technologies" className="w-full mt-10 bg-[var(--gradient-bg)]">
-      <div className="text-center py-10">
-        <motion.h2 
-          className="text-4xl md:text-5xl font-bold text-primary"
-          initial={{ opacity: 0, transform: 'translateY(30px)' }}
-          whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true }}
-          style={{ willChange: 'transform, opacity' }}
-        >
-          Technologies We Use
-        </motion.h2>
-      </div>
       <div className="relative overflow-hidden">
-        {/* Primary marquee (left-to-right) */}
         <motion.div
-          aria-hidden
           className="flex space-x-8"
-          style={rowStyle}
-          animate={{ x: ['0%', '-33.33%'] }}
-          transition={{ duration: 42, repeat: Infinity, ease: 'linear' }}
+          animate={{ x: ['0%', '-100%'] }}
+          transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
         >
-          {listA.map((tech, index) => (
-            <div key={`a-${index}`} className="flex-shrink-0 flex items-center justify-center p-2">
-              <Image src={tech.icon} alt={tech.name} width={72} height={72} loading="lazy" />
+          {[...TECHNOLOGIES, ...TECHNOLOGIES, ...TECHNOLOGIES].map((tech, index) => (
+            <div key={index} className="flex-shrink-0">
+              <Image src={tech.icon} alt={tech.name} width={80} height={80} />
+              {/* <p className="text-center mt-2">{tech.name}</p> */}
             </div>
           ))}
         </motion.div>
-
-        {/* Secondary marquee (right-to-left) */}
         <motion.div
-          aria-hidden
           className="flex space-x-8 mt-8"
-          style={rowStyle}
-          animate={{ x: ['-33.33%', '0%'] }}
-          transition={{ duration: 48, repeat: Infinity, ease: 'linear' }}
+          animate={{ x: ['-100%', '0%'] }}
+          transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
         >
-          {listB.map((tech, index) => (
-            <div key={`b-${index}`} className="flex-shrink-0 flex items-center justify-center p-2">
-              <Image src={tech.icon} alt={tech.name} width={72} height={72} loading="lazy" />
+          {[...TECHNOLOGIES2, ...TECHNOLOGIES2, ...TECHNOLOGIES2].map((tech, index) => (
+            <div key={index} className="flex-shrink-0">
+              <Image src={tech.icon} alt={tech.name} width={80} height={80} />
+              {/* <p className="text-center mt-2">{tech.name}</p> */}
             </div>
           ))}
         </motion.div>
       </div>
-
       {devMode && (
         <DevModeTooltip
-          content="This section uses a lightweight marquee implemented with Framer Motion and GPU-accelerated transforms."
+          content="This section uses Framer Motion for infinite horizontal scrolling animations."
           isVisible={devMode}
         />
       )}
     </section>
   );
 }
-
-export default memo(TechnologiesSection);

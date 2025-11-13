@@ -66,9 +66,9 @@ export default function HeroSection({ devMode }: HeroSectionProps) {
         <div className="mb-6">
           <Image src={LOGOS.primary} alt="Greencode Logo" width={200} height={80} priority />
         </div>
-        <h2 className="text-5xl md:text-[56px] font-bold mt-4">
+        <h1 className="text-5xl md:text-[56px] font-bold mt-4">
           Welcome to <AuroraText> {titleText} </AuroraText>
-        </h2>
+        </h1>
         <p className="text-lg md:text-[18px] text-secondary mt-4">
           Building innovative and secure digital solutions.
         </p>

@@ -194,15 +194,37 @@ section {
 }
 
 /* Fix autofill background */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0 1000px var(--glass-bg) inset;
-  box-shadow: 0 0 0 1000px var(--glass-bg) inset;
-  -webkit-text-fill-color: var(--primary);
+input.glassmorphism:-webkit-autofill,
+textarea.glassmorphism:-webkit-autofill {
+  background-color: #000000 !important;
+  -webkit-text-fill-color: white !important;
+  -webkit-box-shadow: 0 0 0px 1000px #000000 inset !important;
+  border: 1px solid #333 !important;
+}
+
+input.glassmorphism:-webkit-autofill:focus,
+textarea.glassmorphism:-webkit-autofill:focus {
+  background-color: #000000 !important;
+  -webkit-text-fill-color: white !important;
+  -webkit-box-shadow: 0 0 0px 1000px #000000 inset !important;
+  border: 1px solid #333 !important;
+}
+
+/* Light mode autofill */
+:root[data-theme="light"] input.glassmorphism:-webkit-autofill,
+:root[data-theme="light"] textarea.glassmorphism:-webkit-autofill {
+  background-color: white !important;
+  -webkit-text-fill-color: black !important;
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  border: 1px solid #ccc !important;
+}
+
+:root[data-theme="light"] input.glassmorphism:-webkit-autofill:focus,
+:root[data-theme="light"] textarea.glassmorphism:-webkit-autofill:focus {
+  background-color: white !important;
+  -webkit-text-fill-color: black !important;
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  border: 1px solid #ccc !important;
 }
 
 /* Utility classes for better responsive control */

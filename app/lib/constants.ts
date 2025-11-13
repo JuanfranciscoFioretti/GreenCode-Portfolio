@@ -1,8 +1,6 @@
 export const LOGOS = {
-  primary: '/images/logo-primary.png',
+  primary: '/images/logo-primary.webp',
 
-  secondary: '/images/logo-secondary.png',
-  tertiary: '/images/logo-tertiary.svg',
 };
 
 export const TECHNOLOGIES = [

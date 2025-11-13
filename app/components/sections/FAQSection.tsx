@@ -20,10 +20,9 @@ export default function FAQSection({ devMode }: FAQSectionProps) {
     <section id="faq" className="w-full py-20 bg-[var(--gradient-bg)]">
 <motion.h2
           className="text-4xl md:text-5xl font-bold text-primary text-center mb-12"
-          initial={{ opacity: 0, transform: 'translateY(-20px)' }}
-          whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          style={{ willChange: 'transform, opacity' }}
         >
           Frequently Asked Questions
         </motion.h2>      

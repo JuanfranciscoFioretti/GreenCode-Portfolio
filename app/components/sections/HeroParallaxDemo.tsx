@@ -21,7 +21,6 @@ export const products = [
     link: "https://nextjs-dashboard-theta-two-93.vercel.app/",
     thumbnail: "/images/projects/project3.webp",
   },
-
   {
     title: "Modern Landing Page",
     link: "https://bank-modern-app-two.vercel.app/",

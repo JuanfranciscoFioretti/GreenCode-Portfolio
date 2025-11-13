@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import Image from "next/image";
 import {
   motion,
   useScroll,
@@ -59,8 +58,7 @@ export const HeroParallax = ({
   return (
     <div
       ref={ref}
-      className="h-[300vh] py-20 overflow-hidden mt-10 antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
-      style={{ willChange: 'transform' }}
+      className="h-[300vh] py-20 overflow-hidden mt-10  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <Header />
       <motion.div
@@ -69,7 +67,6 @@ export const HeroParallax = ({
           rotateZ,
           translateY,
           opacity,
-          willChange: 'transform, opacity'
         }}
         className=""
       >
@@ -108,37 +105,14 @@ export const HeroParallax = ({
 export const Header = () => {
   return (
     <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
-      <div className="flex justify-end">
-        <div className="text-right">
-          <motion.h1 
-            className="text-5xl md:text-7xl font-bold dark:text-white"
-            initial={{ opacity: 0, transform: 'translateY(50px)' }}
-            animate={{ opacity: 1, transform: 'translateY(0px)' }}
-            transition={{ 
-              duration: 0.8, 
-              ease: "easeOut",
-              delay: 0.2 
-            }}
-            style={{ willChange: 'transform, opacity' }}
-          >
-            The Ultimate <br /> Development Studio
-          </motion.h1>
-          <motion.p 
-            className="max-w-2xl text-lg md:text-2xl mt-8 dark:text-neutral-200 ml-auto"
-            initial={{ opacity: 0, transform: 'translateY(30px)' }}
-            animate={{ opacity: 1, transform: 'translateY(0px)' }}
-            transition={{ 
-              duration: 0.8, 
-              ease: "easeOut",
-              delay: 0.6 
-            }}
-            style={{ willChange: 'transform, opacity' }}
-          >
-            We build high-performance web & mobile apps with modern frameworks.
-Our expert team of full-stack developers and UX designers delivers custom software solutions that drive growth.
-          </motion.p>
-        </div>
-      </div>
+      <h1 className="text-5xl md:text-7xl font-bold dark:text-white">
+        The Ultimate <br /> Development Studio
+      </h1>
+      <p className="max-w-2xl text-lg md:text-2xl mt-8 dark:text-neutral-200">
+        We build beautiful products with the latest technologies and frameworks.
+        We are a team of passionate developers and designers that love to build
+        amazing products.
+      </p>
     </div>
   );
 };
@@ -159,7 +133,6 @@ export const ProductCard = ({
       style={{
         x: translate,
         boxShadow: "0 10px 20px rgba(0,0,0,0.4)",
-        willChange: 'transform'
       }}
       whileHover={{
         y: -10,
@@ -172,15 +145,20 @@ export const ProductCard = ({
         target="_blank"
         className="block group-hover/product:shadow-2xl "
       >
-        <Image
+        <motion.img
           src={product.thumbnail}
+          height="600"
+          width="600"
+          className="object-cover absolute h-full w-full inset-0 rounded-2xl"
           alt={product.title}
-          fill
-          sizes="(max-width: 768px) 100vw, 30rem"
-          className="object-cover rounded-2xl"
-          quality={85}
-          priority={false}
         />
+        {/* <Image
+  src={product.thumbnail}
+  alt={product.title}
+  layout="responsive"
+  width={600}
+  height={600}
+/> */}
       </a>
       <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-30 bg-black pointer-events-none rounded-2xl"></div>
       <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">

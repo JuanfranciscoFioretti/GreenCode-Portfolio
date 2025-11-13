@@ -28,6 +28,7 @@
     "framer-motion": "^11.18.2",
     "isomorphic-dompurify": "^2.27.0",
     "lucide-react": "^0.542.0",
+    "motion": "^12.23.13",
     "next": "^14.2.3",
     "next-themes": "^0.4.6",
     "nodemailer": "^7.0.6",
@@ -51,7 +52,6 @@
     "autoprefixer": "^10.4.14",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.3",
-    "postcss": "^8.4.21",
-    "sharp": "^0.34.5"
+    "postcss": "^8.4.21"
   }
 }

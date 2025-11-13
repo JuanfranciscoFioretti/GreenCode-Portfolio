@@ -16,9 +16,9 @@ function MenuAnimation({ menuItems }: MenuAnimationProps) {
       {menuItems.map((item, index) => (
         <div key={index} className="group flex items-center gap-4">
           <ArrowRight className="size-10 -translate-x-full text-primary opacity-0 transition-all duration-300 ease-out hover:z-20 group-hover:translate-x-0 group-hover:text-accent group-hover:opacity-100" />
-          <div className="z-10 -translate-x-12 cursor-pointer font-mono font-semibold text-primary transition-transform duration-300 ease-out group-hover:translate-x-0 group-hover:text-accent text-6xl">
+          <h1 className="z-10 -translate-x-12 cursor-pointer font-mono font-semibold text-primary transition-transform duration-300 ease-out group-hover:translate-x-0 group-hover:text-accent text-6xl">
             {item}
-          </div>
+          </h1>
         </div>
       ))}
     </div>

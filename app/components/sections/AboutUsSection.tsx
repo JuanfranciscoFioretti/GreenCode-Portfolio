@@ -23,10 +23,6 @@ export default function AboutUsSection({ devMode }: AboutUsSectionProps) {
             isVisible={devMode}
           />
         )}
-        <h2 className="text-4xl md:text-5xl font-bold text-primary mb-8">About Us</h2>
-        <p className="text-lg text-secondary max-w-3xl mx-auto">
-          We are a team of passionate developers and designers dedicated to creating innovative digital solutions.
-        </p>
       </motion.div>
     </section>
   );

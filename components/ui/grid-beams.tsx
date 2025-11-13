@@ -73,7 +73,7 @@ const LightRay = React.memo<LightRayProps>(
   }) => {
     return (
       <motion.div
-        className="absolute pointer-events-none -top-[5%] left-[var(--ray-left)] w-[var(--ray-width)] h-[var(--ray-height)] origin-top mix-blend-screen bg-[linear-gradient(to_bottom,rgba(200,220,255,var(--ray-opacity)),rgba(200,220,255,0))] blur-[var(--ray-blur)] translate-x-[-50%] rotate-[var(--ray-rotation)]"
+        className="absolute pointer-events-none -top-[5%] left-[var(--ray-left)] w-[var(--ray-width)] h-[var(--ray-height)] origin-top mix-blend-screen bg-[linear-gradient(to_bottom,rgba(200,220,255,var(--ray-opacity)),rgba(200,220,255,0))] blur-[var(--ray-blur)] transform -translate-x-1/2 rotate-[var(--ray-rotation)]"
         style={
           {
             "--ray-left": left,
@@ -82,15 +82,14 @@ const LightRay = React.memo<LightRayProps>(
             "--ray-opacity": opacity,
             "--ray-blur": `${blurAmount}px`,
             "--ray-rotation": `${rotation}deg`,
-            willChange: 'transform, opacity'
           } as React.CSSProperties
         }
         animate={{
           opacity: [0.3, 0.7, 0.3],
           transform: [
-            `translateX(-50%) rotate(${rotation}deg)`,
-            `translateX(-50%) rotate(${rotation + (isStrongerSway ? 1 : 0.5)}deg)`,
-            `translateX(-50%) rotate(${rotation}deg)`,
+            `rotate(${rotation}deg)`,
+            `rotate(${rotation + (isStrongerSway ? 1 : 0.5)}deg)`,
+            `rotate(${rotation}deg)`,
           ],
         }}
         transition={{
@@ -112,14 +111,14 @@ const LightRay = React.memo<LightRayProps>(
   },
 );
 
-LightRay.displayName = 'LightRay';
+LightRay.displayName = "LightRay";
 
 export const GridBeams: React.FC<GridBeamsProps> = ({
   children,
   className,
   gridSize = 40,
   gridColor = "rgba(200, 220, 255, 0.1)",
-  rayCount = 8,
+  rayCount = 12,
   rayOpacity = 0.25,
   raySpeed = 1,
   rayLength = "60vh",

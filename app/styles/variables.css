@@ -1,5 +1,5 @@
 :root {
-  --primary-logo: url('../../public/images/logo-primary.png');
+  --primary-logo: url('../../public/images/logo-primary.webp');
   --background: #010101;
   --background-gradient: radial-gradient(circle at top left, #040405 0%, #010102 100%);
   --primary: #FFFFFF;
@@ -22,7 +22,7 @@
 }
 
 [data-theme="light"] {
-  --primary-logo: url('../../public/images/logo-primary-black.png');
+  --primary-logo: url('../../public/images/logo-primary-black.webp');
   --background: #fdfdfd;
   --background-gradient: radial-gradient(circle at top left, #ffffff 0%, #ffffff 100%);
   --primary: #1f2937;
