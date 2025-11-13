@@ -12,6 +12,7 @@ import { sanitizeInput } from '../../../lib/sanitize';
 import { trackFormSubmission } from '../../lib/analytics';
 import DevModeTooltip from '../common/DevModeTooltip';
 import LoadingSkeleton from '../common/LoadingSkeleton';
+import { useTheme } from '../../lib/ThemeContext';
 
 interface ContactSectionProps {
   devMode: boolean;
@@ -29,6 +30,7 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const { theme } = useTheme();
 
   const {
     register,
@@ -106,7 +108,7 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
       </motion.h2>
       <div className="max-w-md mx-auto">
         <MagicCard
-          className="p-8 rounded-2xl border border-1px border-[var(--glass-border)]"
+          className="p-8 rounded-2xl border border-1px border-[var(--glass-border)] min-h-[400px]"
           gradientSize={200}
           gradientFrom="#00FF66"
           gradientTo="#FF00FF"
@@ -125,14 +127,14 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
+                transition={{ duration: 0.6 }}
                 className="mb-6"
               >
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-green-400 to-[#004df4] flex items-center justify-center">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-[--accent] to-[--highlight] flex items-center justify-center">
                   <motion.svg
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    transition={{ delay: 0.5, duration: 0.3 }}
+                    transition={{ duration: 0.3 }}
                     className="w-8 h-8 text-white"
                     fill="none"
                     stroke="currentColor"
@@ -150,7 +152,7 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
               <motion.h3
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.6 }}
+                transition={{ duration: 0.6 }}
                 className="text-2xl font-bold text-primary mb-3"
               >
                 Message Sent Successfully!
@@ -158,8 +160,8 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8, duration: 0.6 }}
-                className="text-lg bg-gradient-to-r from-[#01f19d] to-[#00d9f4] bg-clip-text text-transparent"
+                transition={{ duration: 0.6 }}
+                className={`text-lg ${theme === 'dark' ? 'bg-gradient-to-r from-[#01f19d] to-[#00d9f4] bg-clip-text text-transparent' : 'text-primary'}`}
               >
                 Thank you for reaching out. We will get back to you soon!
               </motion.p>
