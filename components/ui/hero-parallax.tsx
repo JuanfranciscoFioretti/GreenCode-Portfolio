@@ -112,25 +112,27 @@ export const Header = () => {
         <div className="text-right">
           <motion.h1 
             className="text-5xl md:text-7xl font-bold dark:text-white"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, transform: 'translateY(50px)' }}
+            animate={{ opacity: 1, transform: 'translateY(0px)' }}
             transition={{ 
               duration: 0.8, 
               ease: "easeOut",
               delay: 0.2 
             }}
+            style={{ willChange: 'transform, opacity' }}
           >
             The Ultimate <br /> Development Studio
           </motion.h1>
           <motion.p 
             className="max-w-2xl text-lg md:text-2xl mt-8 dark:text-neutral-200 ml-auto"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, transform: 'translateY(30px)' }}
+            animate={{ opacity: 1, transform: 'translateY(0px)' }}
             transition={{ 
               duration: 0.8, 
               ease: "easeOut",
               delay: 0.6 
             }}
+            style={{ willChange: 'transform, opacity' }}
           >
             We build high-performance web & mobile apps with modern frameworks.
 Our expert team of full-stack developers and UX designers delivers custom software solutions that drive growth.

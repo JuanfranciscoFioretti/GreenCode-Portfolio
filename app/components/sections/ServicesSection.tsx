@@ -11,9 +11,10 @@ export default function ServicesSection() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <motion.h2
           className="text-6xl md:text-6xl lg:text-7xl font-bold text-primary text-center pb-40"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, transform: 'translateY(-20px)' }}
+          whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
           transition={{ duration: 0.5 }}
+          style={{ willChange: 'transform, opacity' }}
         >
           Our Services
         </motion.h2> 
@@ -29,10 +30,11 @@ export default function ServicesSection() {
             {SERVICES.map((service, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, transform: 'translateY(20px)' }}
+                whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 className="relative z-20 w-full flex justify-center"
+                style={{ willChange: 'transform, opacity' }}
               >
                 <NeonGradientCard 
                   className="w-full max-w-[550px] md:max-w-[400px] min-h-[300px] md:min-h-[200px] flex items-center justify-center text-center [&>div]:!bg-[var(--background)]"

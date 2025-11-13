@@ -21,19 +21,21 @@ export default function TestimonialsSection({ devMode }: TestimonialsSectionProp
         <div className="w-full flex justify-between items-center xl:flex-row flex-col mb-20 gap-8 xl:gap-0">
           <motion.h2
             className="text-6xl md:text-6xl font-bold text-foreground text-center lg:text-left"
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, transform: 'translateY(-30px)' }}
+            whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
+            style={{ willChange: 'transform, opacity' }}
           >
             What people are <br className="sm:block hidden" /> saying about us
           </motion.h2>
           <motion.div
             className="w-full lg:mt-0 lg:max-w-[450px] text-center lg:text-left"
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, transform: 'translateY(-30px)' }}
+            whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
             viewport={{ once: true }}
+            style={{ willChange: 'transform, opacity' }}
           >
             <p className="text-2xl text-foreground">
               Everything you need to achieve your business goals and maximize growth all in one place.
@@ -47,14 +49,15 @@ export default function TestimonialsSection({ devMode }: TestimonialsSectionProp
             <motion.div
               key={index}
               className="relative w-full max-w-[400px] lg:max-w-[320px]"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, transform: 'translateY(30px)' }}
+              whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
               transition={{ 
                 duration: 0.5, 
                 ease: [0.25, 0.1, 0.25, 1], 
                 delay: index * 0.1 
               }}
               viewport={{ once: true, margin: "-50px" }}
+              style={{ willChange: 'transform, opacity' }}
             >
               {/* Card container con overflow-hidden para Meteors */}
               <div 

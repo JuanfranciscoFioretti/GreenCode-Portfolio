@@ -11,9 +11,9 @@ interface TechnologiesSectionProps {
 }
 
 function TechnologiesSection({ devMode }: TechnologiesSectionProps) {
-  // Duplicate lists only twice to reduce DOM nodes and still achieve a seamless loop
-  const listA = [...TECHNOLOGIES, ...TECHNOLOGIES];
-  const listB = [...TECHNOLOGIES2, ...TECHNOLOGIES2];
+  // Duplicate lists three times to ensure seamless infinite loop
+  const listA = [...TECHNOLOGIES, ...TECHNOLOGIES, ...TECHNOLOGIES];
+  const listB = [...TECHNOLOGIES2, ...TECHNOLOGIES2, ...TECHNOLOGIES2];
 
   const rowStyle: React.CSSProperties = {
     willChange: 'transform',
@@ -23,7 +23,16 @@ function TechnologiesSection({ devMode }: TechnologiesSectionProps) {
   return (
     <section id="technologies" className="w-full mt-10 bg-[var(--gradient-bg)]">
       <div className="text-center py-10">
-        <h2 className="text-4xl md:text-5xl font-bold text-primary">Technologies We Use</h2>
+        <motion.h2 
+          className="text-4xl md:text-5xl font-bold text-primary"
+          initial={{ opacity: 0, transform: 'translateY(30px)' }}
+          whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+          style={{ willChange: 'transform, opacity' }}
+        >
+          Technologies We Use
+        </motion.h2>
       </div>
       <div className="relative overflow-hidden">
         {/* Primary marquee (left-to-right) */}
@@ -31,8 +40,8 @@ function TechnologiesSection({ devMode }: TechnologiesSectionProps) {
           aria-hidden
           className="flex space-x-8"
           style={rowStyle}
-          animate={{ x: ['0%', '-50%'] }}
-          transition={{ duration: 28, repeat: Infinity, ease: 'linear' }}
+          animate={{ x: ['0%', '-33.33%'] }}
+          transition={{ duration: 42, repeat: Infinity, ease: 'linear' }}
         >
           {listA.map((tech, index) => (
             <div key={`a-${index}`} className="flex-shrink-0 flex items-center justify-center p-2">
@@ -46,8 +55,8 @@ function TechnologiesSection({ devMode }: TechnologiesSectionProps) {
           aria-hidden
           className="flex space-x-8 mt-8"
           style={rowStyle}
-          animate={{ x: ['-50%', '0%'] }}
-          transition={{ duration: 32, repeat: Infinity, ease: 'linear' }}
+          animate={{ x: ['-33.33%', '0%'] }}
+          transition={{ duration: 48, repeat: Infinity, ease: 'linear' }}
         >
           {listB.map((tech, index) => (
             <div key={`b-${index}`} className="flex-shrink-0 flex items-center justify-center p-2">
