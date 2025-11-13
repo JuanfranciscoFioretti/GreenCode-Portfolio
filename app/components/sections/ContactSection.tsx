@@ -37,6 +37,7 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
     handleSubmit,
     formState: { errors },
     reset,
+    setValue,
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: { name: '', email: '', message: '' },
@@ -183,6 +184,13 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
                   type="text"
                   placeholder="Enter your name"
                   className="w-full p-3 glassmorphism rounded-lg text-primary focus:outline-none focus:ring-2 focus:ring-accent"
+                  onInput={(e) => {
+                    const value = e.currentTarget.value;
+                    if (value.length > 0) {
+                      const capitalized = value.replace(/\b\w/g, (char) => char.toUpperCase());
+                      setValue('name', capitalized);
+                    }
+                  }}
                   {...register('name')}
                 />
                 {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>}
@@ -209,6 +217,13 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
                   placeholder="Enter your message"
                   className="w-full p-3 glassmorphism rounded-lg text-primary focus:outline-none focus:ring-2 focus:ring-accent"
                   rows={5}
+                  onInput={(e) => {
+                    const value = e.currentTarget.value;
+                    if (value.length > 0) {
+                      const capitalized = value.charAt(0).toUpperCase() + value.slice(1);
+                      setValue('message', capitalized);
+                    }
+                  }}
                   {...register('message')}
                 />
                 {errors.message && <p className="mt-1 text-sm text-red-500">{errors.message.message}</p>}

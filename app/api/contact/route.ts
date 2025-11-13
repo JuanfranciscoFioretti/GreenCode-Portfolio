@@ -110,7 +110,7 @@ export async function POST(request: NextRequest) {
       subject: `Nuevo mensaje de contacto de ${sanitizedData.name}`,
       html: `
         <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; background: #f8fafc;">
-          <div style="background: linear-gradient(135deg, #00FF66, #FF00FF); padding: 1px; border-radius: 12px;">
+          <div style="background: linear-gradient(135deg, #00FF66, #00d9f4); padding: 1px; border-radius: 12px;">
             <div style="background: white; border-radius: 11px; padding: 40px;">
               <h1 style="color: #1a202c; margin: 0 0 30px 0; font-size: 28px; font-weight: bold; text-align: center;">
                 Nuevo Mensaje de Contacto 🚀
@@ -123,17 +123,14 @@ export async function POST(request: NextRequest) {
                 <p style="margin: 8px 0; color: #4a5568;"><strong>Fecha:</strong> ${new Date().toLocaleDateString('es-ES')} a las ${new Date().toLocaleTimeString('es-ES')}</p>
               </div>
               
-              <div style="background: #fff; padding: 25px; border: 2px solid #e2e8f0; border-radius: 10px;">
+              <div style="background: #fff; padding: 25px; border-left: 3px solid #00d9f4; border-radius: 10px;">
                 <h2 style="color: #2d3748; margin: 0 0 15px 0; font-size: 18px;">Mensaje:</h2>
-                <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; border-left: 3px solid #FF00FF;">
-                  <p style="line-height: 1.6; color: #4a5568; white-space: pre-wrap; margin: 0;">${sanitizedData.message}</p>
-                </div>
+                <p style="line-height: 1.6; color: #4a5568; white-space: pre-wrap; margin: 0;">${sanitizedData.message}</p>
               </div>
               
               <div style="margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #e6fffa, #f0fff4); border-radius: 10px; text-align: center;">
                 <p style="margin: 0; color: #2d3748; font-size: 14px;">
-                  📧 <strong>Responder:</strong> Puedes responder directamente a este email para contactar al usuario.
-                </p>
+                  📧 <strong>Message ID</strong>
                 <p style="margin: 5px 0 0 0; color: #718096; font-size: 12px;">
                   ID de mensaje: ${Date.now()}-${Math.random().toString(36).substring(2, 9)}
                 </p>
