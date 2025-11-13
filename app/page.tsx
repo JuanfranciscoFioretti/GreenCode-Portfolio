@@ -117,9 +117,9 @@ export default function Home() {
             "description": "Sostentia offers custom software development, mobile apps, AI automations, marketing campaigns, and cybersecurity analysis.",
             "contactPoint": {
               "@type": "ContactPoint",
-              "telephone": "+1-XXX-XXX-XXXX",
+              "telephone": "+45-71651393",
               "contactType": "Customer Service",
-              "email": "info@sostentia.com"
+              "email": "sostentia@gmail.com"
             },
             "sameAs": [
               "https://www.linkedin.com/company/sostentia",
@@ -140,7 +140,7 @@ export default function Home() {
                 "name": "What is Sostentia?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Sostentia is a premier full-stack development agency dedicated to crafting innovative, secure, and high-performance digital solutions tailored to meet the unique needs of our clients."
+                  "text": "Sostentia is your all-in-one digital growth partner, delivering custom web & mobile apps, AI-powered automations, high-impact SEO & marketing campaigns, enterprise-grade cybersecurity, and conversion-driven design, everything your business needs to dominate online."
                 }
               },
               {

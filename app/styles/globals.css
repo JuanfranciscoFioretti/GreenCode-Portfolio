@@ -88,6 +88,7 @@ section {
 
 .gradient-text {
   background: var(--text-gradient);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -205,6 +206,78 @@ textarea:-webkit-autofill:focus {
   -webkit-text-fill-color: var(--primary);
 }
 
+/* Contact section — HARD OVERRIDES for autofill to enforce theme-consistent background/text
+   Dark mode: black background + white text; Light mode: white background + black text
+   Scope: only inputs inside #contact, without changing non-autofilled fields */
+
+/* WebKit (Chrome/Edge/Safari) — Light mode */
+[data-theme="light"] #contact input:-webkit-autofill,
+[data-theme="light"] #contact input:-webkit-autofill:hover,
+[data-theme="light"] #contact input:-webkit-autofill:focus,
+[data-theme="light"] #contact input:-webkit-autofill:active,
+[data-theme="light"] #contact textarea:-webkit-autofill,
+[data-theme="light"] #contact textarea:-webkit-autofill:hover,
+[data-theme="light"] #contact textarea:-webkit-autofill:focus,
+[data-theme="light"] #contact textarea:-webkit-autofill:active,
+[data-theme="light"] #contact select:-webkit-autofill,
+[data-theme="light"] #contact select:-webkit-autofill:hover,
+[data-theme="light"] #contact select:-webkit-autofill:focus,
+[data-theme="light"] #contact select:-webkit-autofill:active {
+  -webkit-text-fill-color: #000 !important;
+  color: #000 !important;
+  background-color: #fff !important;
+  -webkit-box-shadow: 0 0 0 100px #fff inset, 0 0 0 1000px #fff inset !important;
+  box-shadow: 0 0 0 100px #fff inset, 0 0 0 1000px #fff inset !important;
+  border: 1px solid hsl(var(--border)) !important;
+  caret-color: #000 !important;
+  transition: background-color 50000s ease-in-out 0s, color 50000s ease-in-out 0s !important;
+}
+
+/* WebKit (Chrome/Edge/Safari) — Dark mode */
+[data-theme="dark"] #contact input:-webkit-autofill,
+[data-theme="dark"] #contact input:-webkit-autofill:hover,
+[data-theme="dark"] #contact input:-webkit-autofill:focus,
+[data-theme="dark"] #contact input:-webkit-autofill:active,
+[data-theme="dark"] #contact textarea:-webkit-autofill,
+[data-theme="dark"] #contact textarea:-webkit-autofill:hover,
+[data-theme="dark"] #contact textarea:-webkit-autofill:focus,
+[data-theme="dark"] #contact textarea:-webkit-autofill:active,
+[data-theme="dark"] #contact select:-webkit-autofill,
+[data-theme="dark"] #contact select:-webkit-autofill:hover,
+[data-theme="dark"] #contact select:-webkit-autofill:focus,
+[data-theme="dark"] #contact select:-webkit-autofill:active {
+  -webkit-text-fill-color: #fff !important;
+  color: #fff !important;
+  background-color: #000 !important;
+  -webkit-box-shadow: 0 0 0 100px #000 inset, 0 0 0 1000px #000 inset !important;
+  box-shadow: 0 0 0 100px #000 inset, 0 0 0 1000px #000 inset !important;
+  border: 1px solid hsl(var(--border)) !important;
+  caret-color: #fff !important;
+  transition: background-color 50000s ease-in-out 0s, color 50000s ease-in-out 0s !important;
+}
+
+/* Firefox — Light mode */
+[data-theme="light"] #contact input:-moz-autofill,
+[data-theme="light"] #contact textarea:-moz-autofill,
+[data-theme="light"] #contact select:-moz-autofill {
+  color: #000 !important;
+  background-color: #fff !important;
+  box-shadow: 0 0 0 1000px #fff inset !important;
+  border: 1px solid hsl(var(--border)) !important;
+  caret-color: #000 !important;
+}
+
+/* Firefox — Dark mode */
+[data-theme="dark"] #contact input:-moz-autofill,
+[data-theme="dark"] #contact textarea:-moz-autofill,
+[data-theme="dark"] #contact select:-moz-autofill {
+  color: #fff !important;
+  background-color: #000 !important;
+  box-shadow: 0 0 0 1000px #000 inset !important;
+  border: 1px solid hsl(var(--border)) !important;
+  caret-color: #fff !important;
+}
+
 /* Utility classes for better responsive control */
 .full-width {
   width: 100vw !important;
@@ -228,20 +301,18 @@ textarea:-webkit-autofill:focus {
   overflow-x: hidden;
 }
 
-@theme inline {
-  --animate-meteor-effect: meteor 5s linear infinite;
-  
-  @keyframes meteor {
-    0% {
-      transform: rotate(215deg) translateX(0);
-      opacity: 1;
-    }
-    70% {
-      opacity: 1;
-    }
-    100% {
-      transform: rotate(215deg) translateX(-500px);
-      opacity: 0;
-    }
+/* --animate-meteor-effect: meteor 5s linear infinite; */
+
+@keyframes meteor {
+  0% {
+    transform: rotate(215deg) translateX(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(215deg) translateX(-500px);
+    opacity: 0;
   }
 }

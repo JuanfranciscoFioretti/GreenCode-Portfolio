@@ -103,56 +103,77 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Send main email (to site owner)
+    // Send main email (to site owner) with refreshed aesthetics and gradient border
     const mainEmailResult = await resend.emails.send({
       from: process.env.EMAIL_FROM, // Must be a verified sender in Resend
       to: [process.env.EMAIL_RECEIVER!],
       subject: `New contact message from ${sanitizedData.name}`,
       html: `
-        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; max-width:700px; margin:0 auto; background:#f5f7fb; color:#102a43;">
+        <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial; max-width:700px; margin:0 auto; background:#f3f6fb; color:#0f1f2e;">
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+            <!-- Gradient border wrapper -->
             <tr>
-              <td style="padding:24px; text-align:center;">
-                <div style="display:inline-block; padding:12px 20px; background:linear-gradient(90deg,#0ea5a7,#7c3aed); border-radius:8px; color:#fff; font-weight:600; letter-spacing:0.2px;">New Contact</div>
-              </td>
-            </tr>
-            <tr>
-              <td style="background:#ffffff; padding:28px; border-radius:12px; box-shadow:0 6px 18px rgba(16,42,67,0.06);">
-                <h1 style="margin:0 0 12px 0; font-size:20px; color:#0b2447;">You have received a new message</h1>
-                <p style="margin:0 0 18px 0; color:#334e68;">Below are the details submitted through the contact form:</p>
+              <td style="padding:0 24px 0 24px;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:separate; border-spacing:0;">
+                  <tr>
+                    <td style="background:linear-gradient(135deg,#01f19d,#00d9f4); padding:2px; border-radius:16px;">
+                      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:separate; border-spacing:0;">
+                        <tr>
+                          <td style="background:#ffffff; padding:28px; border-radius:14px; box-shadow:0 8px 24px rgba(16,42,67,0.08);">
+                            <h1 style="margin:0 0 8px 0; font-size:22px; color:#0b1b28;">You have a new message</h1>
+                            <p style="margin:0 0 18px 0; color:#3a4a5a;">These are the details submitted through your contact form:</p>
 
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:18px 0;">
-                  <tr>
-                    <td style="padding:8px 0; font-weight:600; width:120px; color:#102a43;">Name</td>
-                    <td style="padding:8px 0; color:#334e68;">${sanitizedData.name}</td>
-                  </tr>
-                  <tr>
-                    <td style="padding:8px 0; font-weight:600; color:#102a43;">Email</td>
-                    <td style="padding:8px 0; color:#334e68;"><a href="mailto:${sanitizedData.email}" style="color:#0ea5a7; text-decoration:none;">${sanitizedData.email}</a></td>
-                  </tr>
-                  <tr>
-                    <td style="padding:8px 0; font-weight:600; color:#102a43;">Date</td>
-                    <td style="padding:8px 0; color:#334e68;">${new Date().toLocaleString('en-GB')}</td>
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:12px 0 18px 0;">
+                              <tr>
+                                <td style="padding:8px 0; font-weight:700; width:120px; color:#0f1f2e;">Name</td>
+                                <td style="padding:8px 0; color:#3a4a5a;">${sanitizedData.name}</td>
+                              </tr>
+                              <tr>
+                                <td style="padding:8px 0; font-weight:700; color:#0f1f2e;">Email</td>
+                                <td style="padding:8px 0; color:#3a4a5a;"><a href="mailto:${sanitizedData.email}" style="color:#00d9f4; text-decoration:none;">${sanitizedData.email}</a></td>
+                              </tr>
+                              <tr>
+                                <td style="padding:8px 0; font-weight:700; color:#0f1f2e;">Date</td>
+                                <td style="padding:8px 0; color:#3a4a5a;">${new Date().toLocaleString('en-GB')}</td>
+                              </tr>
+                            </table>
+
+                            <!-- Message card with subtle gradient left bar -->
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:separate; border-spacing:0;">
+                              <tr>
+                                <td style="background:#f6fbff; padding:16px; border-radius:12px; color:#334e68; border-left:4px solid transparent;">
+                                  <div style="height:0; width:0; overflow:hidden;">&nbsp;</div>
+                                  <div style="border-left:4px solid transparent; padding-left:12px; background-image:linear-gradient(180deg,#01f19d,#00d9f4); background-origin:border-box; background-clip:padding-box, border-box;">
+                                    <strong style="display:block; margin-bottom:8px; color:#0b1b28;">Message</strong>
+                                    <div style="white-space:pre-wrap; line-height:1.6; color:#0f1f2e;">${sanitizedData.message}</div>
+                                  </div>
+                                </td>
+                              </tr>
+                            </table>
+
+                            <!-- Quick actions -->
+                            <table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:22px;">
+                              <tr>
+                                <td>
+                                  <a href="mailto:${sanitizedData.email}" style="display:inline-block; padding:10px 16px; background:linear-gradient(90deg,#01f19d,#00d9f4); color:#000000; font-weight:700; text-decoration:none; border-radius:10px; box-shadow:0 8px 16px rgba(0,217,244,0.18);">Reply now</a>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
                   </tr>
                 </table>
-
-                <div style="background:#f8fafc; border-left:4px solid #7c3aed; padding:16px; border-radius:8px; color:#334e68;">
-                  <strong style="display:block; margin-bottom:8px; color:#0b2447;">Message</strong>
-                  <div style="white-space:pre-wrap; line-height:1.55;">${sanitizedData.message}</div>
-                </div>
-
-                <div style="margin-top:22px; text-align:left;">
-                  <p style="margin:0; color:#334e68;">Reply to the sender by clicking the email address or using your usual reply workflow.</p>
-                </div>
               </td>
             </tr>
             <tr>
-              <td style="padding:18px 0 0 0; text-align:center; color:#6b7280; font-size:12px;">
-                <div style="display:inline-block; padding:10px 14px; background:#ffffff; border-radius:8px;">Message ID: ${Date.now()}-${Math.random().toString(36).substring(2,9)}</div>
+              <td style="padding:14px 24px 0 24px; text-align:center; color:#6b7280; font-size:12px;">
+                <div style="display:inline-block; padding:8px 12px; background:#ffffff; border-radius:8px; border:1px solid #e8eef5;">Message ID: ${Date.now()}-${Math.random().toString(36).substring(2,9)}</div>
               </td>
             </tr>
             <tr>
-              <td style="padding:18px 0 50px 0; text-align:center; color:#9aa3b2; font-size:12px;">
+              <td style="padding:12px 24px 40px 24px; text-align:center; color:#9aa3b2; font-size:12px;">
                 Sent by your website contact form
               </td>
             </tr>

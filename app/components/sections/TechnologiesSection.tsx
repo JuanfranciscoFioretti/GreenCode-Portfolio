@@ -23,12 +23,12 @@ function TechnologiesSection({ devMode }: TechnologiesSectionProps) {
   return (
     <section id="technologies" className="w-full mt-10 bg-[var(--gradient-bg)]">
       <div className="text-center py-10">
-        <motion.h2 
+        <motion.h2
           className="text-4xl md:text-5xl font-bold text-primary"
-          initial={{ opacity: 0, transform: 'translateY(30px)' }}
-          whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          viewport={{ once: true, amount: 0.3 }}
           style={{ willChange: 'transform, opacity' }}
         >
           Technologies We Use

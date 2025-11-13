@@ -1,4 +1,6 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+'use client';
+
+import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 
 interface ThemeContextType {
   theme: string;
@@ -8,8 +10,14 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
+export { ThemeContext };
+
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState('dark');
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
 
   const toggleTheme = () => {
     setTheme(prev => {
@@ -29,7 +37,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 export function useTheme() {
   const context = useContext(ThemeContext);
   if (!context) {
-    throw new Error('useTheme must be used within a ThemeProvider');
+    return { theme: 'dark', toggleTheme: () => {}, setTheme: () => {} };
   }
   return context;
 }

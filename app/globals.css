@@ -265,3 +265,92 @@
     content-visibility: auto;
   }
 }
+
+/* AGRESSIVE AUTOFILL OVERRIDE - Superpone completamente los estilos del navegador
+   - Dark mode: fondo NEGRO + texto BLANCO - sin excepciones
+   - Light mode: fondo BLANCO + texto NEGRO
+   - Usa múltiples técnicas para forzar los estilos sobre cualquier default del navegador
+*/
+
+/* DARK MODE - Fondo NEGRO forzado con múltiples técnicas */
+[data-theme="dark"] #contact input:-webkit-autofill,
+[data-theme="dark"] #contact input:-webkit-autofill:hover,
+[data-theme="dark"] #contact input:-webkit-autofill:focus,
+[data-theme="dark"] #contact input:-webkit-autofill:active,
+[data-theme="dark"] #contact textarea:-webkit-autofill,
+[data-theme="dark"] #contact textarea:-webkit-autofill:hover,
+[data-theme="dark"] #contact textarea:-webkit-autofill:focus,
+[data-theme="dark"] #contact textarea:-webkit-autofill:active,
+[data-theme="dark"] #contact select:-webkit-autofill,
+[data-theme="dark"] #contact select:-webkit-autofill:hover,
+[data-theme="dark"] #contact select:-webkit-autofill:focus,
+[data-theme="dark"] #contact select:-webkit-autofill:active {
+  /* Texto blanco con máxima prioridad */
+  -webkit-text-fill-color: #ffffff !important;
+  color: #ffffff !important;
+  
+  /* Fondo negro - múltiples capas para superponer navegador */
+  background-color: #000000 !important;
+  background-image: none !important;
+  -webkit-box-shadow: 0 0 0 100px #000000 inset, 0 0 0 1000px #000000 inset !important;
+  box-shadow: 0 0 0 100px #000000 inset, 0 0 0 1000px #000000 inset !important;
+  
+  /* Borde fino */
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  
+  /* Cursor blanco */
+  caret-color: #ffffff !important;
+  
+  /* Transición larga para evitar que el navegador reaplique estilos */
+  transition: background-color 50000s ease-in-out 0s, color 50000s ease-in-out 0s !important;
+  -webkit-transition: background-color 50000s ease-in-out 0s, color 50000s ease-in-out 0s !important;
+}
+
+/* Firefox - Dark mode */
+[data-theme="dark"] #contact input:-moz-autofill,
+[data-theme="dark"] #contact textarea:-moz-autofill,
+[data-theme="dark"] #contact select:-moz-autofill {
+  background-color: #000000 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 0 1000px #000000 inset !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  caret-color: #ffffff !important;
+  filter: none !important;
+}
+
+/* LIGHT MODE - Fondo BLANCO */
+[data-theme="light"] #contact input:-webkit-autofill,
+[data-theme="light"] #contact input:-webkit-autofill:hover,
+[data-theme="light"] #contact input:-webkit-autofill:focus,
+[data-theme="light"] #contact input:-webkit-autofill:active,
+[data-theme="light"] #contact textarea:-webkit-autofill,
+[data-theme="light"] #contact textarea:-webkit-autofill:hover,
+[data-theme="light"] #contact textarea:-webkit-autofill:focus,
+[data-theme="light"] #contact textarea:-webkit-autofill:active,
+[data-theme="light"] #contact select:-webkit-autofill,
+[data-theme="light"] #contact select:-webkit-autofill:hover,
+[data-theme="light"] #contact select:-webkit-autofill:focus,
+[data-theme="light"] #contact select:-webkit-autofill:active {
+  -webkit-text-fill-color: #000000 !important;
+  color: #000000 !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  -webkit-box-shadow: 0 0 0 100px #ffffff inset, 0 0 0 1000px #ffffff inset !important;
+  box-shadow: 0 0 0 100px #ffffff inset, 0 0 0 1000px #ffffff inset !important;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  caret-color: #000000 !important;
+  transition: background-color 50000s ease-in-out 0s, color 50000s ease-in-out 0s !important;
+}
+
+/* Firefox - Light mode */
+[data-theme="light"] #contact input:-moz-autofill,
+[data-theme="light"] #contact textarea:-moz-autofill,
+[data-theme="light"] #contact select:-moz-autofill {
+  background-color: #ffffff !important;
+  background-image: none !important;
+  color: #000000 !important;
+  box-shadow: 0 0 0 1000px #ffffff inset !important;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  caret-color: #000000 !important;
+}

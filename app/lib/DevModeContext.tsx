@@ -29,7 +29,7 @@ export function DevModeProvider({ children }: { children: ReactNode }) {
 export function useDevMode() {
   const context = useContext(DevModeContext);
   if (!context) {
-    throw new Error('useDevMode must be used within a DevModeProvider');
+    return { devMode: false, toggleDevMode: () => {} };
   }
   return context;
 }

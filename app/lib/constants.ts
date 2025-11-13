@@ -40,11 +40,11 @@ export const SERVICES = [
   { title: 'Web Application', description: 'Building scalable and secure web applications.' },
   { title: 'Mobile Application', description: 'Creating cross-platform mobile apps with React Native.' },
   { title: 'UX/UI Design', description: 'Designing intuitive and visually appealing interfaces.' },
-  { title: 'Cybersec. Analysis', description: 'Ensuring robust security for your applications.' },
+  { title: 'Security Analysis', description: 'Ensuring robust security for your applications.' },
   { title: 'Marketing Campaigns', description: 'Crafting strategies to boost your brand.' },
   { title: 'Content Creation', description: 'Producing engaging content for your audience.' },
   { title: 'AI Automations', description: 'Implementing AI-driven solutions for efficiency.' },
-  { title: 'Custom Solutions', description: 'Tailoring services to meet your unique business needs.' },
+  { title: 'SEO Optimization', description: 'Tailoring services to meet your unique business needs.' },
 ];
 
 export const FAQS = [

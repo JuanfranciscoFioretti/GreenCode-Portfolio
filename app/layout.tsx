@@ -1,33 +1,28 @@
-'use client';
-
 import React from 'react';
 import { Poppins } from 'next/font/google';
-import Navbar from './components/common/Navbar';
-import Footer from './components/common/Footer';
-import { DevModeProvider } from './lib/DevModeContext';
-import { ThemeProvider, useTheme } from './lib/ThemeContext';
-import './styles/globals.css';
+import { Metadata } from 'next';
+import ClientLayout from './ClientLayout';
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['400', '500', '600', '700'], display: 'swap' });
 
-const metadata = {
-  title: 'Sostentia - Digital Solutions',
-  description: 'Sostentia offers cutting-edge web and mobile app development, UX/UI design, and AI automations.',
-  keywords: 'web development, mobile apps, UX/UI design, cybersecurity, AI automations, Greencode',
+export const metadata: Metadata = {
+  title: 'Sostentia - Expert Web Development, Mobile Apps & AI Solutions',
+  description: 'Boost your business with Sostentia\'s professional web development, mobile apps, UX/UI design, AI automations, and marketing campaigns. Secure, scalable solutions to grow your digital presence.',
+  keywords: 'web development, mobile apps, UX/UI design, cybersecurity, AI automations, marketing campaigns, content creation, custom solutions, digital transformation, business growth, Sostentia',
   icons: {
     icon: '/images/Slogo.webp',
   },
   openGraph: {
-    title: 'Sostentia Portfolio',
-    description: 'Discover Sostentia’s innovative solutions and projects.',
+    title: 'Sostentia - Transform Your Business with Digital Innovation',
+    description: 'Discover expert web development, mobile applications, AI-powered automations, and marketing strategies from Sostentia. Elevate your business today.',
     url: 'https://sostentia.com/',
-    siteName: 'Greencode',
+    siteName: 'Sostentia',
     images: [
       {
         url: '/images/logo-primary-black.webp',
         width: 1200,
         height: 630,
-        alt: 'Sostentia Portfolio Preview',
+        alt: 'Sostentia - Leading Digital Solutions Agency',
       },
     ],
     locale: 'en_US',
@@ -35,51 +30,12 @@ const metadata = {
   },
 };
 
-function RootContent({ children }: { children: React.ReactNode }) {
-  const { theme } = useTheme();
-  return (
-    <html lang="en" className={`${poppins.className} h-full`} data-theme={theme}>
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="manifest" href="/manifest.json" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <meta name="robots" content="index, follow" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="description" content={metadata.description} />
-        <meta name="keywords" content={metadata.keywords} />
-        <meta property="og:title" content={metadata.openGraph.title} />
-        <meta property="og:description" content={metadata.openGraph.description} />
-        <meta property="og:url" content={metadata.openGraph.url} />
-        <meta property="og:site_name" content={metadata.openGraph.siteName} />
-        <meta property="og:locale" content={metadata.openGraph.locale} />
-        <meta property="og:type" content={metadata.openGraph.type} />
-        <meta property="og:image" content={metadata.openGraph.images[0].url} />
-        <meta property="og:image:width" content={metadata.openGraph.images[0].width.toString()} />
-        <meta property="og:image:height" content={metadata.openGraph.images[0].height.toString()} />
-        <meta property="og:image:alt" content={metadata.openGraph.images[0].alt} />
-        <title>{metadata.title}</title>
-        <link rel="icon" href={metadata.icons.icon} />
-      </head>
-      <body className="min-h-full w-full">
-        <div className="min-h-screen w-full flex flex-col">
-          <Navbar />
-          <div className="flex-1 w-full">
-            {children}
-          </div>
-          <Footer />
-        </div>
-      </body>
-    </html>
-  );
-}
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <ThemeProvider>
-      <DevModeProvider>
-        <RootContent>{children}</RootContent>
-      </DevModeProvider>
-    </ThemeProvider>
+    <html lang="en" className={poppins.className}>
+      <body>
+        <ClientLayout>{children}</ClientLayout>
+      </body>
+    </html>
   );
 }
