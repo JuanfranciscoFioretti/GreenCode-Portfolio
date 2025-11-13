@@ -1,5 +1,5 @@
 // import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import ThemeTogglerWrapper from './ThemeTogglerWrapper';
@@ -30,6 +30,25 @@ export default function Navbar() {
   
   const menuItems = ['Services', 'Contact', 'FAQ'];
 
+  // Lock body scroll when the mobile menu is open
+  useEffect(() => {
+    const html = document.documentElement;
+    const body = document.body;
+
+    if (isOpen) {
+      html.classList.add('overflow-hidden');
+      body.classList.add('overflow-hidden');
+    } else {
+      html.classList.remove('overflow-hidden');
+      body.classList.remove('overflow-hidden');
+    }
+
+    return () => {
+      html.classList.remove('overflow-hidden');
+      body.classList.remove('overflow-hidden');
+    };
+  }, [isOpen]);
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -37,10 +56,14 @@ export default function Navbar() {
   const handleMenuItemClick = (item: string) => {
     const section = `#${item.toLowerCase()}`;
     const element = document.querySelector(section);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    // Close menu first to re-enable scroll, then navigate smoothly
     setIsOpen(false);
+    if (element) {
+      // Allow the DOM to update before scrolling
+      requestAnimationFrame(() => {
+        element.scrollIntoView({ behavior: 'smooth' });
+      });
+    }
   };
 
   return (

@@ -43,7 +43,7 @@ export const SERVICES = [
   { title: 'Security Analysis', description: 'Ensuring robust security for your applications.' },
   { title: 'Marketing Campaigns', description: 'Crafting strategies to boost your brand.' },
   { title: 'Content Creation', description: 'Producing engaging content for your audience.' },
-  { title: 'AI Automations', description: 'Implementing AI-driven solutions for efficiency.' },
+  { title: 'AI Solutions', description: 'Implementing AI-driven solutions for efficiency.' },
   { title: 'SEO Optimization', description: 'Tailoring services to meet your unique business needs.' },
 ];
 
