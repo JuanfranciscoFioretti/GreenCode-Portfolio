@@ -4,13 +4,12 @@ import React from 'react';
 import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
 import { DevModeProvider } from './lib/DevModeContext';
-import { ThemeProvider, useTheme } from './lib/ThemeContext';
+import { ThemeProvider } from './lib/ThemeContext';
 import './styles/globals.css';
 
 function ClientContent({ children }: { children: React.ReactNode }) {
-  const { theme } = useTheme();
   return (
-    <div className="min-h-screen w-full flex flex-col" data-theme={theme}>
+    <div className="min-h-screen w-full flex flex-col">
       <Navbar />
       <div className="flex-1 w-full">
         {children}

@@ -1,16 +1,18 @@
 "use client";
 import { Moon, SunDim } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useContext } from "react";
 import { flushSync } from "react-dom";
 import { cn } from "@/lib/utils";
-import { useTheme } from "../../app/lib/ThemeContext";
+import { ThemeContext } from "../../app/lib/ThemeContext";
 
 type props = {
   className?: string;
 };
 
 export const AnimatedThemeToggler = ({ className }: props) => {
-  const { theme, toggleTheme } = useTheme();
+  const context = useContext(ThemeContext);
+  if (!context) return null;
+  const { theme, toggleTheme } = context;
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   const changeTheme = async () => {
