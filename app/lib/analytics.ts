@@ -1,4 +1,4 @@
-import { NextRequest } from 'next/server';
+// Analytics helpers for simple in-memory tracking
 
 export interface AnalyticsData {
   visitors: number;
@@ -28,6 +28,6 @@ export const getAnalyticsData = () => {
   return analyticsData;
 };
 
-export const analyticsMiddleware = async (req: NextRequest) => {
+export const analyticsMiddleware = async () => {
   trackVisitor();
 };
