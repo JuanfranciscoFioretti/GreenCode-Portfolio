@@ -7,9 +7,10 @@ export default function ServicesSection() {
   const { devMode } = useDevMode();
 
   return (
-    <section id="services" className={`w-full py-20 -mt-50 bg-[var(--background)] ${devMode ? 'border-2 border-gray-50' : ''}`}>
+    <section id="services" aria-labelledby="services-heading" className={`w-full py-20 -mt-50 bg-[var(--background)] ${devMode ? 'border-2 border-gray-50' : ''}`}>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <motion.h2
+          id="services-heading"
           className="text-6xl md:text-6xl lg:text-7xl font-bold text-primary text-center pb-40"
           initial={{ opacity: 0, transform: 'translateY(-20px)' }}
           whileInView={{ opacity: 1, transform: 'translateY(0px)' }}

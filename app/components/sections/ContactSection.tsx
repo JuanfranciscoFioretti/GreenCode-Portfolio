@@ -150,6 +150,8 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
               animate={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
               transition={{ duration: 0.45, ease: "easeOut" }}
               className="flex flex-col items-center justify-center text-center min-h-[20rem]"
+              role="status"
+              aria-live="polite"
             >
               <motion.div
                 initial={{ opacity: 0, y: 8 }}
@@ -216,6 +218,8 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
                   autoCapitalize="words"
                   autoComplete="name"
                   className="w-full p-3 glassmorphism rounded-lg text-primary focus:outline-none focus:ring-2 focus:ring-accent capitalize"
+                  aria-invalid={!!errors.name}
+                  aria-describedby={errors.name ? 'name-error' : undefined}
                   {...register('name', {
                     onBlur: (e) =>
                       setValue('name', toTitleCase(e.target.value), {
@@ -224,7 +228,7 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
                       }),
                   })}
                 />
-                {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>}
+                {errors.name && <p id="name-error" className="mt-1 text-sm text-red-500" role="alert" aria-live="polite">{errors.name.message}</p>}
               </div>
               <div>
                 <label htmlFor="email" className="block text-primary text-lg font-medium mb-1">
@@ -239,9 +243,11 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
                   autoCorrect="off"
                   autoComplete="email"
                   inputMode="email"
+                  aria-invalid={!!errors.email}
+                  aria-describedby={errors.email ? 'email-error' : undefined}
                   {...register('email')}
                 />
-                {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>}
+                {errors.email && <p id="email-error" className="mt-1 text-sm text-red-500" role="alert" aria-live="polite">{errors.email.message}</p>}
               </div>
               <div>
                 <label htmlFor="message" className="block text-primary text-lg font-medium mb-1">
@@ -262,6 +268,8 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
                       el.value = capped;
                     }
                   }}
+                  aria-invalid={!!errors.message}
+                  aria-describedby={errors.message ? 'message-error' : undefined}
                   {...register('message', {
                     onBlur: (e) =>
                       setValue('message', capitalizeFirst(e.target.value), {
@@ -270,7 +278,7 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
                       }),
                   })}
                 />
-                {errors.message && <p className="mt-1 text-sm text-red-500">{errors.message.message}</p>}
+                {errors.message && <p id="message-error" className="mt-1 text-sm text-red-500" role="alert" aria-live="polite">{errors.message.message}</p>}
               </div>
               <RippleButton
                 ref={buttonRef}

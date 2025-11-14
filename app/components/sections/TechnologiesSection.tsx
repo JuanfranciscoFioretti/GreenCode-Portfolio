@@ -41,7 +41,7 @@ function TechnologiesSection({ devMode }: TechnologiesSectionProps) {
           className="flex space-x-8"
           style={rowStyle}
           animate={{ x: ['0%', '-33.33%'] }}
-          transition={{ duration: 42, repeat: Infinity, ease: 'linear' }}
+          transition={{ duration: 36, repeat: Infinity, ease: 'linear' }}
         >
           {listA.map((tech, index) => (
             <div key={`a-${index}`} className="flex-shrink-0 flex items-center justify-center p-2">
@@ -56,7 +56,7 @@ function TechnologiesSection({ devMode }: TechnologiesSectionProps) {
           className="flex space-x-8 mt-8"
           style={rowStyle}
           animate={{ x: ['-33.33%', '0%'] }}
-          transition={{ duration: 48, repeat: Infinity, ease: 'linear' }}
+          transition={{ duration: 41, repeat: Infinity, ease: 'linear' }}
         >
           {listB.map((tech, index) => (
             <div key={`b-${index}`} className="flex-shrink-0 flex items-center justify-center p-2">

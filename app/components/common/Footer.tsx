@@ -1,11 +1,19 @@
+"use client";
+
 import Image from 'next/image';
 import { LOGOS } from '../../lib/constants';
+import { useTheme } from '../../lib/ThemeContext';
 
 export default function Footer() {
+  const { theme } = useTheme();
+  const logoSrc = theme === 'light' ? '/images/logo-primary-black.webp' : LOGOS.primary;
   return (
-    <footer className="py-10 bg-[var(--gradient-bg)]">
+    <footer
+      className="py-10 bg-[var(--gradient-bg)]"
+      style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
+    >
       <div className="max-w-7xl mx-auto px-4 text-center">
-        <Image src={LOGOS.primary} alt="Sostentia Logo" width={120} height={40} />
+        <Image src={logoSrc} alt="Sostentia Logo" width={120} height={40} />
         <p className="mt-4">© 2025 Sostentia. All rights reserved.</p>
         <div className="flex justify-center space-x-4 mt-4">
           <a href="https://www.instagram.com/sostentia/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--tertiary-color)]">Instagram</a>

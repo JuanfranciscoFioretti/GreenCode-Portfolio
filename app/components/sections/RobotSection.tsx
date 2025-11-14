@@ -7,7 +7,7 @@ import { GridBeams } from "@/components/ui/grid-beams";
  
 export function RobotSection() {
   return (
-    <section className="w-full h-screen relative overflow-hidden border-0">
+    <section className="w-full h-[100dvh] relative overflow-hidden border-0">
       <GridBeams>
         {/* Robot container - Always on the right, larger to prevent clipping */}
         <div className="absolute right-0 top-0 w-full lg:w-3/5 xl:w-2/3 h-full z-10">

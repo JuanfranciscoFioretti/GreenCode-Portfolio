@@ -37,7 +37,7 @@ export default function HeroSection({ devMode }: HeroSectionProps) {
   const particles = Array.from({ length: 10 });
 
   return (
-    <section id="hero" className="w-full min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="hero" className="w-full min-h-[100dvh] flex items-center justify-center relative overflow-hidden">
       <div aria-hidden="true" className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
     
   </div>

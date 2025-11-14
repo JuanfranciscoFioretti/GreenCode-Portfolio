@@ -46,7 +46,7 @@ export default function Home() {
   const devMode = false; // Default for server rendering
 
   return (
-    <main className="w-full min-h-screen">
+    <main id="main" className="w-full min-h-screen">
 
       <div className="w-full">
         <ClientRobotSection />
