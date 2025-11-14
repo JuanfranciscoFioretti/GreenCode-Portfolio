@@ -37,7 +37,7 @@ export default function ServicesSection() {
                 style={{ willChange: 'transform, opacity' }}
               >
                 <NeonGradientCard 
-                  className="w-full max-w-[550px] md:max-w-[400px] min-h-[300px] md:min-h-[200px] flex items-center justify-center text-center [&>div]:!bg-[var(--background)]"
+                  className="w-full max-w-[550px] md:max-w-[400px] min-h-[300px] md:min-h-[200px] flex items-center justify-center text-center [&>div]:!bg-[var(--background)] [&>div]:flex [&>div]:items-center [&>div]:justify-center"
                   borderSize={3}
                   borderRadius={16}
                   neonColors={{
@@ -45,7 +45,8 @@ export default function ServicesSection() {
                     secondColor: "var(--highlight-background)"
                   }}
                 >
-                  <div className="w-full h-full flex items-center justify-center p-4 md:p-6">
+                  {/* Contenedor centrado verticalmente dentro de la card */}
+                  <div className="w-full flex justify-center pt-8 pb-0 px-8 md:p-6 -translate-y-[5px] md:translate-y-0">
                     <h3 className="pointer-events-none whitespace-pre-wrap bg-gradient-to-br from-[--accent] via-[--highlight] to-[--highlight-text-light] bg-clip-text text-center text-6xl md:text-6xl lg:text-6xl font-bold leading-[1.12] tracking-tighter text-transparent dark:drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)] pb-3">
                       {service.title}
                     </h3>
