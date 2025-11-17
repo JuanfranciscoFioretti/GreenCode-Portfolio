@@ -1,13 +1,12 @@
 'use client';
 
-import { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { MagicCard } from '@/components/magicui/magic-card';
 import { RippleButton } from '@/components/magicui/ripple-button';
-import confetti from 'canvas-confetti';
 import { sanitizeInput } from '../../../lib/sanitize';
 import { trackFormSubmission } from '../../lib/analytics';
 import { useTheme } from '../../lib/ThemeContext';
@@ -29,18 +28,13 @@ type FormData = z.infer<typeof formSchema>;
 export default function ContactSection({ devMode }: ContactSectionProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const buttonRef = useRef<HTMLButtonElement>(null);
   const { theme } = useTheme();
+  const prefersReducedMotion = useReducedMotion();
 
-  // Title animation variants and CSS var key for smooth fade while moving
-  const FADE_KEY = '--fade-stop' as const;
-  const titleVariants = {
-    // Fully visible by default (mask fully opaque)
-    initial: { opacity: 0, y: -16, [FADE_KEY]: '100%' },
-    show: { opacity: 1, y: 0, [FADE_KEY]: '100%' },
-    // During hide, start revealing transparency progressively
-    submitted: { opacity: 0, y: 64, [FADE_KEY]: '40%' },
-  } as const;
+  // Title animation: transform + opacity only for smooth GPU-accelerated motion
+  const titleInitial = prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: -12 };
+  const titleShow = prefersReducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 };
+  const titleSubmitted = prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 24 };
 
   const {
     register,
@@ -62,30 +56,6 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
   const capitalizeFirst = (str: string) =>
     str.length ? str.charAt(0).toUpperCase() + str.slice(1) : str;
 
-  const triggerConfetti = () => {
-    if (!buttonRef.current) return;
-
-    const rect = buttonRef.current.getBoundingClientRect();
-    const duration = 5 * 1000;
-    const animationEnd = Date.now() + duration;
-    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 1000 };
-
-    const interval = window.setInterval(() => {
-      const timeLeft = animationEnd - Date.now();
-      if (timeLeft <= 0) return clearInterval(interval);
-
-      const particleCount = 50 * (timeLeft / duration);
-      confetti({
-        ...defaults,
-        particleCount,
-        origin: {
-          x: (rect.left + rect.width / 2) / window.innerWidth,
-          y: (rect.top + rect.height / 2) / window.innerHeight,
-        },
-      });
-    }, 250);
-  };
-
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
 
@@ -105,7 +75,6 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
       if (response.ok) {
         trackFormSubmission();
         setIsSubmitted(true);
-        triggerConfetti();
         reset();
       }
     } catch (error) {
@@ -119,17 +88,10 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
     <section id="contact" className="w-full py-20 bg-[var(--background-gradient)]">
       <motion.h2
         className="text-4xl md:text-5xl font-bold text-primary text-center mb-12 relative z-0"
-        variants={titleVariants}
-        initial="initial"
-        animate={isSubmitted ? 'submitted' : 'show'}
-        transition={{ duration: 0.9, ease: 'easeInOut' }}
-        style={{
-          willChange: 'transform, opacity, -webkit-mask-image, mask-image',
-          WebkitMaskImage:
-            'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) var(--fade-stop), rgba(0,0,0,0) calc(var(--fade-stop) + 30%))',
-          maskImage:
-            'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) var(--fade-stop), rgba(0,0,0,0) calc(var(--fade-stop) + 30%))',
-        }}
+        initial={titleInitial}
+        animate={isSubmitted ? titleSubmitted : titleShow}
+        transition={{ type: 'spring', stiffness: 280, damping: 24, mass: 0.6 }}
+        style={{ willChange: 'transform, opacity' }}
       >
         Contact Us
       </motion.h2>
@@ -281,7 +243,6 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
                 {errors.message && <p id="message-error" className="mt-1 text-sm text-red-500" role="alert" aria-live="polite">{errors.message.message}</p>}
               </div>
               <RippleButton
-                ref={buttonRef}
                 type="submit"
                 className="w-full p-3 glassmorphism rounded-lg text-[var(--text-dark)] hover:bg-[var(--button-hover-gradient)]"
                 rippleColor="#33BBCF"

@@ -1,12 +1,14 @@
 'use client';
 
 import React from 'react';
-import { MotionConfig } from 'framer-motion';
+import { MotionConfig, LazyMotion } from 'framer-motion';
 import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
 import { DevModeProvider } from './lib/DevModeContext';
 import { ThemeProvider } from './lib/ThemeContext';
 import './styles/globals.css';
+
+const loadFeatures = () => import('framer-motion').then((m) => m.domAnimation);
 
 function ClientContent({ children }: { children: React.ReactNode }) {
   return (
@@ -30,8 +32,13 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   return (
     <ThemeProvider>
       <DevModeProvider>
-        <MotionConfig reducedMotion="user">
-          <ClientContent>{children}</ClientContent>
+        <MotionConfig
+          reducedMotion="user"
+          transition={{ type: 'spring', stiffness: 280, damping: 24, mass: 0.6 }}
+        >
+          <LazyMotion features={loadFeatures} strict>
+            <ClientContent>{children}</ClientContent>
+          </LazyMotion>
         </MotionConfig>
       </DevModeProvider>
     </ThemeProvider>

@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  poweredByHeader: false,
   // Image optimization
   images: {
     formats: ['image/avif', 'image/webp'],
@@ -12,6 +13,9 @@ const nextConfig = {
   // Performance optimizations
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
+  },
+  experimental: {
+    optimizePackageImports: ['framer-motion', 'lucide-react', '@radix-ui/react-icons'],
   },
 };
 

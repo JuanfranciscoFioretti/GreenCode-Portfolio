@@ -1,15 +1,23 @@
-// import { motion } from 'framer-motion';
 import { Metadata } from 'next';
-import ClientTechnologiesSection from './components/sections/ClientTechnologiesSection';
-import ClientServicesSection from './components/sections/ClientServicesSection';
-import ClientContactSection from './components/sections/ClientContactSection';
-import ClientFAQSection from './components/sections/ClientFAQSection';
-import ClientAboutUsSection from './components/sections/ClientAboutUsSection';
-import ClientTestimonialsSection from './components/sections/ClientTestimonialsSection';
-// import AnalyticsDashboard from './components/sections/AnalyticsDashboard';
-// import DevModeToggle from './components/common/DevModeToggle';
-import ClientHeroParallaxDemo from './components/sections/ClientHeroParallaxDemo';
-import ClientRobotSection from './components/sections/ClientRobotSection';
+import dynamic from 'next/dynamic';
+
+const ClientRobotSection = dynamic(() => import('./components/sections/ClientRobotSection'), {
+  ssr: false,
+  loading: () => null,
+});
+const ClientHeroParallaxDemo = dynamic(() => import('./components/sections/ClientHeroParallaxDemo'), {
+  ssr: false,
+  loading: () => null,
+});
+const ClientServicesSection = dynamic(() => import('./components/sections/ClientServicesSection'));
+const ClientTechnologiesSection = dynamic(() => import('./components/sections/ClientTechnologiesSection'));
+const ClientAboutUsSection = dynamic(() => import('./components/sections/ClientAboutUsSection'));
+const ClientTestimonialsSection = dynamic(() => import('./components/sections/ClientTestimonialsSection'));
+const ClientContactSection = dynamic(() => import('./components/sections/ClientContactSection'), {
+  ssr: false,
+  loading: () => null,
+});
+const ClientFAQSection = dynamic(() => import('./components/sections/ClientFAQSection'));
 
 export const metadata: Metadata = {
   title: 'Sostentia - Software, Marketing & AI Automations',
