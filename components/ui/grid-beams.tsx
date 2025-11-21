@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import React, { HTMLAttributes, useMemo } from "react";
 import { cn } from "@/lib/utils";
 
@@ -72,7 +72,7 @@ const LightRay = React.memo<LightRayProps>(
     length,
   }) => {
     return (
-      <motion.div
+      <m.div
         className="absolute pointer-events-none -top-[5%] left-[var(--ray-left)] w-[var(--ray-width)] h-[var(--ray-height)] origin-top mix-blend-screen bg-[linear-gradient(to_bottom,rgba(200,220,255,var(--ray-opacity)),rgba(200,220,255,0))] blur-[var(--ray-blur)] translate-x-[-50%] rotate-[var(--ray-rotation)]"
         style={
           {

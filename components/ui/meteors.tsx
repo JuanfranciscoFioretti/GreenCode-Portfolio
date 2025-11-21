@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import React from "react";
 
 export const Meteors = ({
@@ -12,7 +12,7 @@ export const Meteors = ({
 }) => {
   const meteors = new Array(number || 20).fill(true);
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -41,6 +41,6 @@ export const Meteors = ({
           ></span>
         );
       })}
-    </motion.div>
+    </m.div>
   );
 };

@@ -1,6 +1,6 @@
 // import Image from 'next/image';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import ThemeTogglerWrapper from './ThemeTogglerWrapper';
 // import { LOGOS } from '../../lib/constants';
@@ -154,7 +154,7 @@ export default function Navbar() {
 
       {/* Full Screen Mobile Menu Overlay */}
       {isOpen && (
-        <motion.div
+        <m.div
           className="fixed top-0 left-0 w-full h-[100svh] glassmorphism z-40 md:hidden"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -187,7 +187,7 @@ export default function Navbar() {
               {/* <DevModeToggle /> */}
             </div>
           </div>
-        </motion.div>
+        </m.div>
       )}
     </>
   );

@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { SplineScene } from "@/components/ui/splite";
 import { GridBeams } from "@/components/ui/grid-beams";
 
@@ -21,7 +21,7 @@ export function RobotSection() {
         <div className="relative z-20 h-full pointer-events-none">
         <div className="flex flex-col justify-end pb-20 lg:justify-center h-full p-6 md:p-8 lg:p-12">
           <div className="max-w-lg lg:max-w-2xl pointer-events-auto">
-            <motion.h1 
+            <m.h1 
               className="text-5xl md:text-5xl lg:text-6xl font-bold text-[color:var(--text-dark)] opacity-90"
               initial={{ opacity: 0, transform: 'translateY(20px)' }}
               animate={{ opacity: 0.9, transform: 'translateY(0px)' }}
@@ -34,8 +34,8 @@ export function RobotSection() {
             >
                 {/* Innovate, Transform<br /> & Succeed Digitally */}
                 Software, Marketing<br /> & AI Automations
-            </motion.h1>
-            <motion.p 
+            </m.h1>
+            <m.p 
               className="max-w-2xl text-lg md:text-2xl mt-8 text-[color:var(--text-dark)] opacity-85"
               initial={{ opacity: 0, transform: 'translateY(15px)' }}
               animate={{ opacity: 0.85, transform: 'translateY(0px)' }}
@@ -47,7 +47,7 @@ export function RobotSection() {
               style={{ willChange: 'transform, opacity' }}
             >
                 At Sostentia we turn ideas into custom software, mobile apps, AI automations, marketing campaigns, and cybersecurity analysis to drive your business forward.
-            </motion.p>
+            </m.p>
           </div>
         </div>          {/* Bottom gradient effects */}
           <div className="w-full h-40 relative">

@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import DevModeTooltip from '../common/DevModeTooltip';
 
 interface AboutUsSectionProps {
@@ -10,7 +10,7 @@ interface AboutUsSectionProps {
 export default function AboutUsSection({ devMode }: AboutUsSectionProps) {
   return (
     <section id="about" className="w-full py-20 bg-[var(--gradient-bg)]">
-      <motion.div
+      <m.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -27,7 +27,7 @@ export default function AboutUsSection({ devMode }: AboutUsSectionProps) {
         <p className="text-lg text-secondary max-w-3xl mx-auto">
           We are a team of passionate developers and designers dedicated to creating innovative digital solutions.
         </p>
-      </motion.div>
+      </m.div>
     </section>
   );
 }

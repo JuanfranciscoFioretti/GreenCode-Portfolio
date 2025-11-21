@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { m, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import DevModeTooltip from '../common/DevModeTooltip';
 import { BackgroundGradientAnimation } from '@/components/ui/background-gradient-animation';
@@ -26,7 +26,7 @@ export default function TransitionSection({ devMode }: TransitionSectionProps) {
         <MorphingText texts={['Learn how', 'We Create', 'Your Next', 'Innovative', 'Secure', '& User-friendly', 'Digital Solution', 'Together', 'We can Achieve', 'Your Goals' ]} />
       </div>
     </BackgroundGradientAnimation>
-      <motion.div
+      <m.div
         style={{ opacity, scale }}
         className="max-w-7xl mx-auto px-4 text-center"
       >
@@ -36,7 +36,7 @@ export default function TransitionSection({ devMode }: TransitionSectionProps) {
             isVisible={devMode}
           />
         )}
-      </motion.div>
+      </m.div>
     </section>
   );
 }

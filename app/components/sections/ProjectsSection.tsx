@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import projectsData from '../../lib/data.json';
 import DevModeTooltip from '../common/DevModeTooltip';
 import { trackProjectClick } from '../../lib/analytics';
@@ -22,17 +22,17 @@ interface ProjectsSectionProps {
 export default function ProjectsSection({ devMode }: ProjectsSectionProps) {
   return (
     <section id="projects" className="w-full py-20">
-      <motion.h2
+      <m.h2
           className="text-4xl md:text-5xl font-bold text-primary text-center mb-12"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
           Our Projects
-        </motion.h2>
+        </m.h2>
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
         {projectsData.map((project: Project, index: number) => (
-          <motion.div
+          <m.div
             key={index}
             className="glassmorphism p-6 rounded-lg glow-effect"
             initial={{ opacity: 0, y: 50 }}
@@ -70,7 +70,7 @@ export default function ProjectsSection({ devMode }: ProjectsSectionProps) {
                 isVisible={devMode}
               />
             )}
-          </motion.div>
+          </m.div>
         ))}
       </div>
     </section>

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -86,7 +86,7 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
 
   return (
     <section id="contact" className="w-full py-20 bg-[var(--background-gradient)]">
-      <motion.h2
+      <m.h2
         className="text-4xl md:text-5xl font-bold text-primary text-center mb-12 relative z-0"
         initial={titleInitial}
         animate={isSubmitted ? titleSubmitted : titleShow}
@@ -94,7 +94,7 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
         style={{ willChange: 'transform, opacity' }}
       >
         Contact Us
-      </motion.h2>
+      </m.h2>
   <div className="max-w-md mx-auto px-[5px] sm:px-0">
         <MagicCard
           className="p-8 rounded-2xl border border-1px border-[var(--glass-border)] min-h-[28rem] relative z-10"
@@ -107,7 +107,7 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
           {isSubmitting ? (
             <LoadingSkeleton />
           ) : isSubmitted ? (
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.98, y: 8, filter: 'blur(4px)' }}
               animate={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
               transition={{ duration: 0.45, ease: "easeOut" }}
@@ -115,14 +115,14 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
               role="status"
               aria-live="polite"
             >
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.35, ease: "easeOut" }}
                 className="mb-6"
               >
                 <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-[#01f19d] to-[#00d9f4] flex items-center justify-center shadow-[0_0_20px_rgba(1,241,157,0.35)]">
-                  <motion.svg
+                  <m.svg
                     initial={{ scale: 0.85, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.28, ease: "easeOut" }}
@@ -137,18 +137,18 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
                       strokeWidth={2}
                       d="M5 13l4 4L19 7"
                     />
-                  </motion.svg>
+                  </m.svg>
                 </div>
-              </motion.div>
-              <motion.h3
+              </m.div>
+              <m.h3
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.35, ease: "easeOut" }}
                 className="text-2xl font-bold text-primary mb-3"
               >
                 Message Sent Successfully!
-              </motion.h3>
-              <motion.p
+              </m.h3>
+              <m.p
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.35, ease: "easeOut" }}
@@ -159,10 +159,10 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
                 }`}
               >
                 Thank you for reaching out. We will get back to you soon!
-              </motion.p>
-            </motion.div>
+              </m.p>
+            </m.div>
           ) : (
-            <motion.form
+            <m.form
               onSubmit={handleSubmit(onSubmit)}
               className="space-y-4"
               initial={{ opacity: 1 }}
@@ -250,7 +250,7 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
               >
                 Contact Us
               </RippleButton>
-            </motion.form>
+            </m.form>
           )}
           {devMode && (
             <DevModeTooltip

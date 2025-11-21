@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { FAQS } from '../../lib/constants';
 import DevModeTooltip from '../common/DevModeTooltip';
 
@@ -18,7 +18,7 @@ export default function FAQSection({ devMode }: FAQSectionProps) {
 
   return (
     <section id="faq" className="w-full py-20 bg-[var(--gradient-bg)]">
-<motion.h2
+<m.h2
           className="text-4xl md:text-5xl font-bold text-primary text-center mb-12"
           initial={{ opacity: 0, transform: 'translateY(-20px)' }}
           whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
@@ -26,7 +26,7 @@ export default function FAQSection({ devMode }: FAQSectionProps) {
           style={{ willChange: 'transform, opacity' }}
         >
           Frequently Asked Questions
-        </motion.h2>      
+        </m.h2>      
         {/* <h2 className="text-4xl gradient-text text-center mb-10">Frequently Asked Questions</h2> */}
       <div className="max-w-3xl mx-auto px-4">
         {FAQS.map((faq, index) => (
@@ -37,14 +37,14 @@ export default function FAQSection({ devMode }: FAQSectionProps) {
             >
               <h3 className="text-xl font-semibold">{faq.question}</h3>
             </button>
-            <motion.div
+            <m.div
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: openIndex === index ? 'auto' : 0, opacity: openIndex === index ? 1 : 0 }}
               transition={{ duration: 0.3 }}
               className="overflow-hidden"
             >
               <p className="p-4">{faq.answer}</p>
-            </motion.div>
+            </m.div>
           </div>
         ))}
         {devMode && (

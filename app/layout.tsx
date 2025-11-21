@@ -10,7 +10,15 @@ export const metadata: Metadata = {
   description: 'Boost your business with Sostentia\'s professional web development, mobile apps, UX/UI design, AI automations, and marketing campaigns. Secure, scalable solutions to grow your digital presence.',
   keywords: 'web development, mobile apps, UX/UI design, cybersecurity, AI automations, marketing campaigns, content creation, custom solutions, digital transformation, business growth, Sostentia',
   icons: {
+    // Provide multiple icon formats/sizes so browsers can pick the best one
     icon: '/images/Slogo.webp',
+    shortcut: '/images/Slogo.webp',
+    apple: '/images/Slogo.webp',
+    other: [
+      { rel: 'icon', url: '/images/Slogo.webp', sizes: '192x192', type: 'image/webp' },
+      { rel: 'icon', url: '/images/Slogo.webp', sizes: '512x512', type: 'image/webp' },
+      { rel: 'apple-touch-icon', url: '/images/Slogo.webp' },
+    ],
   },
   appleWebApp: {
     capable: true,
@@ -48,6 +56,16 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={poppins.className}>
+      <head>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="shortcut icon" href="/images/Slogo.webp" />
+        <link rel="apple-touch-icon" href="/images/Slogo.webp" />
+        <link rel="icon" href="/images/Slogo.webp" type="image/webp" sizes="192x192" />
+        {/* Support ICO favicons: prefer images/Slogo.ico if present */}
+        <link rel="icon" href="/images/Slogo.ico" type="image/x-icon" />
+        <link rel="icon" href="/Slogo.ico" type="image/x-icon" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+      </head>
       <body>
         <ClientLayout>{children}</ClientLayout>
       </body>

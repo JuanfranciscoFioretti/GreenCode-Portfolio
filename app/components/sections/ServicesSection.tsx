@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { NeonGradientCard } from "@/components/magicui/neon-gradient-card";
 import { SERVICES } from '../../lib/constants';
 import { useDevMode } from '../../lib/DevModeContext';
@@ -9,7 +9,7 @@ export default function ServicesSection() {
   return (
     <section id="services" aria-labelledby="services-heading" className={`w-full py-20 -mt-50 bg-[var(--background)] ${devMode ? 'border-2 border-gray-50' : ''}`}>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <motion.h2
+      <m.h2
           id="services-heading"
           className="text-6xl md:text-6xl lg:text-7xl font-bold text-primary text-center pb-40"
           initial={{ opacity: 0, transform: 'translateY(-20px)' }}
@@ -18,7 +18,7 @@ export default function ServicesSection() {
           style={{ willChange: 'transform, opacity' }}
         >
           Our Services
-        </motion.h2> 
+        </m.h2> 
         {/* Container con backdrop blur unificado */}
         <div className="relative">
           {/* Backdrop blur layer con contenido para blur - detrás de todas las cards */}
@@ -29,7 +29,7 @@ export default function ServicesSection() {
           {/* Grid responsivo mejorado para centrar las cards en móvil */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 relative z-10 place-items-center">
             {SERVICES.map((service, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, transform: 'translateY(20px)' }}
                 whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
@@ -53,7 +53,7 @@ export default function ServicesSection() {
                     </h3>
                   </div>
                 </NeonGradientCard>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>

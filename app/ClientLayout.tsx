@@ -36,7 +36,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
           reducedMotion="user"
           transition={{ type: 'spring', stiffness: 280, damping: 24, mass: 0.6 }}
         >
-          <LazyMotion features={loadFeatures} strict>
+          <LazyMotion features={loadFeatures}>
             <ClientContent>{children}</ClientContent>
           </LazyMotion>
         </MotionConfig>

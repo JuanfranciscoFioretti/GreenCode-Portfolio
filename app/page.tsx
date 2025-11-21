@@ -33,10 +33,10 @@ export const metadata: Metadata = {
     siteName: 'Sostentia',
     images: [
       {
-        url: '/images/logo-primary-black.webp',
+        url: 'https://sostentia.com/images/logo-primary-black.webp',
         width: 1200,
         height: 630,
-        alt: 'Sostentia Portfolio',
+        alt: 'Sostentia Website',
       },
     ],
     locale: 'en_US',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Sostentia - Software & AI Solutions',
     description: 'Custom software development, AI automations, and digital marketing.',
-    images: ['/images/logo-primary-black.webp'],
+    images: ['https://sostentia.com/images/logo-primary-black.webp'],
   },
 };
 
@@ -122,6 +122,7 @@ export default function Home() {
             "name": "Sostentia",
             "url": "https://sostentia.com/",
             "logo": "https://sostentia.com/images/logo-primary-black.webp",
+            "image": "https://sostentia.com/images/logo-primary-black.webp",
             "description": "Sostentia offers custom software development, mobile apps, AI automations, marketing campaigns, and cybersecurity analysis.",
             "contactPoint": {
               "@type": "ContactPoint",

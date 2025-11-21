@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import DevModeTooltip from '../common/DevModeTooltip';
 import { TESTIMONIALS } from '../../lib/constants';
 import { Meteors } from '@/components/ui/meteors';
@@ -19,7 +19,7 @@ export default function TestimonialsSection({ devMode }: TestimonialsSectionProp
     <section id="testimonials" className="w-full py-20 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         <div className="w-full flex justify-between items-center xl:flex-row flex-col mb-20 gap-8 xl:gap-0">
-          <motion.h2
+          <m.h2
             className="text-6xl md:text-6xl font-bold text-foreground text-center lg:text-left"
             initial={{ opacity: 0, transform: 'translateY(-30px)' }}
             whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
@@ -28,8 +28,8 @@ export default function TestimonialsSection({ devMode }: TestimonialsSectionProp
             style={{ willChange: 'transform, opacity' }}
           >
             What people are <br className="sm:block hidden" /> saying about us
-          </motion.h2>
-          <motion.div
+          </m.h2>
+          <m.div
             className="w-full lg:mt-0 lg:max-w-[450px] text-center lg:text-left"
             initial={{ opacity: 0, transform: 'translateY(-30px)' }}
             whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
@@ -40,13 +40,13 @@ export default function TestimonialsSection({ devMode }: TestimonialsSectionProp
             <p className="text-2xl text-foreground">
               Everything you need to achieve your business goals and maximize growth all in one place.
             </p>
-          </motion.div>
+          </m.div>
         </div>
 
         {/* Grid responsivo: 3 en línea en lg+, 1 columna en pantallas menores */}
         <div className="flex flex-col lg:flex-row lg:justify-center lg:gap-8 gap-8 items-center">
           {testimonials.map((testimonial, index) => (
-            <motion.div
+            <m.div
               key={index}
               className="relative w-full max-w-[400px] lg:max-w-[320px]"
               initial={{ opacity: 0, transform: 'translateY(30px)' }}
@@ -113,7 +113,7 @@ export default function TestimonialsSection({ devMode }: TestimonialsSectionProp
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

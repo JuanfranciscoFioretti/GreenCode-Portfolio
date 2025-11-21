@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import {
-  motion,
+  m,
   useScroll,
   useTransform,
   useSpring,
@@ -63,7 +63,7 @@ export const HeroParallax = ({
       style={{ willChange: 'transform' }}
     >
       <Header />
-      <motion.div
+      <m.div
         style={{
           rotateX,
           rotateZ,
@@ -73,7 +73,7 @@ export const HeroParallax = ({
         }}
         className=""
       >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
+        <m.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
           {firstRow.map((product) => (
             <ProductCard
               product={product}
@@ -81,8 +81,8 @@ export const HeroParallax = ({
               key={product.title}
             />
           ))}
-        </motion.div>
-        <motion.div className="flex flex-row  mb-20 space-x-20 ">
+        </m.div>
+        <m.div className="flex flex-row  mb-20 space-x-20 ">
           {secondRow.map((product) => (
             <ProductCard
               product={product}
@@ -90,8 +90,8 @@ export const HeroParallax = ({
               key={product.title}
             />
           ))}
-        </motion.div>
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
+        </m.div>
+        <m.div className="flex flex-row-reverse space-x-reverse space-x-20">
           {thirdRow.map((product) => (
             <ProductCard
               product={product}
@@ -99,8 +99,8 @@ export const HeroParallax = ({
               key={product.title}
             />
           ))}
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </div>
   );
 };
@@ -110,7 +110,7 @@ export const Header = () => {
     <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
       <div className="flex justify-end">
         <div className="text-right">
-          <motion.h1 
+          <m.h1 
             className="text-5xl md:text-7xl font-bold dark:text-white"
             initial={{ opacity: 0, transform: 'translateY(50px)' }}
             animate={{ opacity: 1, transform: 'translateY(0px)' }}
@@ -122,8 +122,8 @@ export const Header = () => {
             style={{ willChange: 'transform, opacity' }}
           >
             The Ultimate <br /> Development Studio
-          </motion.h1>
-          <motion.p 
+          </m.h1>
+          <m.p 
             className="max-w-2xl text-lg md:text-2xl mt-8 dark:text-neutral-200 ml-auto"
             initial={{ opacity: 0, transform: 'translateY(30px)' }}
             animate={{ opacity: 1, transform: 'translateY(0px)' }}
@@ -136,14 +136,14 @@ export const Header = () => {
           >
             We build high-performance web & mobile apps with modern frameworks.
 Our expert team of full-stack developers and UX designers delivers custom software solutions that drive growth.
-          </motion.p>
+            </m.p>
         </div>
       </div>
     </div>
   );
 };
 
-export const ProductCard = ({
+const ProductCard = ({
   product,
   translate,
 }: {
@@ -155,7 +155,7 @@ export const ProductCard = ({
   translate: MotionValue<number>;
 }) => {
   return (
-    <motion.div
+    <m.div
       style={{
         x: translate,
         boxShadow: "0 10px 20px rgba(0,0,0,0.4)",
@@ -186,6 +186,6 @@ export const ProductCard = ({
       <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
         {product.title}
       </h2>
-    </motion.div>
+    </m.div>
   );
 };

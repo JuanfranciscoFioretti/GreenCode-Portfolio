@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
+import { m, useMotionTemplate, useMotionValue } from "framer-motion";
 import React, { useCallback, useEffect, useRef } from "react";
 
 import { cn } from "@/lib/utils";
@@ -80,7 +80,7 @@ export function MagicCard({
       ref={cardRef}
       className={cn("group relative rounded-[inherit]", className)}
     >
-      <motion.div
+      <m.div
         className="pointer-events-none absolute inset-0 rounded-[inherit] bg-border duration-300 group-hover:opacity-100"
         style={{
           background: useMotionTemplate`
@@ -93,7 +93,7 @@ export function MagicCard({
         }}
       />
       <div className="absolute inset-px rounded-[inherit] bg-background" />
-      <motion.div
+      <m.div
         className="pointer-events-none absolute inset-px rounded-[inherit] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={{
           background: useMotionTemplate`

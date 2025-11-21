@@ -2,7 +2,7 @@
 
 import React, { memo } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { TECHNOLOGIES, TECHNOLOGIES2 } from '../../lib/constants';
 import DevModeTooltip from '../common/DevModeTooltip';
 
@@ -23,7 +23,7 @@ function TechnologiesSection({ devMode }: TechnologiesSectionProps) {
   return (
     <section id="technologies" className="w-full mt-10 bg-[var(--gradient-bg)]">
       <div className="text-center py-10">
-        <motion.h2
+        <m.h2
           className="text-4xl md:text-5xl font-bold text-primary"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -32,11 +32,11 @@ function TechnologiesSection({ devMode }: TechnologiesSectionProps) {
           style={{ willChange: 'transform, opacity' }}
         >
           Technologies We Use
-        </motion.h2>
+        </m.h2>
       </div>
       <div className="relative overflow-hidden">
         {/* Primary marquee (left-to-right) */}
-        <motion.div
+        <m.div
           aria-hidden
           className="flex space-x-8"
           style={rowStyle}
@@ -48,10 +48,10 @@ function TechnologiesSection({ devMode }: TechnologiesSectionProps) {
               <Image src={tech.icon} alt={tech.name} width={72} height={72} loading="lazy" />
             </div>
           ))}
-        </motion.div>
+        </m.div>
 
         {/* Secondary marquee (right-to-left) */}
-        <motion.div
+        <m.div
           aria-hidden
           className="flex space-x-8 mt-8"
           style={rowStyle}
@@ -63,7 +63,7 @@ function TechnologiesSection({ devMode }: TechnologiesSectionProps) {
               <Image src={tech.icon} alt={tech.name} width={72} height={72} loading="lazy" />
             </div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
 
       {devMode && (

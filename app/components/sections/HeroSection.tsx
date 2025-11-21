@@ -1,4 +1,4 @@
-import { motion, useAnimationControls, Variants } from 'framer-motion';
+import { m, useAnimationControls, Variants } from 'framer-motion';
 import Image from 'next/image';
 import { useEffect } from 'react';
 import { LOGOS } from '../../lib/constants';
@@ -43,7 +43,7 @@ export default function HeroSection({ devMode }: HeroSectionProps) {
   </div>
       <div className="absolute inset-0">
         {particles.map((_, i) => (
-          <motion.div
+          <m.div
             key={i}
             className="absolute w-2 h-2 bg-accent rounded-full"
             style={{
@@ -57,7 +57,7 @@ export default function HeroSection({ devMode }: HeroSectionProps) {
           />
         ))}
       </div>
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -78,7 +78,7 @@ export default function HeroSection({ devMode }: HeroSectionProps) {
             isVisible={devMode}
           />
         )}
-      </motion.div>
+      </m.div>
     </section>
   );
 }

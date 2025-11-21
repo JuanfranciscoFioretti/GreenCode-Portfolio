@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 interface DevModeTooltipProps {
   content: string;
@@ -13,13 +13,13 @@ export default function DevModeTooltip({ content, isVisible }: DevModeTooltipPro
 
   console.log('DevModeTooltip rendered:', content); // Debug log
   return (
-    <motion.div
+    <m.div
       className="glassmorphism p-4 rounded-[12px] absolute z-50 max-w-xs bg-[#1B1F29] text-primary shadow-card"
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
     >
       <p className="text-sm">{content}</p>
-    </motion.div>
+    </m.div>
   );
 }
