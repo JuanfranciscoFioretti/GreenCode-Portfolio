@@ -42,14 +42,14 @@ const projects = [
     link: 'https://richards-restaurant.netlify.app/',
     technologies: ['HTML', 'CSS', 'JavaScript'],
   },
-  {
-    id: 'project5',
-    title: 'Photography Portfolio',
-    description: 'Portfolio website showcasing photography work with gallery.',
-    image: '/images/projects/project5.webp',
-    link: 'https://learn-about-photography.netlify.app/',
-    technologies: ['React', 'CSS', 'Gallery'],
-  },
+  // {
+  //   id: 'project5',
+  //   title: 'Photography Portfolio',
+  //   description: 'Portfolio website showcasing photography work with gallery.',
+  //   image: '/images/projects/project5.webp',
+  //   link: 'https://learn-about-photography.netlify.app/',
+  //   technologies: ['React', 'CSS', 'Gallery'],
+  // },
   {
     id: 'project6',
     title: 'Café Website',
@@ -58,14 +58,14 @@ const projects = [
     link: 'https://gorilla-cafe.netlify.app/',
     technologies: ['HTML', 'CSS', 'JavaScript'],
   },
-  {
-    id: 'project7',
-    title: 'Kayak Rental Service',
-    description: 'Service website for kayak rentals with booking system.',
-    image: '/images/projects/project7.webp',
-    link: 'https://gorilla-cafe.netlify.app/',
-    technologies: ['React', 'Node.js', 'MongoDB'],
-  },
+  // {
+  //   id: 'project7',
+  //   title: 'Kayak Rental Service',
+  //   description: 'Service website for kayak rentals with booking system.',
+  //   image: '/images/projects/project7.webp',
+  //   link: 'https://gorilla-cafe.netlify.app/',
+  //   technologies: ['React', 'Node.js', 'MongoDB'],
+  // },
   {
     id: 'project8',
     title: 'Café Landing Page',
@@ -82,14 +82,14 @@ const projects = [
     link: 'https://www.altuvia.net/',
     technologies: ['React Native', 'Firebase', 'API'],
   },
-  {
-    id: 'project10',
-    title: 'Modern Landing Page',
-    description: 'Versatile modern landing page template.',
-    image: '/images/projects/project10.webp',
-    link: 'https://bank-modern-app-two.vercel.app/',
-    technologies: ['Next.js', 'Tailwind', 'Framer Motion'],
-  },
+  // {
+  //   id: 'project10',
+  //   title: 'Modern Landing Page',
+  //   description: 'Versatile modern landing page template.',
+  //   image: '/images/projects/project10.webp',
+  //   link: 'https://bank-modern-app-two.vercel.app/',
+  //   technologies: ['Next.js', 'Tailwind', 'Framer Motion'],
+  // },
 ];
 
 export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {

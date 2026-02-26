@@ -165,21 +165,23 @@ const ProductCard = ({
         y: -10,
       }}
       key={product.title}
-      className="group/product h-96 w-[30rem] relative shrink-0 rounded-2xl"
+      className="group/product h-96 w-[30rem] relative shrink-0 rounded-2xl overflow-hidden"
     >
       <a
         href={product.link}
         target="_blank"
-        className="block group-hover/product:shadow-2xl "
+        className="block group-hover/product:shadow-2xl w-full h-full"
       >
         <Image
           src={product.thumbnail}
           alt={product.title}
           fill
-          sizes="(max-width: 768px) 100vw, 30rem"
-          className="object-cover rounded-2xl"
-          quality={85}
+          sizes="480px"
+          className="object-cover rounded-2xl hover:scale-105 transition-transform duration-300"
+          quality={100}
           priority={false}
+          placeholder="blur"
+          blurDataURL="data:image/webp;base64,UklGRiYAAABXRUJQVlA4IBIAAAAwAQCdASoBAAEAAQAcJYAOiEA/g==/AQAA"
         />
       </a>
       <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-30 bg-black pointer-events-none rounded-2xl"></div>

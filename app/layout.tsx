@@ -57,10 +57,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={poppins.className}>
       <head>
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        {/* Primary vector favicon (scales well). `sizes="any"` hints browsers it can be used at any size. */}
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
+        {/* Legacy / common fallbacks (higher-res webp/png for devices that prefer raster) */}
         <link rel="shortcut icon" href="/images/Slogo.webp" />
-        <link rel="apple-touch-icon" href="/images/Slogo.webp" />
-        <link rel="icon" href="/images/Slogo.webp" type="image/webp" sizes="192x192" />
+        <link rel="apple-touch-icon" href="/images/Slogo.webp" sizes="192x192" />
+        <link rel="icon" href="/images/Slogo.webp" type="image/webp" sizes="512x512" />
+        <link rel="icon" href="/images/Slogo.webp" type="image/png" sizes="512x512" />
+        {/* Provide explicit image_src for crawlers that look for a direct image link */}
+        <link rel="image_src" href="https://sostentia.com/images/logo-primary-black.webp" />
         {/* Support ICO favicons: prefer images/Slogo.ico if present */}
         <link rel="icon" href="/images/Slogo.ico" type="image/x-icon" />
         <link rel="icon" href="/Slogo.ico" type="image/x-icon" />

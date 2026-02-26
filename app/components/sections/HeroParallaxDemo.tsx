@@ -23,9 +23,9 @@ export const products = [
   },
 
   {
-    title: "Modern Landing Page",
-    link: "https://bank-modern-app-two.vercel.app/",
-    thumbnail: "/images/projects/project10.webp",
+    title: "Modern Financial Calculator",
+    link: "https://financial-calculator-sandy.vercel.app/",
+    thumbnail: "/images/projects/project11.webp",
   },
   {
     title: "Photography Portfolio",
@@ -33,19 +33,19 @@ export const products = [
     thumbnail: "/images/projects/project5.webp",
   },
   {
-    title: "Kayak Rental Service",
-    link: "https://gorilla-cafe.netlify.app/",
-    thumbnail: "/images/projects/project7.webp",
-  },
-  {
     title: "Café Website",
     link: "https://gorilla-cafe.netlify.app/",
     thumbnail: "/images/projects/project6.webp",
   },
   {
+    title: "Kayak Rental Service",
+    link: "https://del-nautico-kayaks-tandil.vercel.app/",
+    thumbnail: "/images/projects/project7.webp",
+  },
+  {
     title: "Modern Bank App",
     link: "https://bank-modern-app-two.vercel.app/",
-    thumbnail: "/images/projects/project1.webp",
+    thumbnail: "/images/projects/project10.webp",
   },
   {
     title: "Restaruant Landing Page",
