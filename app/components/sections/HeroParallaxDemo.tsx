@@ -7,8 +7,8 @@ export function HeroParallaxDemo() {
 }
 export const products = [
   {
-    title: "Altuvia App Platform",
-    link: "https://www.altuvia.net/",
+    title: "Live Walkie Talkie App",
+    link: "https://walkie-talkie-chi.vercel.app/",
     thumbnail: "/images/projects/project9.webp",
   },
   {
