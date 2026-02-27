@@ -28,7 +28,7 @@ export const products = [
     thumbnail: "/images/projects/project11.webp",
   },
   {
-    title: "Photography Portfolio",
+    title: "Photography Web Portfolio",
     link: "https://learn-about-photography.netlify.app/",
     thumbnail: "/images/projects/project5.webp",
   },
