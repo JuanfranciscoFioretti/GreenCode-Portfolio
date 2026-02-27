@@ -9,7 +9,7 @@ export const products = [
   {
     title: "Live Walkie Talkie App",
     link: "https://walkie-talkie-chi.vercel.app/",
-    thumbnail: "/images/projects/project9.webp",
+    thumbnail: "/images/projects/project12.webp",
   },
   {
     title: "Studio Sobra Landing Page",
