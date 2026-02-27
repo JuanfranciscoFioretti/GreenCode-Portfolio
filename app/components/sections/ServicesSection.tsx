@@ -7,7 +7,7 @@ export default function ServicesSection() {
   const { devMode } = useDevMode();
 
   return (
-    <section id="services" aria-labelledby="services-heading" className={`w-full py-20 -mt-50 bg-[var(--background)] ${devMode ? 'border-2 border-gray-50' : ''}`}>
+    <section id="services" aria-labelledby="services-heading" className={`w-full pt-20 pb-40 -mt-50 bg-[var(--background)] ${devMode ? 'border-2 border-gray-50' : ''}`}>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <m.h2
           id="services-heading"
@@ -23,7 +23,7 @@ export default function ServicesSection() {
         <div className="relative">
           {/* Backdrop blur layer con contenido para blur - detrás de todas las cards */}
           <div className="absolute inset-0 z-0">
-            <div className="w-full h-full bg-gradient-to-br from-cyan-500/20 via-purple-500/20 to-blue-500/20 blur-[200px]" />
+            <div className="w-full h-full bg-gradient-to-br from-cyan-500/10 via-purple-500/10 to-blue-500/10 blur-[400px]" />
           </div>
           
           {/* Grid responsivo mejorado para centrar las cards en móvil */}

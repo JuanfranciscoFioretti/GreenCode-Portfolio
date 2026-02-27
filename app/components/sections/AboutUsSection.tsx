@@ -9,7 +9,7 @@ interface AboutUsSectionProps {
 
 export default function AboutUsSection({ devMode }: AboutUsSectionProps) {
   return (
-    <section id="about" className="w-full py-20 bg-[var(--gradient-bg)]">
+    <section id="about" className="w-full pt-40 pb-20 bg-[var(--gradient-bg)]">
       <m.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -25,7 +25,7 @@ export default function AboutUsSection({ devMode }: AboutUsSectionProps) {
         )}
         <h2 className="text-4xl md:text-5xl font-bold text-primary mb-8">About Us</h2>
         <p className="text-lg text-secondary max-w-3xl mx-auto">
-          We are a team of passionate developers and designers dedicated to creating innovative digital solutions.
+          At Sostentia, we specialize in transforming ideas into powerful digital solutions. Our team combines expertise in web development, mobile applications, AI-powered automations, and digital marketing to help businesses thrive in the modern landscape. We're committed to delivering secure, scalable, and user-friendly solutions that drive real results and exceed expectations.
         </p>
       </m.div>
     </section>

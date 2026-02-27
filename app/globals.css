@@ -128,7 +128,8 @@
   }
   
   body {
-    @apply bg-background text-foreground w-full min-h-screen overflow-x-hidden;
+    @apply text-foreground w-full min-h-screen overflow-x-hidden;
+    background-color: var(--gradient-bg);
   }
   
   /* Accessible focus styles */

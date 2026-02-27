@@ -16,7 +16,7 @@ export default function TestimonialsSection({ devMode }: TestimonialsSectionProp
   }));
 
   return (
-    <section id="testimonials" className="w-full py-20 relative overflow-hidden">
+    <section id="testimonials" className="w-full py-20 relative overflow-hidden bg-[var(--gradient-bg)]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         <div className="w-full flex justify-between items-center xl:flex-row flex-col mb-20 gap-8 xl:gap-0">
           <m.h2

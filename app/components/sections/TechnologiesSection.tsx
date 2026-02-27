@@ -22,18 +22,6 @@ function TechnologiesSection({ devMode }: TechnologiesSectionProps) {
 
   return (
     <section id="technologies" className="w-full mt-10 bg-[var(--gradient-bg)]">
-      <div className="text-center py-10">
-        <m.h2
-          className="text-4xl md:text-5xl font-bold text-primary"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          viewport={{ once: true, amount: 0.3 }}
-          style={{ willChange: 'transform, opacity' }}
-        >
-          Technologies We Use
-        </m.h2>
-      </div>
       <div className="relative overflow-hidden">
         {/* Primary marquee (left-to-right) */}
         <m.div

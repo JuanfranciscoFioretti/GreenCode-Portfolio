@@ -12,7 +12,7 @@ const loadFeatures = () => import('framer-motion').then((m) => m.domAnimation);
 
 function ClientContent({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen w-full flex flex-col">
+    <div className="min-h-screen w-full flex flex-col bg-[var(--gradient-bg)]">
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:z-[100] focus:top-2 focus:left-2 focus:px-4 focus:py-2 focus:bg-[hsl(var(--background))] focus:text-[hsl(var(--foreground))] focus:ring-2 focus:ring-[hsl(var(--primary))] rounded"

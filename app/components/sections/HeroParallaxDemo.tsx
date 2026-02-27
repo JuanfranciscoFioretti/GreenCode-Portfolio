@@ -17,7 +17,7 @@ export const products = [
     thumbnail: "/images/projects/project2.webp",
   },
   {
-    title: "Original Dashboard Remake",
+    title: "Invoice + Customers Dashboard",
     link: "https://nextjs-dashboard-theta-two-93.vercel.app/",
     thumbnail: "/images/projects/project3.webp",
   },

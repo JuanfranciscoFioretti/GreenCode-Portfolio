@@ -9,8 +9,8 @@ export default function Footer() {
   const logoSrc = theme === 'light' ? '/images/logo-primary-black.webp' : LOGOS.primary;
   return (
     <footer
-      className="py-10 bg-[var(--gradient-bg)]"
-      style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
+      className="pt-10 pb-20 bg-[var(--gradient-bg)]"
+      style={{ paddingBottom: 'calc(5rem + env(safe-area-inset-bottom))' }}
     >
       <div className="max-w-7xl mx-auto px-4 text-center">
         <Image src={logoSrc} alt="Sostentia Logo" width={120} height={40} />

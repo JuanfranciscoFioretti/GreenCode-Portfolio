@@ -2,6 +2,7 @@
   --primary-logo: url('../../public/images/logo-primary.webp');
   --background: #010101;
   --background-gradient: radial-gradient(circle at top left, #040405 0%, #010102 100%);
+  --gradient-bg: #010101;
   --primary: #FFFFFF;
   --secondary: #A1A1AA;
   --accent: #01f19d;
@@ -25,6 +26,7 @@
   --primary-logo: url('../../public/images/logo-primary-black.webp');
   --background: #fdfdfd;
   --background-gradient: radial-gradient(circle at top left, #ffffff 0%, #ffffff 100%);
+  --gradient-bg: #fdfdfd;
   --primary: #1f2937;
   --secondary: #6b7280;
   --accent: #0ad447;

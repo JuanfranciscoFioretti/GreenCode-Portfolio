@@ -85,7 +85,7 @@ export default function ContactSection({ devMode }: ContactSectionProps) {
   };
 
   return (
-    <section id="contact" className="w-full py-20 bg-[var(--background-gradient)]">
+    <section id="contact" className="w-full py-20 bg-[var(--gradient-bg)]">
       <m.h2
         className="text-4xl md:text-5xl font-bold text-primary text-center mb-12 relative z-0"
         initial={titleInitial}
