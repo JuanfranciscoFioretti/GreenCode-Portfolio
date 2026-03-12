@@ -65,3 +65,49 @@
     transition: all 0.3s ease-in-out;
   }
 }
+
+/* Animación de gradiente en movimiento */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradientShift 6s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+}
+
+/* Estilos para las cards de Sostentia Desk Features */
+.sostentia-feature-card {
+  transition-property: all;
+  transition-duration: 300ms;
+}
+
+/* Dark theme - mantener estilos actuales */
+:root .sostentia-feature-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+}
+
+:root .sostentia-feature-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Light theme - blanco con sombra pronunciada */
+[data-theme="light"] .sostentia-feature-card {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .sostentia-feature-card:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}

@@ -11,6 +11,7 @@ const ClientHeroParallaxDemo = dynamic(() => import('./components/sections/Clien
 });
 const ClientServicesSection = dynamic(() => import('./components/sections/ClientServicesSection'));
 const ClientTechnologiesSection = dynamic(() => import('./components/sections/ClientTechnologiesSection'));
+const ClientSostentiaDeskSection = dynamic(() => import('./components/sections/ClientSostentiaDeskSection'));
 const ClientAboutUsSection = dynamic(() => import('./components/sections/ClientAboutUsSection'));
 const ClientTestimonialsSection = dynamic(() => import('./components/sections/ClientTestimonialsSection'));
 const ClientContactSection = dynamic(() => import('./components/sections/ClientContactSection'), {
@@ -70,6 +71,10 @@ export default function Home() {
 
       <div className="w-full">
         <ClientTechnologiesSection devMode={devMode} />
+      </div>
+      
+      <div className="w-full">
+        <ClientSostentiaDeskSection devMode={devMode} />
       </div>
       
       <div className="w-full">

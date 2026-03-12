@@ -48,13 +48,13 @@ export const products = [
     thumbnail: "/images/projects/project10.webp",
   },
   {
+    title: "Sostentia Desk",
+    link: "https://sostentia-desk.vercel.app/en",
+    thumbnail: "/images/projects/project13.webp",
+  },
+  {
     title: "Restaruant Landing Page",
     link: "https://richards-restaurant.netlify.app/",
     thumbnail: "/images/projects/project4.webp",
-  },
-  {
-    title: "Café Landing Page",
-    link: "https://cafeteria-saltos.netlify.app/",
-    thumbnail: "/images/projects/project8.webp",
-  },
+  }
 ];
