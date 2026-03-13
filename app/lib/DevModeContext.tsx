@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, ReactNode, useCallback, useMemo } from 'react';
 
 interface DevModeContextType {
   devMode: boolean;
@@ -12,15 +12,14 @@ const DevModeContext = createContext<DevModeContextType | undefined>(undefined);
 export function DevModeProvider({ children }: { children: ReactNode }) {
   const [devMode, setDevMode] = useState(false);
 
-  const toggleDevMode = () => {
-    setDevMode(prev => {
-      console.log('DevMode toggled:', !prev); // Debug log
-      return !prev;
-    });
-  };
+  const toggleDevMode = useCallback(() => {
+    setDevMode(prev => !prev);
+  }, []);
+
+  const value = useMemo(() => ({ devMode, toggleDevMode }), [devMode, toggleDevMode]);
 
   return (
-    <DevModeContext.Provider value={{ devMode, toggleDevMode }}>
+    <DevModeContext.Provider value={value}>
       {children}
     </DevModeContext.Provider>
   );

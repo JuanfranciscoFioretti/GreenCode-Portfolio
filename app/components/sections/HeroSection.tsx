@@ -1,3 +1,5 @@
+'use client';
+
 import { m, useAnimationControls, Variants } from 'framer-motion';
 import Image from 'next/image';
 import { useEffect } from 'react';

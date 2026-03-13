@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useMemo, useState, useEffect, memo } from "react";
 import Image from "next/image";
 import {
   m,
@@ -8,9 +8,57 @@ import {
   useSpring,
   MotionValue,
 } from "framer-motion";
-// import { Image } from "lucide-react";
 
+const ProductCard = memo(({
+  product,
+  translate,
+}: {
+  product: {
+    title: string;
+    link: string;
+    thumbnail: string;
+  };
+  translate: MotionValue<number>;
+}) => {
+  return (
+    <m.div
+      style={{
+        x: translate,
+        boxShadow: "0 10px 20px rgba(0,0,0,0.4)",
+        willChange: 'transform'
+      }}
+      whileHover={{
+        y: -10,
+      }}
+      key={product.title}
+      className="group/product h-96 w-[30rem] relative shrink-0 rounded-2xl overflow-hidden"
+    >
+      <a
+        href={product.link}
+        target="_blank"
+        className="block group-hover/product:shadow-2xl w-full h-full"
+      >
+        <Image
+          src={product.thumbnail}
+          alt={product.title}
+          fill
+          sizes="480px"
+          className="object-cover rounded-2xl hover:scale-105 transition-transform duration-300"
+          quality={100}
+          priority={false}
+          placeholder="blur"
+          blurDataURL="data:image/webp;base64,UklGRiYAAABXRUJQVlA4IBIAAAAwAQCdASoBAAEAAQAcJYAOiEA/g==/AQAA"
+        />
+      </a>
+      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-30 bg-black pointer-events-none rounded-2xl"></div>
+      <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
+        {product.title}
+      </h2>
+    </m.div>
+  );
+});
 
+ProductCard.displayName = 'ProductCard';
 
 export const HeroParallax = ({
   products,
@@ -21,16 +69,34 @@ export const HeroParallax = ({
     thumbnail: string;
   }[];
 }) => {
-  const firstRow = products.slice(0, 5);
-  const secondRow = products.slice(5, 10);
-  const thirdRow = products.slice(10, 15);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 768px)');
+    setIsMobile(mediaQuery.matches);
+
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mediaQuery.addEventListener('change', handler);
+    return () => mediaQuery.removeEventListener('change', handler);
+  }, []);
+
+  const firstRow = useMemo(() => products.slice(0, 5), [products]);
+  const secondRow = useMemo(() => products.slice(5, 10), [products]);
+  const thirdRow = useMemo(() => products.slice(10, 15), [products]);
+
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
 
-  const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
+  // Optimized spring config - lighter on mobile
+  const springConfig = useMemo(() => ({
+    stiffness: isMobile ? 160 : 300,
+    damping: isMobile ? 20 : 30,
+    bounce: 0,
+    mass: 0.5
+  }), [isMobile]);
 
   const translateX = useSpring(
     useTransform(scrollYProgress, [0, 1], [0, 1000]),
@@ -56,6 +122,7 @@ export const HeroParallax = ({
     useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
     springConfig
   );
+
   return (
     <div
       ref={ref}
@@ -105,7 +172,7 @@ export const HeroParallax = ({
   );
 };
 
-export const Header = () => {
+export const Header = memo(() => {
   return (
     <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
       <div className="flex justify-end">
@@ -141,53 +208,6 @@ Our expert team of full-stack developers and UX designers delivers custom softwa
       </div>
     </div>
   );
-};
+});
 
-const ProductCard = ({
-  product,
-  translate,
-}: {
-  product: {
-    title: string;
-    link: string;
-    thumbnail: string;
-  };
-  translate: MotionValue<number>;
-}) => {
-  return (
-    <m.div
-      style={{
-        x: translate,
-        boxShadow: "0 10px 20px rgba(0,0,0,0.4)",
-        willChange: 'transform'
-      }}
-      whileHover={{
-        y: -10,
-      }}
-      key={product.title}
-      className="group/product h-96 w-[30rem] relative shrink-0 rounded-2xl overflow-hidden"
-    >
-      <a
-        href={product.link}
-        target="_blank"
-        className="block group-hover/product:shadow-2xl w-full h-full"
-      >
-        <Image
-          src={product.thumbnail}
-          alt={product.title}
-          fill
-          sizes="480px"
-          className="object-cover rounded-2xl hover:scale-105 transition-transform duration-300"
-          quality={100}
-          priority={false}
-          placeholder="blur"
-          blurDataURL="data:image/webp;base64,UklGRiYAAABXRUJQVlA4IBIAAAAwAQCdASoBAAEAAQAcJYAOiEA/g==/AQAA"
-        />
-      </a>
-      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-30 bg-black pointer-events-none rounded-2xl"></div>
-      <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
-        {product.title}
-      </h2>
-    </m.div>
-  );
-};
+Header.displayName = 'Header';

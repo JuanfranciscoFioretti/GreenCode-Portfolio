@@ -1,6 +1,6 @@
 "use client";
 
-import React, { memo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 import { m } from 'framer-motion';
 import { TECHNOLOGIES, TECHNOLOGIES2 } from '../../lib/constants';
@@ -10,15 +10,30 @@ interface TechnologiesSectionProps {
   devMode: boolean;
 }
 
-function TechnologiesSection({ devMode }: TechnologiesSectionProps) {
+export default function TechnologiesSection({ devMode }: TechnologiesSectionProps) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 768px)');
+    setIsMobile(mediaQuery.matches);
+
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mediaQuery.addEventListener('change', handler);
+    return () => mediaQuery.removeEventListener('change', handler);
+  }, []);
+
   // Duplicate lists three times to ensure seamless infinite loop
-  const listA = [...TECHNOLOGIES, ...TECHNOLOGIES, ...TECHNOLOGIES];
-  const listB = [...TECHNOLOGIES2, ...TECHNOLOGIES2, ...TECHNOLOGIES2];
+  const listA = useMemo(() => [...TECHNOLOGIES, ...TECHNOLOGIES, ...TECHNOLOGIES], []);
+  const listB = useMemo(() => [...TECHNOLOGIES2, ...TECHNOLOGIES2, ...TECHNOLOGIES2], []);
 
   const rowStyle: React.CSSProperties = {
     willChange: 'transform',
     transform: 'translateZ(0)', // promote to its own layer
   };
+
+  // Adaptive animation duration based on device
+  const durationA = isMobile ? 20 : 36;
+  const durationB = isMobile ? 24 : 41;
 
   return (
     <section id="technologies" className="w-full mt-10 bg-[var(--gradient-bg)]">
@@ -29,7 +44,7 @@ function TechnologiesSection({ devMode }: TechnologiesSectionProps) {
           className="flex space-x-8"
           style={rowStyle}
           animate={{ x: ['0%', '-33.33%'] }}
-          transition={{ duration: 36, repeat: Infinity, ease: 'linear' }}
+          transition={{ duration: durationA, repeat: Infinity, ease: 'linear' }}
         >
           {listA.map((tech, index) => (
             <div key={`a-${index}`} className="flex-shrink-0 flex items-center justify-center p-2">
@@ -44,7 +59,7 @@ function TechnologiesSection({ devMode }: TechnologiesSectionProps) {
           className="flex space-x-8 mt-8"
           style={rowStyle}
           animate={{ x: ['-33.33%', '0%'] }}
-          transition={{ duration: 41, repeat: Infinity, ease: 'linear' }}
+          transition={{ duration: durationB, repeat: Infinity, ease: 'linear' }}
         >
           {listB.map((tech, index) => (
             <div key={`b-${index}`} className="flex-shrink-0 flex items-center justify-center p-2">
@@ -63,5 +78,3 @@ function TechnologiesSection({ devMode }: TechnologiesSectionProps) {
     </section>
   );
 }
-
-export default memo(TechnologiesSection);

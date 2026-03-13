@@ -1,5 +1,5 @@
 // import Image from 'next/image';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState, useCallback, memo } from 'react';
 import { m } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import ThemeTogglerWrapper from './ThemeTogglerWrapper';
@@ -9,7 +9,7 @@ import ThemeTogglerWrapper from './ThemeTogglerWrapper';
 interface MenuItem { id: string; label: string }
 interface MenuAnimationProps { menuItems: MenuItem[]; onSelect: (id: string) => void }
 
-function MenuAnimation({ menuItems, onSelect }: MenuAnimationProps) {
+const MenuAnimation = memo(function MenuAnimation({ menuItems, onSelect }: MenuAnimationProps) {
   return (
     <ul className="flex min-w-fit flex-col gap-8 overflow-hidden" role="menu" aria-label="Primary">
       {menuItems.map((item) => (
@@ -29,12 +29,13 @@ function MenuAnimation({ menuItems, onSelect }: MenuAnimationProps) {
       ))}
     </ul>
   );
-}
+});
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [currentSection, setCurrentSection] = useState<string | null>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const debounceRef = useRef<NodeJS.Timeout | null>(null);
 
   const menuItems = useMemo<MenuItem[]>(() => ([
     { id: 'services', label: 'Services' },
@@ -62,7 +63,7 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
-  // Highlight current section in navbar
+  // Highlight current section in navbar with debounced updates
   useEffect(() => {
     const sections = menuItems.map((i) => document.getElementById(i.id)).filter(Boolean) as HTMLElement[];
     if (!sections.length) return;
@@ -70,16 +71,19 @@ export default function Navbar() {
     observerRef.current?.disconnect();
     observerRef.current = new IntersectionObserver(
       (entries) => {
-        // Pick the entry with highest intersection ratio
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => (b.intersectionRatio - a.intersectionRatio))[0];
-        if (visible && visible.target.id !== currentSection) {
-          setCurrentSection(visible.target.id);
-        }
+        // Debounce the state update to prevent excessive re-renders
+        if (debounceRef.current) clearTimeout(debounceRef.current);
+        
+        debounceRef.current = setTimeout(() => {
+          const visible = entries
+            .filter((e) => e.isIntersecting)
+            .sort((a, b) => (b.intersectionRatio - a.intersectionRatio))[0];
+          if (visible && visible.target.id !== currentSection) {
+            setCurrentSection(visible.target.id);
+          }
+        }, 50);
       },
       {
-        // Account for fixed navbar height
         root: null,
         threshold: [0.4, 0.6, 0.8],
         rootMargin: '-64px 0px -55% 0px',
@@ -87,25 +91,27 @@ export default function Navbar() {
     );
 
     sections.forEach((sec) => observerRef.current?.observe(sec));
-    return () => observerRef.current?.disconnect();
+    
+    return () => {
+      observerRef.current?.disconnect();
+      if (debounceRef.current) clearTimeout(debounceRef.current);
+    };
   }, [menuItems, currentSection]);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleMenu = useCallback(() => {
+    setIsOpen(prev => !prev);
+  }, []);
 
-  const handleMenuItemClick = (id: string) => {
+  const handleMenuItemClick = useCallback((id: string) => {
     const section = `#${id}`;
     const element = document.querySelector(section);
-    // Close menu first to re-enable scroll, then navigate smoothly
     setIsOpen(false);
     if (element) {
-      // Allow the DOM to update before scrolling
       requestAnimationFrame(() => {
         element.scrollIntoView({ behavior: 'smooth' });
       });
     }
-  };
+  }, []);
 
   return (
     <>

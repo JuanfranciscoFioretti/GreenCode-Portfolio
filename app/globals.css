@@ -125,11 +125,16 @@
     @apply w-full h-full overflow-x-hidden;
     scroll-behavior: smooth;
     scroll-padding-top: calc(5rem + env(safe-area-inset-top)); /* Offset for fixed navbar incl. iOS safe area */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
   
   body {
     @apply text-foreground w-full min-h-screen overflow-x-hidden;
     background-color: var(--gradient-bg);
+    -webkit-touch-callout: none;
+    position: relative;
   }
   
   /* Accessible focus styles */
@@ -156,6 +161,21 @@
   section {
     @apply w-full;
     scroll-margin-top: calc(5rem + env(safe-area-inset-top)); /* Offset for sections incl. iOS safe area */
+  }
+
+  /* Mobile optimizations for smooth scroll */
+  @media (max-width: 768px) {
+    * {
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+    
+    [data-scroll],
+    [style*="transform"],
+    [style*="willChange"] {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
   }
 }
 

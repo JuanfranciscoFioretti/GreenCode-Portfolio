@@ -1,11 +1,12 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { MotionConfig, LazyMotion } from 'framer-motion';
 import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
 import { DevModeProvider } from './lib/DevModeContext';
 import { ThemeProvider } from './lib/ThemeContext';
+import { useScrollOptimization, enableIOSScrollAcceleration } from './lib/useScrollOptimization';
 import './styles/globals.css';
 
 const loadFeatures = () => import('framer-motion').then((m) => m.domAnimation);
@@ -29,6 +30,12 @@ function ClientContent({ children }: { children: React.ReactNode }) {
 }
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
+  useScrollOptimization();
+
+  useEffect(() => {
+    enableIOSScrollAcceleration();
+  }, []);
+
   return (
     <ThemeProvider>
       <DevModeProvider>

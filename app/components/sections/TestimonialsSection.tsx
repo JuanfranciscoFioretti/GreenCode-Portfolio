@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { m } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import DevModeTooltip from '../common/DevModeTooltip';
 import { TESTIMONIALS } from '../../lib/constants';
 import { Meteors } from '@/components/ui/meteors';
@@ -11,6 +12,17 @@ interface TestimonialsSectionProps {
 }
 
 export default function TestimonialsSection({ devMode }: TestimonialsSectionProps) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 768px)');
+    setIsMobile(mediaQuery.matches);
+
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mediaQuery.addEventListener('change', handler);
+    return () => mediaQuery.removeEventListener('change', handler);
+  }, []);
+
   const testimonials = TESTIMONIALS.map((item) => ({
     ...item
   }));
@@ -20,11 +32,11 @@ export default function TestimonialsSection({ devMode }: TestimonialsSectionProp
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         <div className="w-full flex justify-between items-center xl:flex-row flex-col mb-20 gap-8 xl:gap-0">
           <m.h2
-            className="text-6xl md:text-6xl font-bold text-foreground text-center lg:text-left"
+            className="text-5xl sm:text-6xl md:text-6xl font-bold text-foreground text-center lg:text-left"
             initial={{ opacity: 0, transform: 'translateY(-30px)' }}
             whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
             style={{ willChange: 'transform, opacity' }}
           >
             What people are <br className="sm:block hidden" /> saying about us
@@ -33,8 +45,8 @@ export default function TestimonialsSection({ devMode }: TestimonialsSectionProp
             className="w-full lg:mt-0 lg:max-w-[450px] text-center lg:text-left"
             initial={{ opacity: 0, transform: 'translateY(-30px)' }}
             whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: isMobile ? 0 : 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
             style={{ willChange: 'transform, opacity' }}
           >
             <p className="text-2xl text-foreground">
@@ -54,7 +66,7 @@ export default function TestimonialsSection({ devMode }: TestimonialsSectionProp
               transition={{ 
                 duration: 0.5, 
                 ease: [0.25, 0.1, 0.25, 1], 
-                delay: index * 0.1 
+                delay: isMobile ? 0 : index * 0.1 
               }}
               viewport={{ once: true, margin: "-50px" }}
               style={{ willChange: 'transform, opacity' }}
