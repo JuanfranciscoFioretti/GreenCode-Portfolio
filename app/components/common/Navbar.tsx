@@ -163,7 +163,7 @@ export default function Navbar() {
       {/* Full Screen Mobile Menu Overlay */}
       {isOpen && (
         <m.div
-          className="fixed top-0 left-0 w-full h-[100svh] glassmorphism z-40 md:hidden"
+          className="fixed top-0 left-0 w-full h-[100dvh] glassmorphism z-40 md:hidden"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -184,7 +184,7 @@ export default function Navbar() {
           <div className="h-16"></div>
           
           {/* Menu items centered and aligned */}
-          <div className="flex justify-center items-center h-[calc(100svh-12rem)]">
+          <div className="flex justify-center items-center h-[calc(100dvh-12rem)]">
             <MenuAnimation menuItems={menuItems} onSelect={handleMenuItemClick} />
           </div>
           
