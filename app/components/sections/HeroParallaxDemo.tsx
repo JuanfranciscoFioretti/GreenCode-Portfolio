@@ -28,9 +28,9 @@ export const products = [
     thumbnail: "/images/projects/project11.webp",
   },
   {
-    title: "Photography Web Portfolio",
-    link: "https://learn-about-photography.netlify.app/",
-    thumbnail: "/images/projects/project5.webp",
+    title: "Restaruant Landing Page",
+    link: "https://richards-restaurant.netlify.app/",
+    thumbnail: "/images/projects/project4.webp",
   },
   {
     title: "Café Website",
@@ -53,8 +53,8 @@ export const products = [
     thumbnail: "/images/projects/project13.webp",
   },
   {
-    title: "Restaruant Landing Page",
-    link: "https://richards-restaurant.netlify.app/",
-    thumbnail: "/images/projects/project4.webp",
+    title: "Photography Web Portfolio",
+    link: "https://learn-about-photography.netlify.app/",
+    thumbnail: "/images/projects/project5.webp",
   }
 ];

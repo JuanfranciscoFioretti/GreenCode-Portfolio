@@ -39,7 +39,7 @@ export default function Navbar() {
 
   const menuItems = useMemo<MenuItem[]>(() => ([
     { id: 'services', label: 'Services' },
-    { id: 'sostentia-desk', label: 'Product' },
+    { id: 'sostentia-desk', label: 'Sostentia Desk' },
     { id: 'contact', label: 'Contact' },
     { id: 'faq', label: 'FAQ' },
   ]), []);
@@ -132,7 +132,7 @@ export default function Navbar() {
             </div>
             <div className="hidden md:flex space-x-8 items-center">
               <a href="#services" aria-current={currentSection === 'services' ? 'true' : undefined} className="text-primary hover:text-accent text-[16px]">Services</a>
-              <a href="#sostentia-desk" aria-current={currentSection === 'sostentia-desk' ? 'true' : undefined} className="text-primary hover:text-accent text-[16px]">Product</a>
+              <a href="#sostentia-desk" aria-current={currentSection === 'sostentia-desk' ? 'true' : undefined} className="text-primary hover:text-accent text-[16px]">Sostentia Desk</a>
               <a href="#contact" aria-current={currentSection === 'contact' ? 'true' : undefined} className="text-primary hover:text-accent text-[16px]">Contact</a>
               <a href="#faq" aria-current={currentSection === 'faq' ? 'true' : undefined} className="text-primary hover:text-accent text-[16px]">FAQ</a>
               <ThemeTogglerWrapper />
