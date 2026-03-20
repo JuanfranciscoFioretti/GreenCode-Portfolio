@@ -50,7 +50,7 @@ export const products = [
   {
     title: "Sostentia Desk",
     link: "https://sostentia-desk.vercel.app/en",
-    thumbnail: "/images/projects/project13.webp",
+    thumbnail: "/images/projects/Sostentia-desk-new.webp",
   },
   {
     title: "Photography Web Portfolio",
