@@ -81,8 +81,8 @@ export const HeroParallax = ({
   }, []);
 
   const firstRow = useMemo(() => products.slice(0, 5), [products]);
-  const secondRow = useMemo(() => products.slice(5, 10), [products]);
-  const thirdRow = useMemo(() => products.slice(10, 15), [products]);
+  const secondRow = useMemo(() => products.slice(5, 11), [products]);
+  const thirdRow = useMemo(() => products.slice(11, 16), [products]);
 
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({

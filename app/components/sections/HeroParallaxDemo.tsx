@@ -33,6 +33,11 @@ export const products = [
     thumbnail: "/images/projects/project4.webp",
   },
   {
+    title: "CMS Dashboard",
+    link: "",
+    thumbnail: "/images/projects/Directus-cms2.webp",
+  },
+  {
     title: "Café Website",
     link: "https://gorilla-cafe.netlify.app/",
     thumbnail: "/images/projects/project6.webp",
