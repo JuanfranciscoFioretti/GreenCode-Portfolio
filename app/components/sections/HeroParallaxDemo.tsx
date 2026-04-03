@@ -38,16 +38,6 @@ export const products = [
     thumbnail: "/images/projects/Directus-cms2.webp",
   },
   {
-    title: "Café Website",
-    link: "https://gorilla-cafe.netlify.app/",
-    thumbnail: "/images/projects/project6.webp",
-  },
-  {
-    title: "Kayak Rental Service",
-    link: "https://del-nautico-kayaks-tandil.vercel.app/",
-    thumbnail: "/images/projects/project7.webp",
-  },
-  {
     title: "Modern Bank App",
     link: "https://bank-modern-app-two.vercel.app/",
     thumbnail: "/images/projects/project10.webp",
@@ -56,6 +46,16 @@ export const products = [
     title: "Sostentia Desk",
     link: "https://sostentia-desk.vercel.app/en",
     thumbnail: "/images/projects/Sostentia-desk-new.webp",
+  },
+  {
+    title: "Kayak Rental Service",
+    link: "https://del-nautico-kayaks-tandil.vercel.app/",
+    thumbnail: "/images/projects/project7.webp",
+  },
+  {
+    title: "Café Website",
+    link: "https://gorilla-cafe.netlify.app/",
+    thumbnail: "/images/projects/project6.webp",
   },
   {
     title: "Photography Web Portfolio",
