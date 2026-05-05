@@ -12,6 +12,11 @@ export const products = [
     thumbnail: "/images/projects/project12.webp",
   },
   {
+    title: "Restaurant Web App",
+    link: "https://financial-calculator-sandy.vercel.app/",
+    thumbnail: "/images/projects/project14.webp",
+  },
+  {
     title: "Studio Sobra Landing Page",
     link: "https://studio-sobra.vercel.app/",
     thumbnail: "/images/projects/project2.webp",
@@ -21,7 +26,6 @@ export const products = [
     link: "https://nextjs-dashboard-theta-two-93.vercel.app/",
     thumbnail: "/images/projects/project3.webp",
   },
-
   {
     title: "Modern Financial Calculator",
     link: "https://financial-calculator-sandy.vercel.app/",
