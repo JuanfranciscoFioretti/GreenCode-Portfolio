@@ -13,7 +13,7 @@ export const products = [
   },
   {
     title: "Restaurant Web App",
-    link: "https://financial-calculator-sandy.vercel.app/",
+    link: "",
     thumbnail: "/images/projects/project14.webp",
   },
   {
@@ -61,9 +61,9 @@ export const products = [
     link: "https://gorilla-cafe.netlify.app/",
     thumbnail: "/images/projects/project6.webp",
   },
-  {
-    title: "Photography Web Portfolio",
-    link: "https://learn-about-photography.netlify.app/",
-    thumbnail: "/images/projects/project5.webp",
-  }
+  // {
+  //   title: "Photography Web Portfolio",
+  //   link: "https://learn-about-photography.netlify.app/",
+  //   thumbnail: "/images/projects/project5.webp",
+  // }
 ];
