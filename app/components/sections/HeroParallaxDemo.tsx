@@ -12,9 +12,9 @@ export const products = [
     thumbnail: "/images/projects/project12.webp",
   },
   {
-    title: "Restaurant Web App",
-    link: "",
-    thumbnail: "/images/projects/project14.webp",
+    title: "Artist Gallery Porfolio",
+    link: "https://agustinafioretti.com/",
+    thumbnail: "/images/projects/Agustina.webp",
   },
   {
     title: "Studio Sobra Landing Page",
@@ -32,14 +32,14 @@ export const products = [
     thumbnail: "/images/projects/project11.webp",
   },
   {
-    title: "Restaruant Landing Page",
-    link: "https://richards-restaurant.netlify.app/",
-    thumbnail: "/images/projects/project4.webp",
+    title: "R.A.R.O. Barcelona On-site Projects",
+    link: "https://www.esrarobarcelona.com/en",
+    thumbnail: "/images/projects/Raro.webp",
   },
   {
-    title: "CMS Dashboard",
-    link: "",
-    thumbnail: "/images/projects/Directus-cms2.webp",
+    title: "Sostentia Desk Platform",
+    link: "https://sostentia-dashboard.vercel.app/login",
+    thumbnail: "/images/projects/Sostentia-Dashboard.webp",
   },
   {
     title: "Modern Bank App",
