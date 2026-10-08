@@ -1,6 +1,7 @@
 import React from 'react';
 import { Poppins } from 'next/font/google';
 import { Metadata, Viewport } from 'next';
+import { Analytics } from '@vercel/analytics/next';
 import ClientLayout from './ClientLayout';
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['400', '500', '600', '700'], display: 'swap' });
@@ -73,6 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <ClientLayout>{children}</ClientLayout>
+        <Analytics />
       </body>
     </html>
   );
