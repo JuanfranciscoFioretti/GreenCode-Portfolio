@@ -32,9 +32,9 @@ export const products = [
     thumbnail: "/images/projects/project11.webp",
   },
   {
-    title: "R.A.R.O. Barcelona On-site Projects",
-    link: "https://www.esrarobarcelona.com/en",
-    thumbnail: "/images/projects/Raro.webp",
+    title: "Modern Bank App",
+    link: "https://bank-modern-app-two.vercel.app/",
+    thumbnail: "/images/projects/project10.webp",
   },
   {
     title: "Sostentia Desk Platform",
@@ -42,9 +42,9 @@ export const products = [
     thumbnail: "/images/projects/Sostentia-Dashboard.webp",
   },
   {
-    title: "Modern Bank App",
-    link: "https://bank-modern-app-two.vercel.app/",
-    thumbnail: "/images/projects/project10.webp",
+    title: "R.A.R.O. Barcelona On-site Projects",
+    link: "https://www.esrarobarcelona.com/en",
+    thumbnail: "/images/projects/Raro.webp",
   },
   {
     title: "Sostentia Desk",
